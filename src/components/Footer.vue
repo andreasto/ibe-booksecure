@@ -1,6 +1,5 @@
 <template>
   <footer>
-    <h2>Footer</h2>
     <img src="./../assets/radixx-powered.png" alt="Powered by Radixx">
     <ibe-color-test></ibe-color-test>
   </footer>
@@ -14,12 +13,10 @@
       'ibe-color-test': ColorTest
     }
   }
-
 </script>
 
-<style scoped>
-  footer {
-    text-align: center;
-    padding: 20px;
-  }
+<style lang="stylus" scoped>
+  footer
+    text-align center
+    padding 20px
 </style>

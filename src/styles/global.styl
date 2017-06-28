@@ -1,12 +1,12 @@
-@import './shared.scss';
-@import './reset';
-@import './fonts';
-@import './form';
+@import './shared.styl';
+@import './reset.styl';
+@import './fonts.styl';
+@import './form.styl';
 
 body, html {
   font-size: 14px;
-  font-family: $font-family-normal;
-  color: $color-text;
+  font-family: font-family-normal;
+  color: color-text;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,39 +14,42 @@ body, html {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
+  font-family: font-family-heading
 }
 
 h1 {
-  font-size: $h1;
+  font-size: h1;
   margin-bottom: 15px;
 }
 
 h2 {
-  font-size: $h2;
+  font-size: h2;
   margin-bottom: 10px;
 }
 
 h3 {
-  font-size: $h3;
+  font-size: h3;
   margin-bottom: 10px;
 }
 
 h4 {
-  font-size: $h4;
+  font-size: h4;
   margin-bottom: 10px;
 }
 
 h5 {
-  font-size: $h5;
+  font-size: h5;
   margin-bottom: 5px;
 }
 
 h6 {
-  font-size: $h6;
+  font-size: h6;
   margin-bottom: 5px;
 }
 
-*, *:before, *:after {
+*, 
+*:before, 
+*:after {
   box-sizing: border-box;
 }
 

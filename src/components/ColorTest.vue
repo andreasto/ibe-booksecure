@@ -11,9 +11,7 @@
 <script>
 </script>
 
-<style scoped>
-  @import './../styles/shared.scss';
-  
+<style lang="stylus" scoped>
   .color-boxes {
     text-align: center;
     padding: 20px;
@@ -27,18 +25,18 @@
   }
 
   .box-1 {
-    background-color: var(--color-primary);
+    background-color: color-primary;
   }
   .box-2 {
-    background-color: var(--color-primary-light);
+    background-color: color-primary-light;
   }
   .box-3 {
-    background-color: var(--color-primary-lighter);
+    background-color: color-primary-lighter;
   }
   .box-4 {
-    background-color: var(--color-primary-dark);
+    background-color: color-primary-dark;
   }
   .box-5 {
-    background-color: var(--color-primary-darker);
+    background-color: color-primary-darker;
   }
 </style>

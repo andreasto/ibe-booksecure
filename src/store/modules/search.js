@@ -23,6 +23,7 @@ const state = {
 const getters = {
   airports: state => state.airports,
   passengers: state => state.passengers,
+  totalPassengers: state => state.passengers.adults + state.passengers.children + state.passengers.infants,
   passengerSelectText: state => `${state.passengers.adults} adults, ${state.passengers.children + state.passengers.infants} children`,
   criteria: state => state.criteria,
   searchButtonText: state => state.searchButtonText,

@@ -17,11 +17,10 @@
       <ibe-button :text="searchButtonText" :action="search"></ibe-button>
 
     </div>
-    <div>
-      
+    <pre>
       <p><b>criteria:</b><br>{{JSON.stringify(criteria)}}</p>
       <p><b>passengers:</b><br>{{JSON.stringify(passengers)}}</p>
-    </div>
+    </pre>
 
     <ibe-loader :text="'Loading...'" v-show="showLoader"></ibe-loader>
   </div>

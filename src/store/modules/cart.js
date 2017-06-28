@@ -1,6 +1,8 @@
+import router from '@/router'
+
 const state = {
   cart: {
-    selectedFlight: {test: 'annat'}
+    selectedFlight: { test: 'annat' }
   }
 }
 
@@ -21,6 +23,8 @@ const actions = {
     console.log('selectFlight action', flight)
 
     commit('selectFlight', flight)
+
+    router.push('information')
   }
 }
 

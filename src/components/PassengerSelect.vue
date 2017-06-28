@@ -1,5 +1,5 @@
 <template>
-  <div class="passenger-select">
+  <div class="form-group passenger-select">
     <label>Select passengers</label>
     <div class="click-area" @click="toggleDropDown">{{passengerSelectText}}</div>
     <ul v-show="showDropDown">
@@ -48,48 +48,22 @@
 
 </script>
 
-<style scoped>
-  .passenger-select {
-    display: inline-block;
-    border: 1px solid rgba(0, 0, 0, .2);
-    position: relative;
-    font-size: 16px;
-    height: 50px;
-    cursor: pointer;
-    position: relative;
-    background: white;
-  }
-  
-  label {
-    position: absolute;
-    top: 4px;
-    left: 11px;
-    text-transform: uppercase;
-    font-size: .7em;
-    pointer-events: none;
-  }
-  
-  .click-area {
-    padding: 18px 10px 8px;
-    line-height: 1.8em;
-    font-size: 1em;
-    height: 100%;
-  }
-  
-  ul {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid rgba(0, 0, 0, .2);
-    z-index: 10;
-  }
-  
-  li {
-    padding: 10px;
-  }
+<style lang="stylus" scoped>
+  .passenger-select
+    ul {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid rgba(0, 0, 0, .2);
+      z-index: 10;
+    }
+    
+    li {
+      padding: 10px;
+    }
 </style>

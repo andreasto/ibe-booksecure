@@ -5,6 +5,7 @@
       <option value="">{{noneSelectedText}}</option>
       <option v-for="(item, index) in items" :value="item[itemValue]" :selected="item[itemValue] === value">{{ item[itemText] }}</option>
     </select>
+    <i class="input-icon material-icons">keyboard_arrow_down</i>
   </div>
 </template>
 

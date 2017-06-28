@@ -21,7 +21,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
       loaders.push({
@@ -47,10 +47,14 @@ exports.cssLoaders = function (options) {
   let sassOptions = {
     indentedSyntax: true
   }
-  let scssOptions = {
-      includePaths: ['./src/styles'],
-      data: '@import "shared.scss";'
-    }
+  let scssOptions = { // not currently used
+    includePaths: ['./src/styles'],
+    data: '@import "shared.scss";'
+  }
+  var stylusOptions = {
+    paths: [path.resolve('./src/styles')],
+    import: ['shared.styl']
+  }
 
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
@@ -58,10 +62,10 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', sassOptions),
-    scss: generateLoaders('sass', scssOptions),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    sass: generateLoaders('sass'),
+    scss: generateLoaders('sass'),
+    stylus: generateLoaders('stylus', stylusOptions),
+    styl: generateLoaders('stylus', stylusOptions)
   }
 }
 

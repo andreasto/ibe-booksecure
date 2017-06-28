@@ -55,8 +55,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
-.next-button {
-  background: $color-primary;
-}
+<style lang="stylus" scoped>
+  .next-button 
+    border 1px solid red
 </style>
