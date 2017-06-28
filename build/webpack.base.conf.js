@@ -1,4 +1,3 @@
-var webpack = require('webpack')
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
@@ -40,15 +39,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          postcss: [
-            require('postcss-import')({
-                addDependencyTo: webpack
-            }),
-            require('postcss-nested')(),
-            require('postcss-cssnext')()
-          ]
-        }
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
