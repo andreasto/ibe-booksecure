@@ -1,0 +1,29 @@
+@import './shared.css';
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1 { font-size: var(--h1) }
+h2 { font-size: var(--h2) }
+h3 { font-size: var(--h3) }
+h4 { font-size: var(--h4) }
+h5 { font-size: var(--h5) }
+h6 { font-size: var(--h6) }
+
+
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+
+#app {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 900px;
+  margin: 60px auto;
+  color: #2c3e50;
+}
