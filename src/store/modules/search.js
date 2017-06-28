@@ -80,7 +80,7 @@ const actions = {
           {test: 'yeah'},
           {test: 'yeah'}
         ])
-      }, 3000)
+      }, 1000)
     }).then((response) => {
       console.log('response', response)
       commit('toggleLoader')

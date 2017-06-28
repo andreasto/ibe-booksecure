@@ -12,7 +12,7 @@
 </script>
 
 <style scoped>
-  @import './../styles/shared.css';
+  @import './../styles/shared.scss';
   
   .color-boxes {
     text-align: center;

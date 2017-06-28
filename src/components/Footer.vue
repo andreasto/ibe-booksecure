@@ -17,12 +17,9 @@
 
 </script>
 
-<style src="./../styles/shared.css"></style>
-
 <style scoped>
   footer {
     text-align: center;
     padding: 20px;
-    background: var(--color-red);
   }
 </style>

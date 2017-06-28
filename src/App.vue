@@ -24,4 +24,4 @@
   }
 </script>
 
-<style src="./styles/global.css"></style>
+<style lang="scss" src="./styles/global.scss"></style>

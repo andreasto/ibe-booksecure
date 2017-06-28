@@ -1,14 +1,28 @@
 const state = {
-  cart: {}
+  cart: {
+    selectedFlight: {test: 'annat'}
+  }
 }
 
 const getters = {
-  cart: (state) => state.cart
+  cart: (state) => state.cart,
+  selectedFlight: (state) => state.cart.selectedFlight
 }
 
-const mutations = {}
+const mutations = {
+  selectFlight(state, flight) {
+    console.log('selectFlight mutation', flight)
+    state.cart.selectedFlight = flight
+  }
+}
 
-const actions = {}
+const actions = {
+  selectFlight({ commit }, flight) {
+    console.log('selectFlight action', flight)
+
+    commit('selectFlight', flight)
+  }
+}
 
 export default {
   namespaced: true,

@@ -1,0 +1,30 @@
+/* Typography */
+$font-family-normal: 'Open Sans', sans-serif;
+$font-family-heading: 'Open Sans', sans-serif;
+$h1: 2rem;
+$h2: 1.5rem;
+$h3: 1.25rem;
+$h4: 1rem;
+$h5: 0.875rem;
+$h6: 0.75rem;
+
+/* Colors */
+$color-light-amount: 30%;
+$color-lighter-amount: 10%;
+$color-dark-amount: 10%;
+$color-darker-amount: 30%;
+
+$color-red: red;
+$color-primary: #3F3075;
+$color-primary-light: lighten($color-primary, $color-light-amount);
+$color-primary-lighter: lighten($color-primary, $color-lighter-amount);
+$color-primary-dark: darken($color-primary, $color-dark-amount);
+$color-primary-darker: darken($color-primary, $color-darker-amount);
+
+$color-secondary: #872D62;
+$color-primary-light: lighten($color-secondary, $color-light-amount);
+$color-primary-lighter: lighten($color-secondary, $color-lighter-amount);
+$color-primary-dark: darken($color-secondary, $color-dark-amount);
+$color-primary-darker: darken($color-secondary, $color-darker-amount);
+
+$color-text: #2c3e50;

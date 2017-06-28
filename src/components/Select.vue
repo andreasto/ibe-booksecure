@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>Select</h1>
-    <div v-for="flight in flights">{{flight}}</div>
+    Selected flight:  {{selectedFlight}}
+    <div v-for="flight in flights">
+      <ibe-flight :flight="flight"></ibe-flight>
+    </div>
 
     <ibe-button :text="previousButtonText" :action="previous"></ibe-button>
     <ibe-button :text="nextButtonText" :action="next" :class="'next-button'"></ibe-button>
@@ -11,13 +14,23 @@
 <script>
   import { mapGetters } from 'vuex'
   import router from '@/router'
+  import Flight from '@/components/Flight'
 
   export default {
+    components: {
+      'ibe-flight': Flight
+    },
     computed: {
       ...mapGetters(
         'search',
         [
           'flights'
+        ]
+      ),
+      ...mapGetters(
+        'cart',
+        [
+          'selectedFlight'
         ]
       ),
       previousButtonText() {
@@ -42,8 +55,8 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .next-button {
-  background: green;
+  background: $color-primary;
 }
 </style>

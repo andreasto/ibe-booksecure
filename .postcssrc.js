@@ -9,7 +9,6 @@ module.exports = {
       require('postcss-import')({
         addDependencyTo: webpack
       }),
-      require('postcss-nested')(),
       require('postcss-cssnext')()
     ]
   }
