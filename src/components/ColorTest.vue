@@ -12,31 +12,8 @@
 </script>
 
 <style scoped>
-
-:root {
-  /* Typography */
-  --h1: 2rem;
-  --h2: 1.5rem;
-  --h3: 1.25rem;
-  --h4: 1rem;
-  --h5: 0.875rem;
-  --h6: 0.75rem;
-
-  /* Colors */
-  --color-red: red;
-  --color-primary: #3F3075;
-  --color-primary-light: color(var(--color-primary) lightness(30%));
-  --color-primary-lighter: color(var(--color-primary) lightness(10%));
-  --color-primary-dark: color(var(--color-primary) shade(10%));
-  --color-primary-darker: color(var(--color-primary) lightness(30%));
-
-  --color-secondary: #872D62;
-  --color-secondary-light: color(var(--color-secondary) lightness(30%));
-  --color-secondary-lighter: color(var(--color-secondary) lightness(10%));
-  --color-secondary-dark: color(var(--color-secondary) shade(10%));
-  --color-secondary-darker: color(var(--color-secondary) lightness(30%));
-}
-
+  @import './../styles/shared.css';
+  
   .color-boxes {
     text-align: center;
     padding: 20px;

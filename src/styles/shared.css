@@ -1,5 +1,7 @@
 :root {
   /* Typography */
+  --font-family-normal: 'Open Sans', sans-serif;
+  --font-family-heading: 'Open Sans', sans-serif;
   --h1: 2rem;
   --h2: 1.5rem;
   --h3: 1.25rem;
