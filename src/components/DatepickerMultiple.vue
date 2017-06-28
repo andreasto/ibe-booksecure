@@ -22,13 +22,9 @@ export default {
           self.$emit('datepickerFromChanged', picker.toString())
         } else if (self.from && self.from.length > 0 && (!self.to || self.to.length === 0)) {
           self.$emit('datepickerToChanged', picker.toString())
-          hideDatePicker()
         }
       }
     })
-
-    let hideDatePicker = picker.hide
-    picker.hide = function () { /*noop*/ }
   },
   props: [
     'from',
@@ -64,9 +60,9 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
-@import "pikaday/css/pikaday.css"
+<style src="pikaday/css/pikaday.css"></style>
 
+<style lang="stylus" scoped>
   .datepicker
     min-width 160px
   
@@ -78,6 +74,4 @@ export default {
     text-transform uppercase
     font-weight bold
     color green
-  
-  
 </style>

@@ -13,15 +13,12 @@ const getters = {
 
 const mutations = {
   selectFlight(state, flight) {
-    console.log('selectFlight mutation', flight)
     state.cart.selectedFlight = flight
   }
 }
 
 const actions = {
   selectFlight({ commit }, flight) {
-    console.log('selectFlight action', flight)
-
     commit('selectFlight', flight)
 
     router.push('information')

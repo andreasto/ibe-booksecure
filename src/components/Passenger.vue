@@ -1,6 +1,6 @@
 <template>
   <div class="passenger">
-    Passenger hee
+    
   </div>
 </template>
 
