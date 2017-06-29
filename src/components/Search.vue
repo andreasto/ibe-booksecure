@@ -10,8 +10,8 @@
       <ibe-dropdown :items="airports" :itemValue="'code'" :itemText="'name'" :value="criteria.arrival" :labelText="'Arrival'" :noneSelectedText="'Choose airport'"
         @selectChanged="criteria.arrival = $event"></ibe-dropdown>
 
-      <ibe-datepicker-multiple :from="criteria.departureDate" :to="criteria.arrivalDate" @datepickerFromChanged="criteria.departureDate = $event"
-        @datepickerToChanged="criteria.arrivalDate = $event"></ibe-datepicker-multiple>
+      <ibe-datepicker :mode="'range'" :from="criteria.departureDate" :to="criteria.arrivalDate" @datepickerFromChanged="criteria.departureDate = $event"
+        @datepickerToChanged="criteria.arrivalDate = $event"></ibe-datepicker>
 
       <ibe-passenger-select></ibe-passenger-select>
       <ibe-button :text="searchButtonText" :action="search"></ibe-button>
