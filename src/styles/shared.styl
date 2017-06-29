@@ -1,30 +1,77 @@
+theme = 1
+
+colorPrimary()
+    if theme == 1
+        return #872D62
+    if theme == 2
+        return #872Dff
+
+colorSecond()
+    if theme == 1
+        return #3F3075
+    if theme == 2
+        return #872Dff
+
+colorThird()
+    if theme == 1
+        return #ED6E06
+    if theme == 2
+        return #872Dff
+
+
+/* Breakpoints */
+tablet-and-up = "screen and (min-width: 768px)"
+desktop-and-up = "screen and (min-width: 1024px)"
+
+/* Layout */
+container-width = 1024px
+
 /* Typography */
-font-family-normal = 'Open Sans', sans-serif;
-font-family-heading = 'Open Sans', sans-serif;
-h1 = 2rem;
-h2 = 1.5rem;
-h3 = 1.25rem;
-h4 = 1rem;
-h5 = 0.875rem;
-h6 = 0.75rem;
+font-family-normal = 'Open Sans', sans-serif
+font-family-heading = 'Open Sans', sans-serif
+font-weight-light = 300
+font-weight-normal = 400
+font-weight-bold = 600
+font-weight-bolder = 700
+
+h1 = 2rem
+h2 = 1.5rem
+h3 = 1.25rem
+h4 = 1rem
+h5 = 0.875rem
+h6 = 0.75rem
+
+/* Shadow */
+text-shadow = 0 0 4px rgba(0,0,0,.2)
+box-shadow-light = 0 0 10px rgba(0,0,0,.07)
+
+/* Borders */
+border-radius = 5px
+border-light = 1px solid rgba(0,0,0,.1)
 
 /* Colors */
-color-light-amount = 30%;
-color-lighter-amount = 10%;
-color-dark-amount = 10%;
-color-darker-amount = 30%;
+color-light-amount = 10%
+color-lighter-amount = 35%
+color-dark-amount = 10%
+color-darker-amount = 35%
 
-color-red = red;
-color-primary = #3F3075;
-color-primary-light = lighten(color-primary, color-light-amount);
-color-primary-lighter = lighten(color-primary, color-lighter-amount);
-color-primary-dark = darken(color-primary, color-dark-amount);
-color-primary-darker = darken(color-primary, color-darker-amount);
+color-primary = colorPrimary()
+color-primary-light = lighten(color-primary, color-light-amount)
+color-primary-lighter = lighten(color-primary, color-lighter-amount)
+color-primary-dark = darken(color-primary, color-dark-amount)
+color-primary-darker = darken(color-primary, color-darker-amount)
 
-color-secondary = #872D62;
-color-primary-light = lighten(color-secondary, color-light-amount);
-color-primary-lighter = lighten(color-secondary, color-lighter-amount);
-color-primary-dark = darken(color-secondary, color-dark-amount);
-color-primary-darker = darken(color-secondary, color-darker-amount);
+color-second = colorSecond()
+color-second-light = lighten(color-second, color-light-amount)
+color-second-lighter = lighten(color-second, color-lighter-amount)
+color-second-dark = darken(color-second, color-dark-amount)
+color-second-darker = darken(color-second, color-darker-amount)
 
-color-text = #2c3e50;
+color-third = colorThird()
+color-third-light = lighten(color-third, color-light-amount)
+color-third-lighter = lighten(color-third, color-lighter-amount)
+color-third-dark = darken(color-third, color-dark-amount)
+color-third-darker = darken(color-third, color-darker-amount)
+
+color-text = #2c3e50
+

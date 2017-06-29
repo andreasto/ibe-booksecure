@@ -1,9 +1,25 @@
+@import './theme.styl';
 @import './shared.styl';
 @import './reset.styl';
+@import './misc.styl';
 @import './fonts.styl';
+@import './buttons.styl';
 @import './form.styl';
 
-body, html {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#app {
+  max-width: container-width;
+  margin: 20px auto;
+  padding 10px
+}
+
+body,
+html {
   font-size: 14px;
   font-family: font-family-normal;
   color: color-text;
@@ -47,13 +63,4 @@ h6 {
   margin-bottom: 5px;
 }
 
-*, 
-*:before, 
-*:after {
-  box-sizing: border-box;
-}
 
-#app {
-  max-width: 900px;
-  margin: 60px auto;
-}

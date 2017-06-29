@@ -1,5 +1,5 @@
 <template>
-  <div class="flight" @click="selectFlight(flight)">
+  <div class="flight" @click="selectFlight(flight)" :class="classes">
     Flight data:<br> {{flight}}
   </div>
 </template>
@@ -13,6 +13,9 @@ export default {
   },
   data() {
     return {
+      classes: {
+        selected: this.flight.selected
+      },
       selectedFlight: null
     }
   },
@@ -35,4 +38,7 @@ export default {
     font-size 22px
     text-align center
     cursor pointer
+
+  .selected
+    background color-primary
 </style>

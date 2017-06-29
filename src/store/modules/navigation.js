@@ -1,3 +1,5 @@
+import router from '@/router'
+
 const state = {
   search: { canAccess: true },
   select: { canAccess: false },
@@ -21,14 +23,40 @@ const getters = {
 const mutations = {
   toggleError(state) {
     state.showError = !state.showError
+  },
+  resetAccess(state) {
+    state.search.canAccess = true
+    state.select.canAccess = false
+    state.information.canAccess = false
+    state.options.canAccess = false
+    state.payment.canAccess = false
+    state.receipt.canAccess = false
+  },
+  unlockSelect(state) {
+    state.select.canAccess = true
+  },
+  unlockInformation(state) {
+    state.information.canAccess = true
+  },
+  unlockOptions(state) {
+    state.options.canAccess = true
+  },
+  unlockPayment(state) {
+    state.payment.canAccess = true
+  },
+  unlockReceipt(state) {
+    state.receipt.canAccess = true
   }
 }
 
 const actions = {
-  toggleError({commit}) {
+  toggleError({ commit }) {
     commit('toggleError')
 
     setTimeout(() => { commit('toggleError') }, 3000)
+  },
+  navigateTo({ commit }, route) {
+    router.push(route)
   }
 }
 

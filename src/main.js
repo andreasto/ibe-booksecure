@@ -8,23 +8,30 @@ import router from './router'
 import store from './store'
 import VeeValidate from 'vee-validate'
 
+Vue.config.productionTip = false
+
+Vue.use(VeeValidate)
+
+// Directives
+import ClickOutside from '@/directives/ClickOutside'
+
+Vue.directive('click-outside', ClickOutside)
+
+// Components
 import Button from '@/components/Button'
 import Dropdown from '@/components/Dropdown'
 import Input from '@/components/Input'
 import PassengerSelect from '@/components/PassengerSelect'
 import Loader from '@/components/Loader'
 import Datepicker from '@/components/Datepicker'
-
-Vue.config.productionTip = false
-
-Vue.use(VeeValidate)
-
+import PreviousNext from '@/components/PreviousNext'
 Vue.component('ibe-button', Button)
 Vue.component('ibe-dropdown', Dropdown)
 Vue.component('ibe-input', Input)
 Vue.component('ibe-passenger-select', PassengerSelect)
 Vue.component('ibe-loader', Loader)
 Vue.component('ibe-datepicker', Datepicker)
+Vue.component('ibe-previous-next', PreviousNext)
 
 /* eslint-disable no-new */
 new Vue({

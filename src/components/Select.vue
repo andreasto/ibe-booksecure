@@ -1,61 +1,47 @@
 <template>
   <div>
-    <h1>Select</h1>
-    Selected flight:  {{selectedFlight}}
-    <div v-for="flight in flights">
-      <ibe-flight :flight="flight"></ibe-flight>
+    <div v-for="(leg, index) in availability">
+      <h3>Leg {{index + 1}}</h3>
+      <div v-for="flight in leg">
+        <ibe-flight :flight="flight"></ibe-flight>
+      </div>
     </div>
 
-    <ibe-button :text="previousButtonText" :action="previous"></ibe-button>
-    <ibe-button :text="nextButtonText" :action="next" :class="'next-button'"></ibe-button>
+    <ibe-previous-next :nextAction="nextAction"></ibe-previous-next>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  import router from '@/router'
-  import Flight from '@/components/Flight'
+import { mapGetters } from 'vuex'
+import Flight from '@/components/Flight'
 
-  export default {
-    components: {
-      'ibe-flight': Flight
-    },
-    computed: {
-      ...mapGetters(
-        'search',
-        [
-          'flights'
-        ]
-      ),
-      ...mapGetters(
-        'cart',
-        [
-          'selectedFlight'
-        ]
-      ),
-      previousButtonText() {
-        return 'Previous'
-      },
-      nextButtonText() {
-        return 'Next'
-      },
-      buttonClass() {
-        return '.next-button'
-      }
-    },
-    methods: {
-      previous() {
-        console.log('previous')
-        router.go(-1)
-      },
-      next() {
-        console.log('next')
-      }
+export default {
+  components: {
+    'ibe-flight': Flight
+  },
+  computed: {
+    ...mapGetters(
+      'search',
+      [
+        'availability'
+      ]
+    ),
+    ...mapGetters(
+      'cart',
+      [
+        'selectedFlight'
+      ]
+    )
+  },
+  methods: {
+    nextAction() {
+      console.log('go next')
     }
   }
+}
 </script>
 
 <style lang="stylus" scoped>
-  .next-button 
+  .next-button
     border 1px solid red
 </style>

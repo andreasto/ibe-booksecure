@@ -1,8 +1,6 @@
-import router from '@/router'
-
 const state = {
   cart: {
-    selectedFlight: { test: 'annat' }
+    selectedFlight: { departure: 'ARN', arrival: 'GOT', selected: false }
   }
 }
 
@@ -18,10 +16,12 @@ const mutations = {
 }
 
 const actions = {
-  selectFlight({ commit }, flight) {
+  selectFlight({ commit, dispatch }, flight) {
+    flight.selected = true
     commit('selectFlight', flight)
+    commit('navigation/unlockInformation', null, { root: true })
 
-    router.push('information')
+    dispatch('navigation/navigateTo', 'information', { root: true })
   }
 }
 

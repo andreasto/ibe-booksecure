@@ -14,16 +14,13 @@
 
 </script>
 
-<style>
-  .loader {
-    text-align: center;
-  }
+<style lang="stylus" scoped>
+  .loader
+    text-align center
 
-  .loader-icon {
-    display: inline-block;
-  }
+  .loader-icon
+    display inline-block
 
-  h4 {
-    display: block;
-  }
+  h4
+    display block
 </style>

@@ -1,13 +1,14 @@
 <template>
-  <button type="button" @click="buttonClick">{{text}}</button>
+  <button type="button" @click="buttonClick" :class="cssClass">{{text}}</button>
 </template>
 
 <script>
   export default {
-    props: [
-      'text',
-      'action'
-    ],
+    props: {
+      text: { type: String, required: true },
+      action: { type: Function, required: true },
+      cssClass: { type: String, default: 'button' }
+    },
     methods: {
       buttonClick (event) {
         this.action()
@@ -17,13 +18,4 @@
 </script>
 
 <style scoped>
-  button {
-    display: inline-block;
-    border: 1px solid rgba(0, 0, 0, .2);
-    position: relative;
-    font-size: 16px;
-    height: 50px;
-    overflow: hidden;
-    background: violet;
-  }
 </style>

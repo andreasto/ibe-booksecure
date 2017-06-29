@@ -1,6 +1,5 @@
 <template>
   <header>
-    <h1>IBE BookSecure</h1>
   </header>
 </template>
 

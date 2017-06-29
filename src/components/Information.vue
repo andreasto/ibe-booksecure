@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h1>Information</h1>
-    {{totalPassengers}}
-
-    <div v-for="passenger in totalPassengers">
-      <ibe-passenger></ibe-passenger>
+    <div v-for="(passenger, index) in passengers">
+      <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
     </div>
+
+    <ibe-previous-next :nextAction="nextAction"></ibe-previous-next>
   </div>
 </template>
 
@@ -14,8 +13,25 @@ import { mapGetters } from 'vuex'
 import Passenger from '@/components/Passenger'
 
 export default {
+  created() {
+    for (let i = 0; i < this.totalPassengers; i++) {
+      this.passengers.push({
+        tile: 'Mr',
+        firstName: 'Mikael',
+        lastName: 'Edebro',
+        email: 'mikael.edebro@gmail.com',
+        phone: '234432234'
+      })
+    }
+  },
   components: {
     'ibe-passenger': Passenger
+  },
+  data() {
+    return {
+      passengers: [],
+      formIsValid: false
+    }
   },
   computed: {
     ...mapGetters(
@@ -23,6 +39,24 @@ export default {
       [
         'totalPassengers'
       ])
+  },
+  methods: {
+    nextAction() {
+      console.log('next to options')
+
+      this.validateForm()
+
+      if (!this.formIsValid) {
+        return
+      }
+
+      this.$store.commit('navigation/unlockOptions')
+      this.$store.dispatch('navigation/navigateTo', 'options')
+    },
+    validateForm() {
+      console.log('validate form')
+      this.formIsValid = true
+    }
   }
 }
 </script>
