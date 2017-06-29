@@ -6,7 +6,6 @@ import Payment from '@/components/Payment'
 import Receipt from '@/components/Receipt'
 import Search from '@/components/Search'
 import Select from '@/components/Select'
-//import store from '@/store'
 
 Vue.use(Router)
 
@@ -15,7 +14,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      alias: '/search',
+      alias: ['/search', '/search-form'],
       name: 'Home',
       component: Search
     },

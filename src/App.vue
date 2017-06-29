@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <ibe-header></ibe-header>
-    <ibe-navigation></ibe-navigation>
+    <ibe-header v-show="!onlySearchForm"></ibe-header>
+    <ibe-navigation v-show="!onlySearchForm"></ibe-navigation>
 
     <router-view></router-view>
 
-    <ibe-footer></ibe-footer>
-    <ibe-color-palette :color="'primary'"></ibe-color-palette>
-    <ibe-color-palette :color="'second'"></ibe-color-palette>
-    <ibe-color-palette :color="'third'"></ibe-color-palette>
+    <ibe-footer v-show="!onlySearchForm"></ibe-footer>
+    <ibe-color-palette :color="'primary'" v-show="!onlySearchForm"></ibe-color-palette>
+    <ibe-color-palette :color="'second'" v-show="!onlySearchForm"></ibe-color-palette>
+    <ibe-color-palette :color="'third'" v-show="!onlySearchForm"></ibe-color-palette>
   </div>
 </template>
 
@@ -25,6 +25,11 @@ export default {
     'ibe-footer': Footer,
     'ibe-navigation': Navigation,
     'ibe-color-palette': ColorPalette
+  },
+  data() {
+    return {
+      onlySearchForm: this.$route.path === '/search-form'
+    }
   },
   computed: {
     route() {

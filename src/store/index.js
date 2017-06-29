@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
 import search from './modules/search'
-import payment from './modules/payment'
 import navigation from './modules/navigation'
 import cart from './modules/cart'
 
@@ -15,7 +14,6 @@ export default new Vuex.Store({
   })],
   modules: {
     search,
-    payment,
     navigation,
     cart
   }
