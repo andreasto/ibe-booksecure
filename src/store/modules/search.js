@@ -108,16 +108,8 @@ const actions = {
       commit('addAvailability', response)
       commit('navigation/unlockSelect', null, { root: true })
 
-      dispatch('saveCriteria')
-      dispatch('saveAvailability')
       dispatch('navigation/navigateTo', 'select', { root: true })
     })
-  },
-  saveCriteria(context) {
-    window.sessionStorage.setItem('criteria', JSON.stringify(context.state.criteria))
-  },
-  saveAvailability(context) {
-    window.sessionStorage.setItem('availability', JSON.stringify(context.state.availability))
   }
 }
 

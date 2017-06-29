@@ -4,11 +4,12 @@
       <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
     </div>
 
-    <ibe-previous-next :nextAction="nextAction"></ibe-previous-next>
+    <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
   </div>
 </template>
 
 <script>
+import router from '@/router'
 import { mapGetters } from 'vuex'
 import Passenger from '@/components/Passenger'
 
@@ -41,6 +42,9 @@ export default {
       ])
   },
   methods: {
+    previousAction() {
+      router.push('select')
+    },
     nextAction() {
       console.log('next to options')
 

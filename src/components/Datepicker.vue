@@ -71,6 +71,10 @@ export default {
     selectedDatesText() {
       let text = 'Select dates'
 
+      if (!this.fromDate && !this.toDate) {
+        return text
+      }
+
       if ((this.fromDateSelected && !this.toDateSelected) || (this.fromDate === this.toDate)) {
         text = this.fromDate
       } else if (this.fromDateSelected && this.toDateSelected) {
