@@ -3,7 +3,9 @@
     <ibe-header v-show="!onlySearchForm"></ibe-header>
     <ibe-navigation v-show="!onlySearchForm"></ibe-navigation>
 
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view class="view"></router-view>
+    </transition>
 
     <ibe-footer v-show="!onlySearchForm"></ibe-footer>
     <ibe-color-palette :color="'primary'" v-show="!onlySearchForm"></ibe-color-palette>
@@ -40,3 +42,13 @@ export default {
 </script>
 
 <style lang="stylus" src="./styles/global.styl"></style>
+
+<style lang="stylus">
+  .fade-enter-active,
+  .fade-leave-active
+    transition all .2s ease
+
+  .fade-enter, .fade-leave-active
+    opacity 0
+</style>
+

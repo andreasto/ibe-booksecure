@@ -9,9 +9,9 @@ const state = {
     arrivalDate: ''
   },
   passengers: {
-    adults: 1,
-    children: 0,
-    infants: 0
+    adults: 2,
+    children: 1,
+    infants: 1
   },
   searchButtonText: window.bookSecure.texts.searchButtonText,
   showLoader: false,
