@@ -10,7 +10,11 @@ import VeeValidate from 'vee-validate'
 
 Vue.config.productionTip = false
 
-Vue.use(VeeValidate)
+const validateConfig = {
+  events: 'blur'
+}
+
+Vue.use(VeeValidate, validateConfig)
 
 // Directives
 import ClickOutside from '@/directives/ClickOutside'

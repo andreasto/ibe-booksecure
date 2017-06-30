@@ -1,7 +1,7 @@
 <template>
   <div class="color-boxes">
     <div class="box box-2" :class="colorClass + '-light'">Light</div>
-    <div class="box box-3" :class="colorClass + '-lighter'">Light</div>
+    <div class="box box-3" :class="colorClass + '-lighter'">Lighter</div>
     <div class="box box-1" :class="colorClass">Normal</div>
     <div class="box box-4" :class="colorClass + '-dark'">Dark</div>
     <div class="box box-5" :class="colorClass + '-darker'">Darker</div>

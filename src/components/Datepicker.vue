@@ -4,9 +4,9 @@
 <template>
   <div id="datepicker" class="form-group datepicker" :class="classes">
     <div class="trip-type">{{tripType}}</div>
-    <label class="floating-label">Select dates</label>
+    <label class="floating-label">{{labelText}}</label>
     <div class="selected-dates">{{selectedDatesText}}</div>
-    <flat-pickr :config="config" :placeholder="'Select dates'" v-model="selectedDates" class="click-area"></flat-pickr>
+    <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates" class="click-area"></flat-pickr>
     <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
   </div>
 </template>
@@ -32,11 +32,13 @@ export default {
         'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
         'with-icon-right': this.iconRight && this.iconRight.length > 0
       },
+      labelText: this.mode === 'single' ? 'Select date' : 'Select dates',
       fromDate: this.from,
       toDate: this.to,
       selectedDates: null,
       config: {
         mode: this.mode,
+        disableMobile: true,
         defaultDate: (this.mode === 'range') ? [this.from, this.to] : this.from,
         onChange: (selectedDates, dateStr, instance) => {
           if (selectedDates.length === 1) {
@@ -69,7 +71,7 @@ export default {
       return this.toDate && this.toDate.length > 0
     },
     selectedDatesText() {
-      let text = 'Select dates'
+      let text = this.labelText
 
       if (!this.fromDate && !this.toDate) {
         return text
@@ -86,7 +88,7 @@ export default {
     tripType() {
       let tripType = ''
 
-      if (this.mode === 'single') {
+      if (this.mode === 'single' || (!this.fromDateSelected && !this.toDateSelected)) {
         return ''
       }
 

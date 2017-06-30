@@ -14,8 +14,13 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      alias: ['/search', '/search-form'],
+      alias: ['/search'],
       name: 'Home',
+      component: Search
+    },
+    {
+      path: '/search-form',
+      name: 'SearchForm',
       component: Search
     },
     {

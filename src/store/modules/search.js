@@ -1,18 +1,19 @@
-import { sessionStorage } from '@/services/storage'
-
 const state = {
   airports: window.bookSecure.airports,
-  criteria: sessionStorage.get('criteria') || {
-    departure: '',
-    arrival: '',
-    departureDate: '',
-    arrivalDate: ''
-  },
+  criteria: [
+    {
+      departure: '',
+      arrival: '',
+      departureDate: '',
+      arrivalDate: ''
+    }
+  ],
   passengers: {
     adults: 2,
     children: 1,
     infants: 1
   },
+  multiCity: false,
   searchButtonText: window.bookSecure.texts.searchButtonText,
   showLoader: false,
   availability: [],
@@ -29,6 +30,7 @@ const getters = {
   totalPassengers: state => state.passengers.adults + state.passengers.children + state.passengers.infants,
   passengerSelectText: state => `${state.passengers.adults} adults, ${state.passengers.children + state.passengers.infants} children`,
   criteria: state => state.criteria,
+  multiCity: state => state.multiCity,
   searchButtonText: state => state.searchButtonText,
   showLoader: state => state.showLoader,
   availability: state => state.availability,
@@ -70,6 +72,34 @@ const mutations = {
   },
   addAvailability(state, availability) {
     state.availability = availability
+  },
+  toggleMultiCity(state, value) {
+    if (value) {
+      state.criteria[0].arrivalDate = ''
+    }
+
+    state.multiCity = value
+  },
+  addFlightLeg(state) {
+    state.criteria.push({
+      departure: '',
+      arrival: '',
+      departureDate: '',
+      arrivalDate: ''
+    })
+  },
+  removeFlightLeg(state) {
+    if (state.criteria.length === 0) {
+      return
+    }
+
+    state.criteria.pop()
+  },
+  removeMultiCity(state) {
+    if (state.criteria.length === 1) {
+      return
+    }
+    state.criteria = state.criteria.filter((c, index) => index === 0)
   }
 }
 

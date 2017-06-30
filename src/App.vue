@@ -11,6 +11,17 @@
     <ibe-color-palette :color="'primary'" v-show="!onlySearchForm"></ibe-color-palette>
     <ibe-color-palette :color="'second'" v-show="!onlySearchForm"></ibe-color-palette>
     <ibe-color-palette :color="'third'" v-show="!onlySearchForm"></ibe-color-palette>
+
+    <ibe-button :action="clearLocalStorage" :text="'Clear localStorage'"></ibe-button>
+
+    <div>
+      <label class="label" for="email">Testing form validation</label>
+      <p :class="{ 'control': true }">
+          <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
+          <span v-show="errors.has('required')" class="help is-danger">{{ errors.first('required') }}</span>
+          <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -36,6 +47,12 @@ export default {
   computed: {
     route() {
       return this.$route.name
+    }
+  },
+  methods: {
+    clearLocalStorage() {
+      localStorage.clear()
+      sessionStorage.clear()
     }
   }
 }
