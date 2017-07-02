@@ -2,12 +2,14 @@
 // https://chmln.github.io/flatpickr/options/
 
 <template>
-  <div id="datepicker" class="form-group datepicker" :class="classes">
-    <div class="trip-type">{{tripType}}</div>
-    <label class="floating-label">{{labelText}}</label>
-    <div class="selected-dates">{{selectedDatesText}}</div>
-    <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates" class="click-area"></flat-pickr>
-    <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
+  <div class="form-group datepicker" :class="classes">
+    <div class="click-area">
+      <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
+      <div class="trip-type">{{tripType}}</div>
+      <div class="floating-label">{{labelText}}</div>
+      <div class="selected-text">{{selectedDatesText}}</div>
+      <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates"></flat-pickr>
+    </div>
   </div>
 </template>
 
@@ -109,24 +111,24 @@ export default {
 
 <style lang="stylus" scoped>
   .datepicker
-    min-width 160px
+    min-width 240px
     overflow hidden
+
+    input
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      opacity 0
 
   .trip-type
     position absolute
     right 8px
-    top 8px
+    top 0
     font-size 10px
     text-transform uppercase
     font-weight bold
-    color color-third
-
-  .selected-dates
-    position absolute
-    background white
-    top 18px
-    left 49px
-    width 250px
-    padding 4px 0
-    pointer-events none
+    color color-second
+    z-index z-index-high
 </style>

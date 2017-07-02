@@ -13,18 +13,14 @@ button(background, color)
 
     &:hover
         text-shadow text-shadow
-        background-color lighten(background, 20%)
-
+        background-color darken(background, 6%)
 
 .button
-    button(color-primary-lighter, black)
+    button(buttons.normal.color, buttons.normal.text)
 
 .button-cta
-    button(color-primary, white)
+    button(buttons.cta.color, buttons.cta.text)
 
 .button-search
-    button(color-primary-lighter, black)
+    button(buttons.search.color, buttons.search.text)
     font-weight font-weight-bold
-
-.button-login
-    button(color-third-darker, white)

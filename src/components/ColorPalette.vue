@@ -1,7 +1,7 @@
 <template>
-  <div class="color-boxes">
-    <div class="box box-2" :class="colorClass + '-light'">Light</div>
+  <div class="color-palette">
     <div class="box box-3" :class="colorClass + '-lighter'">Lighter</div>
+    <div class="box box-2" :class="colorClass + '-light'">Light</div>
     <div class="box box-1" :class="colorClass">Normal</div>
     <div class="box box-4" :class="colorClass + '-dark'">Dark</div>
     <div class="box box-5" :class="colorClass + '-darker'">Darker</div>
@@ -22,19 +22,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .color-boxes {
+  .color-palette {
     text-align center
     color white
     margin 0 auto
-    width 600px
     border 1px solid
   }
 
   .box {
     display inline-block
-    width 80px
+    width 19%
     height 80px
-    margin 10px
+    margin 0 0 10px
+    border border-light
+    border-radius border-radius
+
   }
 
   .color-primary

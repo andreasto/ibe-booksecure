@@ -50,7 +50,6 @@ export default {
 <style lang="stylus" scoped>
   .navigation
     text-align center
-    padding-bottom 30px
     position relative
     font-size 1.2em
 

@@ -6,10 +6,9 @@ desktop-and-up = "screen and (min-width: 1024px)"
 
 /* Layout */
 container-width = 1024px
+input-height = 50px
 
 /* Typography */
-font-family-normal = 'Open Sans', sans-serif
-font-family-heading = 'Open Sans', sans-serif
 font-weight-light = 300
 font-weight-normal = 400
 font-weight-bold = 600
@@ -28,6 +27,7 @@ box-shadow-light = 0 0 10px rgba(0,0,0,.07)
 
 /* Borders */
 border-radius = 5px
+border-normal = 1px solid rgba(0,0,0,.2)
 border-light = 1px solid rgba(0,0,0,.1)
 
 /* Colors */
@@ -36,23 +36,26 @@ color-lighter-amount = 35%
 color-dark-amount = 10%
 color-darker-amount = 35%
 
-color-primary = colorPrimary()
 color-primary-light = lighten(color-primary, color-light-amount)
 color-primary-lighter = lighten(color-primary, color-lighter-amount)
 color-primary-dark = darken(color-primary, color-dark-amount)
 color-primary-darker = darken(color-primary, color-darker-amount)
 
-color-second = colorSecond()
 color-second-light = lighten(color-second, color-light-amount)
 color-second-lighter = lighten(color-second, color-lighter-amount)
 color-second-dark = darken(color-second, color-dark-amount)
 color-second-darker = darken(color-second, color-darker-amount)
 
-color-third = colorThird()
 color-third-light = lighten(color-third, color-light-amount)
 color-third-lighter = lighten(color-third, color-lighter-amount)
 color-third-dark = darken(color-third, color-dark-amount)
 color-third-darker = darken(color-third, color-darker-amount)
 
-color-text = #2c3e50
-
+/* z-index */
+z-index-default = 0
+z-index-high = 10
+z-index-higher = 20
+z-index-highest = 100
+z-index-low = -10
+z-index-lower = -20
+z-index-lowest = -100

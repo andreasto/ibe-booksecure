@@ -13,7 +13,7 @@ const state = {
     children: 1,
     infants: 1
   },
-  multiCity: false,
+  searchType: 'single',
   searchButtonText: window.bookSecure.texts.searchButtonText,
   showLoader: false,
   availability: [],
@@ -30,7 +30,7 @@ const getters = {
   totalPassengers: state => state.passengers.adults + state.passengers.children + state.passengers.infants,
   passengerSelectText: state => `${state.passengers.adults} adults, ${state.passengers.children + state.passengers.infants} children`,
   criteria: state => state.criteria,
-  multiCity: state => state.multiCity,
+  searchType: state => state.searchType,
   searchButtonText: state => state.searchButtonText,
   showLoader: state => state.showLoader,
   availability: state => state.availability,
@@ -73,12 +73,12 @@ const mutations = {
   addAvailability(state, availability) {
     state.availability = availability
   },
-  toggleMultiCity(state, value) {
-    if (value) {
+  changeSearchType(state, value) {
+    if (value === 'multiCity') {
       state.criteria[0].arrivalDate = ''
     }
 
-    state.multiCity = value
+    state.searchType = value
   },
   addFlightLeg(state) {
     state.criteria.push({
