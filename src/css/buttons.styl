@@ -1,0 +1,26 @@
+button(background, color)
+    display inline-block
+    border 1px solid rgba(0, 0, 0, .2)
+    position relative
+    font-size 16px
+    height 50px
+    overflow hidden
+    background-color background
+    color color
+    padding 0 15px
+    text-transform uppercase
+    border-radius border-radius
+
+    &:hover{
+        text-shadow text-shadow
+        background-color darken(background, 6%)}
+
+.button
+    button(buttons.normal.color, buttons.normal.text)
+
+.button-cta
+    button(buttons.cta.color, buttons.cta.text)
+
+.button-search
+    button(buttons.search.color, buttons.search.text)
+    font-weight font-weight-bold
