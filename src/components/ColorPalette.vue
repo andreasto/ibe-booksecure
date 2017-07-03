@@ -22,22 +22,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .color-palette {
+  .color-palette
     text-align center
     color white
     margin 0 auto
     border 1px solid
-  }
 
-  .box {
+  .box
     display inline-block
     width 19%
     height 80px
     margin 0 0 10px
     border border-light
     border-radius border-radius
-
-  }
 
   .color-primary
     background-color color-primary
