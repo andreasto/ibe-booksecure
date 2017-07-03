@@ -26,6 +26,7 @@ module.exports = {
 
     'eol-last': 0,
     'space-before-function-paren': 0,
-    'spaced-comment': 0
+    'spaced-comment': 0,
+    "indent": [2, 4]
   }
 }

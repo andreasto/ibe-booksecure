@@ -11,7 +11,7 @@ import VeeValidate from 'vee-validate'
 Vue.config.productionTip = false
 
 const validateConfig = {
-  events: 'blur'
+    events: 'blur'
 }
 
 Vue.use(VeeValidate, validateConfig)
@@ -39,9 +39,9 @@ Vue.component('ibe-previous-next', PreviousNext)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
 })

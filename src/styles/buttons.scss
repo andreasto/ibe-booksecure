@@ -1,0 +1,30 @@
+@mixin button($background, $color) {
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, .2);
+    position: relative;
+    font-size: 16px;
+    height: 50px;
+    overflow: hidden;
+    background-color: $background;
+    color: $color;
+    padding: 0 15px;
+    text-transform: uppercase;
+    border-radius: $border-radius;
+    &:hover {
+        text-shadow: $text-shadow;
+        background-color: darken($background, 6%);
+    }
+}
+
+.button {
+    @include button($button-normal-background, $button-normal-text);
+}
+
+.button-cta {
+    @include button($button-cta-background, $button-cta-text);
+}
+
+.button-search {
+    @include button($button-search-background, $button-search-text);
+    font-weight: $font-weight-bold;
+}

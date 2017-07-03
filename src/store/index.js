@@ -9,12 +9,12 @@ import cart from './modules/cart'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  plugins: [createPersistedState({
-    storage: window.sessionStorage
-  })],
-  modules: {
-    search,
-    navigation,
-    cart
-  }
+    plugins: [createPersistedState({
+        storage: window.sessionStorage
+    })],
+    modules: {
+        search,
+        navigation,
+        cart
+    }
 })
