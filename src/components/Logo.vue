@@ -1,5 +1,5 @@
 <template>
-    <div class="logo" :title="title">
+    <div class="logo" :title="title" @click="navigateToHome">
     </div>
 </template>
 
@@ -7,6 +7,11 @@
 export default {
     props: {
         title: { type: String }
+    },
+    methods: {
+        navigateToHome() {
+            this.$store.dispatch('navigation/navigateTo', '/')
+        }
     }
 }
 </script>
@@ -18,5 +23,6 @@ export default {
     height: $logo-height;
     background: url($logo-url) no-repeat;
     background-size: 100%;
+    cursor: pointer;
 }
 </style>

@@ -48,7 +48,8 @@ const router = new Router({
             name: 'Receipt',
             component: Receipt
         }
-    ]
+    ],
+    scrollBehavior: (to, from, savedPosition) => ({ x: 0, y: 0 })
 })
 
 router.beforeEach(handleAuthorization)

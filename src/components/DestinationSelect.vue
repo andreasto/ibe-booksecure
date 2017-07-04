@@ -4,7 +4,8 @@
             <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
             <i class="icon icon-right material-icons" v-show="iconRight">{{iconRight}}</i>
             <div class="floating-label">{{label}}</div>
-            <input type="text" :value="selectedText" class="selected-text-input">
+            <input type="text" :value="selectedText" :placeholder="placeholder" class="selected-text-input" readonly>
+            <span v-show="showError" class="validation-message">{{ error }}</span>
 
             <div class="destination-panel dropdown-list" v-show="showDropDown" @click.stop="() => {}">
                 <div class="departures">
@@ -45,10 +46,12 @@ export default {
         destinations: { type: Array },
         iconLeft: { type: String },
         iconRight: { type: String, default: 'keyboard_arrow_down' },
-        tabindex: { type: Number, default: -1 }
+        tabindex: { type: Number, default: -1 },
+        error: { type: String }
     },
     data() {
         return {
+            hideErrorMessage: false,
             hasSelectedDeparture: this.departure,
             showDropDown: false,
             selectedIndex: 0,
@@ -57,8 +60,11 @@ export default {
         }
     },
     computed: {
+        showError() {
+            return this.error && this.error.length > 0 && !this.hideErrorMessage
+        },
         selectedText() {
-            let text = this.placeholder
+            let text = ''
 
             if (this.departure) {
                 text = this.selectedDepartureName
@@ -72,24 +78,29 @@ export default {
             return {
                 'dropdown-open': this.showDropDown,
                 'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
-                'with-icon-right': this.iconRight && this.iconRight.length > 0
+                'with-icon-right': this.iconRight && this.iconRight.length > 0,
+                'is-invalid': this.showError
             }
         }
     },
     methods: {
         closeDropDown() {
+            this.hideErrorMessage = false
             this.showDropDown = false
         },
         toggleDropDown() {
+            this.hideErrorMessage = false
             this.showDropDown = !this.showDropDown
         },
         selectDeparture(item) {
+            this.hideErrorMessage = true
             this.selectedDepartureName = item.name
             this.hasSelectedDeparture = true
 
             this.$emit('departureChanged', item.code)
         },
         selectDestination(item) {
+            this.hideErrorMessage = true
             this.selectedArrivalName = item.name
             this.showDropDown = false
 

@@ -32,20 +32,9 @@ const mutations = {
         state.payment.canAccess = false
         state.receipt.canAccess = false
     },
-    unlockSelect(state) {
-        state.select.canAccess = true
-    },
-    unlockInformation(state) {
-        state.information.canAccess = true
-    },
-    unlockOptions(state) {
-        state.options.canAccess = true
-    },
-    unlockPayment(state) {
-        state.payment.canAccess = true
-    },
-    unlockReceipt(state) {
-        state.receipt.canAccess = true
+    unlock(state, section) {
+        // todo: make sure state has the section passed in with Object.keys
+        state[section].canAccess = true
     }
 }
 

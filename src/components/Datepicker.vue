@@ -9,6 +9,7 @@
             <div class="floating-label">{{labelText}}</div>
             <div class="selected-text">{{selectedDatesText}}</div>
             <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates"></flat-pickr>
+            <span v-show="showError" class="validation-message">{{ error }}</span>
         </div>
     </div>
 </template>
@@ -26,14 +27,11 @@ export default {
         to: { type: String },
         mode: { type: String, default: 'single' },
         iconLeft: { type: String },
-        iconRight: { type: String }
+        iconRight: { type: String },
+        error: { type: String }
     },
     data() {
         return {
-            classes: {
-                'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
-                'with-icon-right': this.iconRight && this.iconRight.length > 0
-            },
             labelText: this.mode === 'single' ? 'Select date' : 'Select dates',
             fromDate: this.from,
             toDate: this.to,
@@ -58,14 +56,14 @@ export default {
                         this.$emit('datepickerFromChanged', this.fromDate)
                         this.$emit('datepickerToChanged', this.toDate)
                     }
-                    // console.log('fromDate', this.fromDate)
-                    // console.log('toDate', this.toDate)
-                    // console.log('dates changed', selectedDates)
                 }
             }
         }
     },
     computed: {
+        showError() {
+            return this.error && this.error.length > 0 && !this.fromDateSelected
+        },
         fromDateSelected() {
             return this.fromDate && this.fromDate.length > 0
         },
@@ -101,6 +99,13 @@ export default {
             }
 
             return tripType
+        },
+        classes: function () {
+            return {
+                'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
+                'with-icon-right': this.iconRight && this.iconRight.length > 0,
+                'is-invalid': this.showError
+            }
         }
     },
     components: {
@@ -112,7 +117,6 @@ export default {
 <style lang="scss" scoped>
 .datepicker {
     min-width: 240px;
-    overflow: hidden;
 }
 
 input {

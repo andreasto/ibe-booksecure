@@ -1,14 +1,15 @@
 <template>
     <div>
-        <div v-for="(leg, index) in availability">
+        {{selectedFlights}} {{allFlightsSelected}}
+        <div v-for="(leg, index) in availability" class="leg clearfix">
             <h3>Leg {{index + 1}}</h3>
-            <div v-show="!showList">
-                <ibe-flight :flight="leg[0]" v-show="!showList"></ibe-flight>
-                <ibe-button :action="() => {showList = !showList}" :text="'Show more flights'"></ibe-button>
+            <div v-show="!showList" class="selected-flight">
+                <ibe-flight :flight="leg[0]" :leg="index" v-show="!showList"></ibe-flight>
+                <ibe-button :action="() => {showList = !showList}" :text="'Show more flights'" class="more-flights-button"></ibe-button>
             </div>
 
             <div v-for="flight in leg" v-show="showList">
-                <ibe-flight :flight="flight"></ibe-flight>
+                <ibe-flight :flight="flight" :leg="index"></ibe-flight>
             </div>
         </div>
 
@@ -25,11 +26,9 @@ export default {
     components: {
         'ibe-flight': Flight
     },
-    data() {
-        return {
-            showList: false
-        }
-    },
+    data: () => ({
+        showList: false
+    }),
     computed: {
         ...mapGetters(
             'search',
@@ -40,7 +39,8 @@ export default {
         ...mapGetters(
             'cart',
             [
-                'selectedFlight'
+                'selectedFlights',
+                'allFlightsSelected'
             ]
         )
     },
@@ -50,11 +50,23 @@ export default {
         },
         nextAction() {
             console.log('go next')
-            this.validateSelectedFlights()
-        },
-        validateSelectedFlights() {
-            console.log('validateSelectedFlights')
+            if (!this.allFlightsSelected) {
+                console.log('select flights for all legs first')
+                return
+            }
+
+            this.$store.dispatch('navigation/navigateTo', 'information')
         }
     }
 }
 </script>
+
+<style lang="scss">
+.selected-flight {
+    margin-bottom: 20px;
+}
+
+.more-flights-button {
+    float: right;
+}
+</style>

@@ -1,10 +1,13 @@
 <template>
     <div>
-        <div v-for="(passenger, index) in passengers">
-            <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
-        </div>
+        <form @submit.prevent="validateBeforeSubmit">
+            <div v-for="(passenger, index) in passengers">
+                <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
+            </div>
 
-        <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
+            <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
+
+        </form>
     </div>
 </template>
 
@@ -42,19 +45,28 @@ export default {
             ])
     },
     methods: {
+        validateBeforeSubmit() {
+            this.$validator.validateAll().then((result) => {
+                // eslint-disable-next-line
+                console.log(result)
+            }).catch(() => {
+                // eslint-disable-next-line
+                alert('Correct them errors!')
+            })
+        },
         previousAction() {
             router.push('select')
         },
         nextAction() {
             console.log('next to options')
 
-            this.validateForm()
+            // this.validateBeforeSubmit()
 
-            if (!this.formIsValid) {
-                return
-            }
+            // if (!this.formIsValid) {
+            //     return
+            // }
 
-            this.$store.commit('navigation/unlockOptions')
+            this.$store.commit('navigation/unlock', 'options')
             this.$store.dispatch('navigation/navigateTo', 'options')
         },
         validateForm() {

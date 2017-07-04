@@ -1,38 +1,32 @@
 <template>
     <div class="clearfix">
-        <div class="search-type-toggle">
-            <label>
-                <input v-model="searchTypeData" type="radio" name="searchType" :value="'single'"> Oneway/Roundtrip
-            </label>
-            <label>
-                <input v-model="searchTypeData" type="radio" name="searchType" :value="'multiCity'"> Multicity
-            </label>
-        </div>
 
         <div class="criteria-container clearfix" v-show="!hideSearchForm" :class="{multicity: isMultiCity}">
+            <ibe-search-type-switch></ibe-search-type-switch>
+
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
-                <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :label="'Destination'" :iconLeft="'location_on'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
-                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :iconLeft="'date_range'" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
+                <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :iconLeft="'location_on'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
+                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :iconLeft="'date_range'" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
             </div>
 
-            <ibe-button :action="addFlightLeg" :text="'Add flight leg'" v-show="isMultiCity"></ibe-button>
+            <ibe-button :action="addFlightLeg" :text="'Add flight leg'" :class="'add-leg-button'" v-show="isMultiCity"></ibe-button>
 
-            <ibe-passenger-select></ibe-passenger-select>
+            <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
 
             <div class="form-group buttons">
-                <ibe-button :text="searchButtonText" :action="searchFlights" :class="'button-search'" class="search-button"></ibe-button>
+                <ibe-button :text="searchButtonText" :action="search" :class="'button-search'" class="search-button"></ibe-button>
             </div>
         </div>
 
         <!--<ibe-login-form></ibe-login-form>-->
+        <ibe-loader :text="'Loading...'" v-show="showLoader"></ibe-loader>
 
         <code>
             <h4>Criteria</h4>
             {{criteria}}
         </code>
 
-        <ibe-loader :text="'Loading...'" v-show="showLoader"></ibe-loader>
     </div>
 </template>
 
@@ -40,6 +34,7 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import LoginForm from '@/components/LoginForm'
 import DestinationSelect from '@/components/DestinationSelect'
+import SearchTypeSwitch from '@/components/SearchTypeSwitch'
 
 export default {
     created() {
@@ -47,7 +42,8 @@ export default {
     },
     components: {
         'ibe-login-form': LoginForm,
-        'ibe-destination-select': DestinationSelect
+        'ibe-destination-select': DestinationSelect,
+        'ibe-search-type-switch': SearchTypeSwitch
     },
     computed: {
         isMultiCity() {
@@ -61,6 +57,7 @@ export default {
                 'searchButtonText',
                 'airports',
                 'passengers',
+                'totalPassengers',
                 'showLoader',
                 'hideSearchForm'
             ]
@@ -80,11 +77,44 @@ export default {
                 'changeSearchType',
                 'removeMultiCity'
             ]
-        )
+        ),
+        search() {
+            if (!this.validateCriteria()) {
+                return
+            }
+
+            this.searchFlights()
+        },
+        validateCriteria() {
+            let isValid = true
+            this.validationErrors = []
+            this.criteria.forEach((c) => {
+                let errors = {}
+                let destinationsInvalid = !c.departure || c.departure.length === 0 || !c.arrival || c.arrival.length === 0
+                let datesInvalid = !c.departureDate || c.departureDate.length === 0
+                let passengersInvalid = this.totalPassengers < 1
+
+                if (destinationsInvalid) {
+                    isValid = false
+                    errors.destinationSelect = 'Select both departure and destination'
+                }
+                if (datesInvalid) {
+                    isValid = false
+                    errors.dates = 'Select date(s)'
+                }
+                if (passengersInvalid) {
+                    isValid = false
+                    errors.passengers = 'Select passengers'
+                }
+                this.validationErrors.push(errors)
+            })
+            return isValid
+        }
     },
     data() {
         return {
-            searchTypeData: this.$store.state.search.searchType
+            searchTypeData: this.$store.state.search.searchType,
+            validationErrors: []
         }
     },
     watch: {
@@ -101,8 +131,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search-type-toggle {
-    margin-bottom: 20px;
+.criteria-container {
+    margin: 0 -5px;
+}
+
+.add-leg-button {
+    display: block;
+    float: left;
 }
 
 @include media(">tablet") {

@@ -1,8 +1,8 @@
 <template>
-    <div class="form-group input">
+    <div class="form-group input" :class="{'is-invalid': errors.has(name) }">
         <div class="click-area">
             <label class="floating-label" for="input">{{label}}</label>
-            <input type="text" :value="value" :id="id" :name="name" v-validate="validation" :class="{'invalid': errors.has(name) }" @input="changeValue">
+            <input type="text" :value="value" :id="id" :name="name" v-validate="validation" @input="changeValue">
             <span v-show="errors.has(name)" class="validation-message">{{ errors.first(name) }}</span>
         </div>
     </div>

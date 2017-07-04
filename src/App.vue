@@ -2,28 +2,23 @@
     <div id="app">
         <header class="main-header">
             <ibe-logo v-show="!onlySearchForm"></ibe-logo>
-            <ibe-navigation v-show="!onlySearchForm"></ibe-navigation>
+            <ibe-navigation v-show="!onlySearchForm && !hideNavigation"></ibe-navigation>
         </header>
 
         <transition name="fade" mode="out-in">
             <router-view class="view"></router-view>
         </transition>
 
-        <ibe-color-palette :color="'primary'" v-show="!onlySearchForm"></ibe-color-palette>
-        <ibe-color-palette :color="'second'" v-show="!onlySearchForm"></ibe-color-palette>
-        <ibe-color-palette :color="'third'" v-show="!onlySearchForm"></ibe-color-palette>
+        <div class="colors" v-show="showColors">
+            <ibe-color-palette :color="'primary'" v-show="!onlySearchForm"></ibe-color-palette>
+            <ibe-color-palette :color="'second'" v-show="!onlySearchForm"></ibe-color-palette>
+            <ibe-color-palette :color="'third'" v-show="!onlySearchForm"></ibe-color-palette>
+
+        </div>
         <ibe-footer v-show="!onlySearchForm"></ibe-footer>
 
         <ibe-button :action="clearLocalStorage" :text="'Clear localStorage'"></ibe-button>
 
-        <div>
-            <label class="label" for="email">Testing form validation</label>
-            <p :class="{ 'control': true }">
-                {{errors}}
-                <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has(testInput) }" :name="testInput" type="text" placeholder="Email">
-                <span v-show="errors.has(testInput)" class="help is-danger">{{ errors.first(testInput) }}</span>
-            </p>
-        </div>
     </div>
 </template>
 
@@ -41,15 +36,18 @@ export default {
         'ibe-color-palette': ColorPalette,
         'ibe-logo': Logo
     },
-    data() {
-        return {
-            testInput: 'yeah',
-            onlySearchForm: this.$route.path === '/search-form'
-        }
-    },
+    data: () => ({
+        showColors: false
+    }),
     computed: {
         route() {
             return this.$route.name
+        },
+        onlySearchForm() {
+            return this.route === 'SearchForm'
+        },
+        hideNavigation() {
+            return this.route === 'Receipt'
         }
     },
     methods: {

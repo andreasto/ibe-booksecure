@@ -4,30 +4,31 @@
             <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
             <div class="floating-label">Select passengers</div>
             <div class="selected-text">{{passengerSelectText}}</div>
+            <span v-show="showError" class="validation-message">{{ error }}</span>
 
             <ul class="dropdown-list" v-show="showDropDown" @click.stop="() => {}">
                 <li>
                     Adults
                     <div class="buttons">
-                        <button @click="$store.commit('search/decrementAdults')">-</button>
+                        <button @click="changePassengers('decrementAdults')">-</button>
                         <span class="counter">{{passengers.adults}}</span>
-                        <button @click="$store.commit('search/incrementAdults')">+</button>
+                        <button @click="changePassengers('incrementAdults')">+</button>
                     </div>
                 </li>
                 <li>
                     Children
                     <div class="buttons">
-                        <button @click="$store.commit('search/decrementChildren')">-</button>
+                        <button @click="changePassengers('decrementChildren')">-</button>
                         <span class="counter">{{passengers.children}}</span>
-                        <button @click="$store.commit('search/incrementChildren')">+</button>
+                        <button @click="changePassengers('incrementChildren')">+</button>
                     </div>
                 </li>
                 <li>
                     Infants
                     <div class="buttons">
-                        <button @click="$store.commit('search/decrementInfants')">-</button>
+                        <button @click="changePassengers('decrementInfants')">-</button>
                         <span class="counter">{{passengers.infants}}</span>
-                        <button @click="$store.commit('search/incrementInfants')">+</button>
+                        <button @click="changePassengers('incrementInfants')">+</button>
                     </div>
                 </li>
             </ul>
@@ -41,26 +42,33 @@ import { mapGetters } from 'vuex'
 export default {
     props: {
         iconLeft: { type: String, default: 'people' },
-        iconRight: { type: String }
+        iconRight: { type: String },
+        error: { type: String }
     },
     data() {
         return {
+            hideErrorMessage: false,
             showDropDown: false
         }
     },
     computed: {
+        showError() {
+            return this.error && this.error.length > 0 && !this.hideErrorMessage
+        },
         classes() {
             return {
                 'dropdown-open': this.showDropDown,
                 'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
-                'with-icon-right': this.iconRight && this.iconRight.length > 0
+                'with-icon-right': this.iconRight && this.iconRight.length > 0,
+                'is-invalid': this.showError
             }
         },
         ...mapGetters(
             'search',
             [
                 'passengerSelectText',
-                'passengers'
+                'passengers',
+                'totalPassengers'
             ])
     },
     methods: {
@@ -69,6 +77,10 @@ export default {
         },
         closeDropDown() {
             this.showDropDown = false
+        },
+        changePassengers(mutation) {
+            this.$store.commit('search/' + mutation)
+            this.hideErrorMessage = this.totalPassengers > 0
         }
     }
 }

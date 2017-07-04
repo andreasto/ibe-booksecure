@@ -16,6 +16,9 @@ export default {
         },
         nextAction() {
             console.log('go next')
+
+            this.$store.commit('navigation/unlock', 'payment')
+            this.$store.dispatch('navigation/navigateTo', 'payment')
         }
     }
 }

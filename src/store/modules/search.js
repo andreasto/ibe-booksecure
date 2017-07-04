@@ -34,6 +34,7 @@ const getters = {
     searchButtonText: state => state.searchButtonText,
     showLoader: state => state.showLoader,
     availability: state => state.availability,
+    numberOfLegs: state => state.availability.length,
     hideSearchForm: state => state.hideSearchForm,
     titlesAdults: state => state.selectOptions.titlesAdults,
     titlesChildren: state => state.selectOptions.titlesChildren
@@ -100,11 +101,20 @@ const mutations = {
             return
         }
         state.criteria = state.criteria.filter((c, index) => index === 0)
+    },
+    unselectAllFlightsInLeg(state, leg) {
+        if (state.availability.length < leg) {
+            return
+        }
+        state.availability[leg].forEach((flight) => {
+            flight.selected = false
+        })
     }
 }
 
 const actions = {
     searchFlights({ dispatch, commit }) {
+        commit('cart/clearSelectedItems', null, { root: true })
         commit('navigation/resetAccess', null, { root: true })
         commit('hideSearchForm')
         commit('toggleLoader')
@@ -136,7 +146,7 @@ const actions = {
             commit('toggleLoader')
             commit('clearAvailability', response)
             commit('addAvailability', response)
-            commit('navigation/unlockSelect', null, { root: true })
+            commit('navigation/unlock', 'select', { root: true })
 
             dispatch('navigation/navigateTo', 'select', { root: true })
         })

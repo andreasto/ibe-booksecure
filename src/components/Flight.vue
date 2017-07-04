@@ -1,31 +1,33 @@
 <template>
-    <div class="flight" @click="selectFlight(flight)" :class="classes">
-        Flight data:
-        <br> {{flight}}
+    <div class="flight" @click="selectFlight" :class="classes">
+        {{flight}}
+        <p>Click to select</p>
     </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+//import { mapActions } from 'vuex'
 
 export default {
     props: {
-        flight: Object
+        flight: { type: Object, required: true },
+        leg: { type: Number, required: true }
     },
-    data() {
-        return {
-            classes: {
+    data: () => ({
+        selectedFlight: null
+    }),
+    computed: {
+        classes: function () {
+            return {
                 selected: this.flight.selected
-            },
-            selectedFlight: null
+            }
         }
     },
     methods: {
-        ...mapActions(
-            'cart',
-            [
-                'selectFlight'
-            ])
+        selectFlight() {
+            console.log('select flight')
+            this.$store.dispatch('cart/selectFlight', { flight: this.flight, leg: this.leg })
+        }
     }
 }
 </script>
@@ -42,6 +44,6 @@ export default {
 }
 
 .selected {
-    background: color-primary;
+    background: $color-third;
 }
 </style>
