@@ -52,5 +52,10 @@ export default {
 <style lang="scss" scoped>
 .search-type-switch {
     margin: 0 5px 20px;
+    text-align: center;
+
+    @include media(">tablet") {
+        text-align: left;
+    }
 }
 </style>

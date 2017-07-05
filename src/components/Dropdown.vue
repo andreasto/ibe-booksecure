@@ -69,7 +69,7 @@ export default {
             this.selectedText = this.itemText ? item[this.itemText] : item
             this.selectedIndex = index
 
-            this.$emit('selectChanged', this.selectedValue)
+            this.$emit('valueChanged', this.selectedValue)
         }
     }
 }

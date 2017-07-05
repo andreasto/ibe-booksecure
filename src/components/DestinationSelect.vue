@@ -11,14 +11,14 @@
                 <div class="departures">
                     <h3>Select departure:</h3>
                     <div v-for="(item, index) in departures" @click="selectDeparture(item)" :class="{selected: item.code === departure}" class="destination">
-                        {{ item.name }}
+                        {{ item.name }} <span class="code">({{item.code}})</span>
                     </div>
                 </div>
                 <transition name="fade">
                     <div class="destinations" v-show="hasSelectedDeparture">
                         <h3>Select destination:</h3>
                         <div v-for="(item, index) in destinations" @click="selectDestination(item)" :class="{selected: item.code === arrival}" class="destination">
-                            {{ item.name }}
+                            {{ item.name }} <span class="code">({{item.code}})</span>
                         </div>
                     </div>
                 </transition>
@@ -111,16 +111,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.destination-select {
-    width: 100%;
-
-    @include media(">tablet") {
-        max-width: 380px;
-    }
-}
-
 .destination-panel {
     border: $border-light;
+
     @include media(">tablet") {
         width: 500px;
     }
@@ -128,7 +121,8 @@ export default {
 
 .departures,
 .destinations {
-    text-align: center;
+    overflow-y: scroll;
+    max-height: 500px;
 
     @include media(">tablet") {
         float: left;
@@ -154,7 +148,17 @@ export default {
 }
 
 .destination {
-    padding: 10px;
+    padding: 6px 10px;
+
+    &:hover {
+        background: $color-hover;
+    }
+}
+
+.code {
+    display: inline-block;
+    color: rgba(0,0,0,.3);
+    margin-left: 6px;
 }
 
 .selected {

@@ -6,7 +6,6 @@
             </div>
 
             <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
-
         </form>
     </div>
 </template>

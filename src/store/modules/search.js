@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const state = {
     airports: window.bookSecure.airports,
     criteria: [
@@ -89,12 +91,14 @@ const mutations = {
             arrivalDate: ''
         })
     },
-    removeFlightLeg(state) {
-        if (state.criteria.length === 0) {
+    removeFlightLeg(state, leg) {
+        if (state.criteria.length === 0 || leg > state.criteria.length) {
             return
         }
 
-        state.criteria.pop()
+        console.log('leg to remove', leg)
+
+        state.criteria.splice(leg, 1)
     },
     removeMultiCity(state) {
         if (state.criteria.length === 1) {
@@ -113,7 +117,7 @@ const mutations = {
 }
 
 const actions = {
-    searchFlights({ dispatch, commit }) {
+    searchFlights({ dispatch, commit, state }) {
         commit('cart/clearSelectedItems', null, { root: true })
         commit('navigation/resetAccess', null, { root: true })
         commit('hideSearchForm')
@@ -121,25 +125,40 @@ const actions = {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(
-                    [
-                        [
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false }
-                        ],
-                        [
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false }
-                        ],
-                        [
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false },
-                            { departure: 'ARN', arrival: 'GOT', selected: false }
-                        ]
-                    ]
-                )
+                let flight = {
+                    departure: 'AUH',
+                    departureName: 'Abu Dhabi',
+                    departureDate: '2017-10-05 00:05',
+                    arrival: 'DEL',
+                    arrivalName: 'Delhi International Airport ,T3',
+                    arrivalDate: '2017-11-05 05:05',
+                    stops: 0,
+                    duration: '3:30',
+                    flightNumber: 'IX-116',
+                    fareTypes: [
+                        { type: 'Express VALUE (FBA 30Kgs)', price: 448.21 },
+                        { type: 'Express FLEXI (FBA 30Kgs)', price: 2356.21 }
+                    ],
+                    selected: false
+                }
+
+                let availability = []
+                let legs = []
+                for (let i = 0; i < state.criteria.length; i++) {
+                    let flights = []
+                    _.times(5, () => { flights.push(JSON.parse(JSON.stringify(flight))) })
+                    legs.push(JSON.parse(JSON.stringify(flights)))
+                    if (state.criteria.length === 1 && (state.criteria[0].arrivalDate && state.criteria[0].arrivalDate !== '')) {
+                        legs.push(flights)
+                    }
+                }
+                legs.forEach((leg) => {
+                    availability.push(leg)
+                })
+
+                console.log(availability)
+
+                resolve(availability)
             }, 1000)
         }).then((response) => {
             console.log('response', response)

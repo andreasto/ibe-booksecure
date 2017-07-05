@@ -40,19 +40,32 @@ export default {
                 mode: this.mode,
                 disableMobile: true,
                 defaultDate: (this.mode === 'range') ? [this.from, this.to] : this.from,
+                onOpen: (selectedDates, dateStr, instance) => {
+                    console.log('on open')
+                    if (this.mode === 'range' && !this.toDate) {
+                        this.clearDatePicker()
+                    }
+                },
                 onChange: (selectedDates, dateStr, instance) => {
                     if (selectedDates.length === 1) {
                         // reset dates if two dates have already been selected, and user selects a new one
                         if (this.fromDateSelected && this.toDateSelected) {
-                            this.fromDate = null
-                            this.toDate = null
+                            this.clearDatePicker()
                         }
 
                         this.fromDate = moment(selectedDates[0]).format(dateFormat)
+                        this.toDate = null
                         this.$emit('datepickerFromChanged', this.fromDate)
+                        this.$emit('datepickerToChanged', null)
                     } else if (selectedDates.length === 2) {
                         this.fromDate = moment(selectedDates[0]).format(dateFormat)
-                        this.toDate = moment(selectedDates[1]).format(dateFormat)
+
+                        if (selectedDates[0] === selectedDates[1]) {
+                            console.log('dates are equal')
+                            this.toDate = null
+                        } else {
+                            this.toDate = moment(selectedDates[1]).format(dateFormat)
+                        }
                         this.$emit('datepickerFromChanged', this.fromDate)
                         this.$emit('datepickerToChanged', this.toDate)
                     }
@@ -106,6 +119,15 @@ export default {
                 'with-icon-right': this.iconRight && this.iconRight.length > 0,
                 'is-invalid': this.showError
             }
+        }
+    },
+    methods: {
+        clearDatePicker() {
+            console.log('clear')
+            this.$emit('datepickerFromChanged', '')
+            this.$emit('datepickerToChanged', '')
+            this.fromDate = ''
+            this.toDate = ''
         }
     },
     components: {

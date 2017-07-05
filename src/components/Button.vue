@@ -1,6 +1,9 @@
 <template>
-    <button type="button" @click="buttonClick" :class="cssClass">
-        {{text}}</button>
+    <div class="form-group button-container">
+        <button type="button" @click="buttonClick" :class="cssClass">
+            {{text}}
+        </button>
+    </div>
 </template>
 
 <script>

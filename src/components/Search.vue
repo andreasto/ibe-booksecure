@@ -7,15 +7,16 @@
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
                 <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :iconLeft="'location_on'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
-                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :iconLeft="'date_range'" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
+                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :iconLeft="'date_range'" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
+                <i class="material-icons delete-icon" v-show="index > 1" @click="removeFlightLeg(index)">&#xE872;</i>
             </div>
+            <a @click="addFlightLeg" class="add-leg-button" v-show="isMultiCity">
+                <i class="material-icons">&#xE145;</i> Add flight leg
+            </a>
 
-            <ibe-button :action="addFlightLeg" :text="'Add flight leg'" :class="'add-leg-button'" v-show="isMultiCity"></ibe-button>
-
-            <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
-
-            <div class="form-group buttons">
-                <ibe-button :text="searchButtonText" :action="search" :class="'button-search'" class="search-button"></ibe-button>
+            <div class="passenger-and-button">
+                <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
+                <ibe-button :text="searchButtonText" :action="search" :cssClass="'button-search'"></ibe-button>
             </div>
         </div>
 
@@ -74,6 +75,7 @@ export default {
             'search',
             [
                 'addFlightLeg',
+                'removeFlightLeg',
                 'changeSearchType',
                 'removeMultiCity'
             ]
@@ -130,63 +132,136 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .criteria-container {
     margin: 0 -5px;
 }
 
-.add-leg-button {
-    display: block;
-    float: left;
+.button-search {
+    float: right;
 }
 
-@include media(">tablet") {
+@include media(">=tablet") {
     .destination-select,
-    .dropdown,
-    .passenger-select,
     .datepicker,
-    .search-button,
+    .passenger-select,
+    .button-container {
+        float: left;
+    }
+
+    .destination-select {
+        width: 50%;
+    }
+    .datepicker {
+        width: 50%;
+    }
+    .passenger-and-button {
+        position: relative;
+    }
+    .passenger-select {
+        width: 60%;
+    }
+    .button-container {
+        width: 40%;
+    }
+    .button-search {
+        width: 100%;
+        display: block;
+    }
+}
+
+@include media(">=desktop") {
     .criteria-row,
-    .buttons,
-    .multicity-header {
+    .passenger-and-button {
         float: left;
     }
 
     .criteria-row {
         width: 65%;
+    }
 
+    .passenger-and-button {
+        width: 35%;
+    }
+}
+
+.multicity {
+
+    .criteria-row {
+        position: relative;
+        float: none;
+        margin-bottom: 20px;
+
+        @include media(">=tablet") {
+            float: none;
+            width: 100%;
+            margin-bottom: 10px;
+            margin-right: 40px;
+        }
+    }
+
+    @include media(">=tablet") {
+        .multicity-header {
+            position: absolute;
+            left: 0;
+            top: 15px;
+        }
         .destination-select {
             width: 50%;
+            padding-left: 80px;
         }
         .datepicker {
             width: 50%;
         }
-    }
-    .passenger-select {
-        width: 23%;
-    }
-    .buttons {
-        width: 12%;
-    }
-    .multicity-header {
-        margin-top: 14px;
-    }
-}
 
-.multicity {
-    .criteria-row {
-        float: none;
-    }
-}
-
-.multicity {
-    .criteria-row {
-        margin-bottom: 10px;
-
-        @include media(">tablet") {
-            float: none;
-            width: 100%;
+        .passenger-and-button {
+            float: right;
+            width: 50%;
         }
+    }
+    .with-delete-icon {
+        padding-right: 50px;
+    }
+
+    .add-leg-button {
+        position: relative;
+        display: inline-block;
+        margin: -10px 5px 20px;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        border: 1px dotted $color-primary;
+        border-radius: $input-border-radius;
+        padding: 0 10px 0 34px;
+        height: $input-height;
+        line-height: $input-height;
+
+        i {
+            position: absolute;
+            left: 4px;
+            top: 11px;
+        }
+
+        @include media(">=tablet") {
+            display: block;
+            float: left;
+            margin: 0;
+            margin-left: 80px;
+        }
+    }
+}
+
+
+
+.delete-icon {
+    position: absolute;
+    right: 0;
+    top: 94px;
+    font-size: 38px;
+    color: $color-primary;
+    cursor: pointer;
+
+    @include media(">=tablet") {
+        top: 6px;
     }
 }
 </style>

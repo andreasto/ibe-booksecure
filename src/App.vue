@@ -18,6 +18,7 @@
         <ibe-footer v-show="!onlySearchForm"></ibe-footer>
 
         <ibe-button :action="clearLocalStorage" :text="'Clear localStorage'"></ibe-button>
+        <ibe-viewport-size></ibe-viewport-size>
 
     </div>
 </template>
@@ -27,6 +28,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ColorPalette from '@/components/ColorPalette'
 import Logo from '@/components/Logo'
+import ViewportSize from '@/components/ViewportSize'
 
 export default {
     name: 'app',
@@ -34,7 +36,8 @@ export default {
         'ibe-footer': Footer,
         'ibe-navigation': Navigation,
         'ibe-color-palette': ColorPalette,
-        'ibe-logo': Logo
+        'ibe-logo': Logo,
+        'ibe-viewport-size': ViewportSize
     },
     data: () => ({
         showColors: false

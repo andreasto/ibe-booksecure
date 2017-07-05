@@ -1,12 +1,13 @@
 <template>
     <div class="flight" @click="selectFlight" :class="classes">
-        {{flight}}
+        <ibe-segment-summary :flight="flight"></ibe-segment-summary>
         <p>Click to select</p>
     </div>
 </template>
 
 <script>
 //import { mapActions } from 'vuex'
+import SegmentSummary from '@/components/SegmentSummary'
 
 export default {
     props: {
@@ -28,6 +29,9 @@ export default {
             console.log('select flight')
             this.$store.dispatch('cart/selectFlight', { flight: this.flight, leg: this.leg })
         }
+    },
+    components: {
+        'ibe-segment-summary': SegmentSummary
     }
 }
 </script>
