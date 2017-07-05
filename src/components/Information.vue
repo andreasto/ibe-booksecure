@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="validateBeforeSubmit">
-            <div v-for="(passenger, index) in passengers">
+            <div v-for="(passenger, index) in passengerList">
                 <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
             </div>
 
@@ -17,13 +17,32 @@ import Passenger from '@/components/Passenger'
 
 export default {
     created() {
-        for (let i = 0; i < this.totalPassengers; i++) {
-            this.passengers.push({
-                tile: 'Miss',
+        for (let i = 0; i < this.passengers.adults; i++) {
+            this.passengerList.push({
+                type: 'adult',
+                tile: 'Mr',
                 firstName: 'Mikael',
                 lastName: 'Edebro',
                 email: 'mikael.edebro@gmail.com',
                 phone: '234432234'
+            })
+        }
+        for (let i = 0; i < this.passengers.children; i++) {
+            this.passengerList.push({
+                type: 'child',
+                tile: 'Miss',
+                firstName: 'Lille',
+                lastName: 'Edebro',
+                email: 'mikael.edebro@gmail.com',
+                phone: '234432234'
+            })
+        }
+        for (let i = 0; i < this.passengers.infants; i++) {
+            this.passengerList.push({
+                type: 'infant',
+                tile: 'Miss',
+                firstName: 'Mini',
+                lastName: 'Edebro'
             })
         }
     },
@@ -32,7 +51,7 @@ export default {
     },
     data() {
         return {
-            passengers: [],
+            passengerList: [],
             formIsValid: false
         }
     },
@@ -40,6 +59,7 @@ export default {
         ...mapGetters(
             'search',
             [
+                'passengers',
                 'totalPassengers'
             ])
     },

@@ -17,6 +17,9 @@
             <div class="passenger-and-button">
                 <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
                 <ibe-button :text="searchButtonText" :action="search" :cssClass="'button-search'"></ibe-button>
+                <!--<div class="form-group button-container">
+                    <button @click="search" class="button-search">{{searchButtonText}}</button>
+                </div>-->
             </div>
         </div>
 
@@ -132,14 +135,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .criteria-container {
     margin: 0 -5px;
+
+    /deep/ .button-search {
+        float: right;
+    }
 }
 
-.button-search {
-    float: right;
-}
 
 @include media(">=tablet") {
     .destination-select,
@@ -163,10 +167,11 @@ export default {
     }
     .button-container {
         width: 40%;
-    }
-    .button-search {
-        width: 100%;
-        display: block;
+
+        /deep/ .button-search {
+            width: 100%;
+            display: block;
+        }
     }
 }
 
@@ -249,8 +254,6 @@ export default {
         }
     }
 }
-
-
 
 .delete-icon {
     position: absolute;

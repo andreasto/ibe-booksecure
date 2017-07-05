@@ -58,8 +58,10 @@ button {
     background: white;
     text-align: center;
     border: none;
-    margin: 0 4px;
+    margin: 0;
     cursor: pointer;
+    padding: 0;
+    font-size: 12px;
 
     &[disabled] {
         cursor: default;
@@ -79,6 +81,15 @@ button {
         width: 40px;
         height: 40px;
         line-height: 40px;
+    }
+    @include media(">=350px") {
+        font-size: 14px;
+    }
+    @include media(">=400px") {
+        margin: 0 4px;
+    }
+    @include media(">=500px") {
+        margin: 0 12px;
     }
 }
 
