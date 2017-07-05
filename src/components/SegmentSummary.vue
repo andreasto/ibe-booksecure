@@ -25,6 +25,6 @@ export default {
 
 <style lang="scss">
 .segment-summary {
-    border: 1px solid red;
+    border: $border-light;
 }
 </style>

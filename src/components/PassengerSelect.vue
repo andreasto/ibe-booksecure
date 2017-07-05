@@ -8,26 +8,28 @@
 
             <ul class="dropdown-list" v-show="showDropDown" @click.stop="() => {}">
                 <li>
+                    <span class="counter">{{passengers.adults}}</span>
                     Adults
                     <div class="buttons">
                         <button @click="changePassengers('decrementAdults')">-</button>
-                        <span class="counter">{{passengers.adults}}</span>
                         <button @click="changePassengers('incrementAdults')">+</button>
                     </div>
                 </li>
                 <li>
+                    <span class="counter">{{passengers.children}}</span>
                     Children
+                    <div class="passenger-description">2-14 years</div>
                     <div class="buttons">
                         <button @click="changePassengers('decrementChildren')">-</button>
-                        <span class="counter">{{passengers.children}}</span>
                         <button @click="changePassengers('incrementChildren')">+</button>
                     </div>
                 </li>
                 <li>
+                    <span class="counter">{{passengers.infants}}</span>
                     Infants
+                    <div class="passenger-description">Under 2 years</div>
                     <div class="buttons">
                         <button @click="changePassengers('decrementInfants')">-</button>
-                        <span class="counter">{{passengers.infants}}</span>
                         <button @click="changePassengers('incrementInfants')">+</button>
                     </div>
                 </li>
@@ -79,6 +81,14 @@ export default {
             this.showDropDown = false
         },
         changePassengers(mutation) {
+            if ((this.passengers.adults === 0 && mutation === 'decrementAdults') ||
+                (this.passengers.children === 0 && mutation === 'decrementChildren') ||
+                (this.passengers.infants === 0 && mutation === 'decrementInfants')) {
+                return
+            }
+
+            // todo: implement limitations for number of travelers
+
             this.$store.commit('search/' + mutation)
             this.hideErrorMessage = this.totalPassengers > 0
         }
@@ -96,6 +106,7 @@ export default {
         cursor: default;
         padding: 15px 10px;
         border-bottom: $border-light;
+        position: relative;
 
         &:hover {
             background-color: white;
@@ -104,21 +115,31 @@ export default {
 }
 
 .counter {
+    position: relative;
+    top: 0;
     display: inline-block;
-    font-size: 18px;
-    margin: 0 4px;
+    font-size: 22px;
+    margin: 0 4px 0 0;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+}
+
+.passenger-description {
+    color: rgba(0,0,0,.4);
+    font-size: 11px;
+    line-height: 12px;
 }
 
 .buttons {
-    float: right;
-    position: relative;
-    top: -4px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
 
     button {
         $size: 38px;
 
         background: white;
-        border: 3px solid $color-primary;
+        border: 1px solid $color-primary;
         border-radius: 50%;
         width: $size;
         height: $size;

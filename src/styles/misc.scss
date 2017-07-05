@@ -11,3 +11,8 @@
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
+
+.disabled {
+    opacity: .5;
+    cursor: default;
+}

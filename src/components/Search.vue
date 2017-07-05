@@ -10,16 +10,13 @@
                 <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :iconLeft="'date_range'" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
                 <i class="material-icons delete-icon" v-show="index > 1" @click="removeFlightLeg(index)">&#xE872;</i>
             </div>
-            <a @click="addFlightLeg" class="add-leg-button" v-show="isMultiCity">
+            <a @click="addFlightLeg" class="add-leg-button" :class="{ disabled: criteria.length >= maxFlightLegs }" v-show="isMultiCity">
                 <i class="material-icons">&#xE145;</i> Add flight leg
             </a>
 
             <div class="passenger-and-button">
                 <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
                 <ibe-button :text="searchButtonText" :action="search" :cssClass="'button-search'"></ibe-button>
-                <!--<div class="form-group button-container">
-                    <button @click="search" class="button-search">{{searchButtonText}}</button>
-                </div>-->
             </div>
         </div>
 
@@ -77,7 +74,6 @@ export default {
         ...mapMutations(
             'search',
             [
-                'addFlightLeg',
                 'removeFlightLeg',
                 'changeSearchType',
                 'removeMultiCity'
@@ -114,12 +110,19 @@ export default {
                 this.validationErrors.push(errors)
             })
             return isValid
+        },
+        addFlightLeg() {
+            if (this.criteria.length >= this.maxFlightLegs) {
+                return
+            }
+            this.$store.commit('search/addFlightLeg', null, { root: true })
         }
     },
     data() {
         return {
             searchTypeData: this.$store.state.search.searchType,
-            validationErrors: []
+            validationErrors: [],
+            maxFlightLegs: 5
         }
     },
     watch: {
@@ -200,7 +203,7 @@ export default {
         @include media(">=tablet") {
             float: none;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 0;
             margin-right: 40px;
         }
     }
@@ -239,6 +242,7 @@ export default {
         padding: 0 10px 0 34px;
         height: $input-height;
         line-height: $input-height;
+        cursor: pointer;
 
         i {
             position: absolute;

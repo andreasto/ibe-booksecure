@@ -8,7 +8,6 @@
             <ibe-input :id="'some-id'" :name="'email'" :value="passenger.email" :label="'E-mail'" :validation="'required|email'" @valueChanged="passenger.email = $event" v-if="passenger.email"></ibe-input>
             <ibe-input :id="'some-id'" :name="'phone'" :value="passenger.phone" :label="'Phone'" :validation="'required'" @valueChanged="passenger.phone = $event" v-if="passenger.phone"></ibe-input>
         </div>
-        {{passenger}}
     </div>
 </template>
 
