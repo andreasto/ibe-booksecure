@@ -61,7 +61,7 @@ export default {
     },
     computed: {
         showError() {
-            return this.error && this.error.length > 0 && !this.hideErrorMessage
+            return this.error && this.error.length > 0 && !this.hideErrorMessage && !this.departureAndDestinationSelected
         },
         selectedText() {
             let text = ''
@@ -73,6 +73,9 @@ export default {
                 text = this.selectedDepartureName + ' - ' + this.selectedArrivalName
             }
             return text
+        },
+        departureAndDestinationSelected() {
+            return this.departure && this.departure.length > 0 && this.arrival && this.arrival.length > 0
         },
         classes: function () {
             return {
