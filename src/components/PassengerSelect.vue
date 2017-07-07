@@ -1,7 +1,10 @@
 <template>
     <div class="form-group passenger-select" :class="classes" v-click-outside="closeDropDown">
         <div class="click-area" @click="toggleDropDown">
-            <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
+            <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
+            <i class="icon icon-right material-icons" v-show="iconRight" v-html="iconRight"></i>
+            <i class="icon icon-close material-icons" v-show="showDropDown">&#xE5CD;</i>
+
             <div class="floating-label">Select passengers</div>
             <div class="selected-text">{{passengerSelectText}}</div>
             <span v-show="showError" class="validation-message">{{ error }}</span>
@@ -43,8 +46,8 @@ import { mapGetters } from 'vuex'
 
 export default {
     props: {
-        iconLeft: { type: String, default: 'people' },
-        iconRight: { type: String },
+        iconLeft: { type: String, default: '&#xE7FB;' },
+        iconRight: { type: String, default: '&#xE313;' },
         error: { type: String }
     },
     data() {
@@ -125,7 +128,7 @@ export default {
 }
 
 .passenger-description {
-    color: rgba(0,0,0,.4);
+    color: rgba(0, 0, 0, .4);
     font-size: 11px;
     line-height: 12px;
 }

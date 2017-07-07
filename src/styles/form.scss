@@ -140,9 +140,12 @@
         border-right: $border-light;
         border-radius: $input-border-radius 0 0 $input-border-radius;
     }
-    .icon-right {
+    .icon-right,
+    .icon-close {
         right: 1px;
         border-radius: 0 $input-border-radius $input-border-radius 0;
+        padding-right: 3px;
+        padding-left: 3px;
     }
     &.with-icon-left {
         .click-area,

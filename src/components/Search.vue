@@ -6,13 +6,12 @@
 
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
-                <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :iconLeft="'location_on'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
-                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :iconLeft="'date_range'" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
+                <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
+                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
                 <i class="material-icons delete-icon" v-show="index > 1" @click="removeFlightLeg(index)">&#xE872;</i>
             </div>
-            <a @click="addFlightLeg" class="add-leg-button" :class="{ disabled: criteria.length >= maxFlightLegs }" v-show="isMultiCity">
-                <i class="material-icons">&#xE145;</i> Add flight leg
-            </a>
+
+            <ibe-button :text="'Add flight leg'" :action="addFlightLeg" :cssClass="'button add-leg-button'" :iconLeft="'&#xE145;'" v-show="isMultiCity"></ibe-button>
 
             <div class="passenger-and-button">
                 <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
@@ -166,10 +165,10 @@ export default {
         position: relative;
     }
     .passenger-select {
-        width: 60%;
+        width: 65%;
     }
     .button-container {
-        width: 40%;
+        width: 35%;
 
         /deep/ .button-search {
             width: 100%;
@@ -231,18 +230,11 @@ export default {
         padding-right: 50px;
     }
 
-    .add-leg-button {
-        position: relative;
-        display: inline-block;
-        margin: -10px 5px 20px;
-        font-size: 16px;
-        font-weight: $font-weight-bold;
+    /deep/ .add-leg-button {
+        margin-top: -10px;
         border: 1px dotted $color-primary;
-        border-radius: $input-border-radius;
-        padding: 0 10px 0 34px;
-        height: $input-height;
-        line-height: $input-height;
-        cursor: pointer;
+        background: $color-background;
+        color: $color-text;
 
         i {
             position: absolute;
@@ -254,7 +246,7 @@ export default {
             display: block;
             float: left;
             margin: 0;
-            margin-left: 80px;
+            margin-left: 75px;
         }
     }
 }

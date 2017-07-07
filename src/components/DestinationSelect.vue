@@ -1,8 +1,9 @@
 <template>
     <div class="form-group destination-select" :class="classes" v-click-outside="closeDropDown">
         <div class="click-area" @click="toggleDropDown">
-            <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
-            <i class="icon icon-right material-icons" v-show="iconRight">{{iconRight}}</i>
+            <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
+            <i class="icon icon-right material-icons" v-show="iconRight" v-html="iconRight"></i>
+            <i class="icon icon-close material-icons" v-show="showDropDown">&#xE5CD;</i>
             <div class="floating-label">{{label}}</div>
             <input type="text" :value="selectedText" :placeholder="placeholder" class="selected-text-input" readonly>
             <span v-show="showError" class="validation-message">{{ error }}</span>
@@ -44,8 +45,8 @@ export default {
         arrival: { type: String },
         departures: { type: Array },
         destinations: { type: Array },
-        iconLeft: { type: String },
-        iconRight: { type: String, default: 'keyboard_arrow_down' },
+        iconLeft: { type: String, default: '&#xE0C8;' },
+        iconRight: { type: String, default: '&#xE313;' },
         tabindex: { type: Number, default: -1 },
         error: { type: String }
     },

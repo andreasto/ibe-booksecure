@@ -4,7 +4,7 @@
 <template>
     <div class="form-group datepicker" :class="classes">
         <div class="click-area">
-            <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
+            <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
             <div class="trip-type">{{tripType}}</div>
             <div class="floating-label">{{labelText}}</div>
             <div class="selected-text">{{selectedDatesText}}</div>
@@ -26,7 +26,7 @@ export default {
         from: { type: String, required: true },
         to: { type: String },
         mode: { type: String, default: 'single' },
-        iconLeft: { type: String },
+        iconLeft: { type: String, default: '&#xE916;' },
         iconRight: { type: String },
         error: { type: String }
     },

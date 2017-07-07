@@ -1,8 +1,10 @@
 <template>
     <div class="form-group dropdown" :class="classes" v-click-outside="closeDropDown" :style="{minWidth: minWidth}">
         <div class="click-area" @click="toggleDropDown" :tabindex="tabindex">
-            <i class="icon icon-left material-icons" v-show="iconLeft">{{iconLeft}}</i>
-            <i class="icon icon-right material-icons" v-show="iconRight">{{iconRight}}</i>
+            <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
+            <i class="icon icon-right material-icons" v-show="iconRight" v-html="iconRight"></i>
+            <i class="icon icon-close material-icons" v-show="showDropDown">&#xE5CD;</i>
+
             <div class="floating-label">{{label}}</div>
             <div class="selected-text">{{selectedText}}</div>
 
@@ -37,7 +39,7 @@ export default {
         itemValue: { type: String },
         itemText: { type: String },
         iconLeft: { type: String },
-        iconRight: { type: String, default: 'keyboard_arrow_down' },
+        iconRight: { type: String, default: '&#xE313;' },
         tabindex: { type: Number, default: -1 },
         minWidth: { type: String, default: '100px' }
     },
