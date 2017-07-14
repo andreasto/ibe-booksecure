@@ -1,6 +1,5 @@
 <template>
-    <div class="logo" :title="title" @click="navigateToHome">
-    </div>
+    <div class="logo" :title="title" @click="navigateToHome"></div>
 </template>
 
 <script>

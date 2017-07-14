@@ -1,7 +1,44 @@
 import _ from 'lodash'
 
+var bookSecure = {
+    airports: [
+        { code: 'AUH', name: 'Abu Dhabi' },
+        { code: 'AAN', name: 'Al Ain' },
+        { code: 'ATQ', name: 'Amritsar' },
+        { code: 'BAH', name: 'Bahrain' },
+        { code: 'IXC', name: 'Chandigarh' },
+        { code: 'MAA', name: 'Chennai, International Terminal' },
+        { code: 'DMM', name: 'Dammam' },
+        { code: 'DEL', name: 'Delhi International Airport, T3' },
+        { code: 'DAC', name: 'Dhaka' },
+        { code: 'DOH', name: 'Doha' },
+        { code: 'DXB', name: 'Dubai, Terminal 2' },
+        { code: 'JAI', name: 'Jaipur, Terminal 2' },
+        { code: 'COK', name: 'Kochi, International Terminal' },
+        { code: 'CCU', name: 'Kolkata' },
+        { code: 'CCJ', name: 'Kozhikode International Terminal' },
+        { code: 'KWI', name: 'Kuwait' },
+        { code: 'LKO', name: 'Lucknow' },
+        { code: 'IXE', name: 'Mangalore' },
+        { code: 'BOM', name: 'Mumbai International Airport, T2, SAHAR' },
+        { code: 'MCT', name: 'Muscat' },
+        { code: 'PNQ', name: 'Pune' },
+        { code: 'RKT', name: 'Ras Al Khaimah' },
+        { code: 'RUH', name: 'Riyadh' },
+        { code: 'SLL', name: 'Salalah' },
+        { code: 'SHJ', name: 'Sharjah' },
+        { code: 'SIN', name: 'Singapore' },
+        { code: 'TRV', name: 'Thiruvananthapuram, New Intl Term' },
+        { code: 'TRZ', name: 'Tiruchirapalli' },
+        { code: 'VNS', name: 'Varanasi' }
+    ],
+    texts: {
+        searchButtonText: 'Search'
+    }
+}
+
 const state = {
-    airports: window.bookSecure.airports,
+    airports: bookSecure.airports,
     criteria: [
         {
             departure: '',
@@ -16,7 +53,7 @@ const state = {
         infants: 1
     },
     searchType: 'single',
-    searchButtonText: window.bookSecure.texts.searchButtonText,
+    searchButtonText: bookSecure.texts.searchButtonText,
     showLoader: false,
     availability: [],
     hideSearchForm: false,
