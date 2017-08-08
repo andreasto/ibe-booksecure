@@ -14,7 +14,7 @@
                 {{msg}}
             </div>
         </ibe-notification-box>
-        <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction" :nextDisabled="formSubmitted && hasErrors"></ibe-previous-next>
+        <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
     </div>
 </template>
 
@@ -34,7 +34,8 @@ export default {
                 type: 'adult',
                 tile: 'Mr',
                 firstName: 'Steven',
-                lastName: 'Summersville'
+                lastName: 'Summersville',
+                dateOfBirth: ''
             })
         }
         for (let i = 0; i < this.passengers.children; i++) {
@@ -42,7 +43,8 @@ export default {
                 type: 'child',
                 tile: 'Miss',
                 firstName: 'Junior',
-                lastName: 'Summersville'
+                lastName: 'Summersville',
+                dateOfBirth: ''
             })
         }
         for (let i = 0; i < this.passengers.infants; i++) {
@@ -50,7 +52,8 @@ export default {
                 type: 'infant',
                 tile: 'Miss',
                 firstName: 'Mini',
-                lastName: 'Summersville'
+                lastName: 'Summersville',
+                dateOfBirth: ''
             })
         }
     },

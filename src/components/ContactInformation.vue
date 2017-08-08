@@ -12,14 +12,9 @@
 </template>
 
 <script>
-//import { mapGetters } from 'vuex'
-
 export default {
     props: {
         contactInfo: { type: Object, required: true }
-    },
-    computed: {
-
     }
 }
 </script>
