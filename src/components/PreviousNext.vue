@@ -1,7 +1,7 @@
 <template>
     <div class="previous-next">
-        <button class="button" @click="previousAction">Previous</button>
-        <button class="button" @click="nextAction">Next</button>
+        <button class="button" :disabled="previousDisabled" @click="previousAction">Previous</button>
+        <button class="button" :disabled="nextDisabled" @click="nextAction">Next</button>
     </div>
 </template>
 
@@ -11,7 +11,9 @@ import router from '@/router'
 export default {
     props: {
         previousAction: { type: Function, default: () => router.go(-1) },
-        nextAction: { type: Function, required: true }
+        nextAction: { type: Function, required: true },
+        previousDisabled: { type: Boolean, default: false },
+        nextDisabled: { type: Boolean, default: false }
     }
 }
 </script>

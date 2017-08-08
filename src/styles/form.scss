@@ -17,8 +17,15 @@
         left: 0;
         width: 100%;
         font-size: .8em;
+        line-height: 1.3em;
         color: $color-error;
         width: 100%;
+    }
+    .required-asterisk:after {
+        content: '*';
+        color: $color-error;
+        display: inline-block;
+        margin-left: 4px;
     }
     .click-area {
         position: relative;
@@ -194,4 +201,29 @@
             border-radius: 50%;
         }
     }
+}
+
+::-webkit-input-placeholder,
+{
+    /* Chrome/Opera/Safari */
+    color: $color-placeholder;
+    font-size: 13px;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color-placeholder;
+    font-size: 13px;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $color-placeholder;
+    font-size: 13px;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: $color-placeholder;
+    font-size: 13px;
 }

@@ -8,17 +8,26 @@ import router from './router'
 import store from './store'
 import VeeValidate from 'vee-validate'
 
-Vue.config.productionTip = false
-
-const validateConfig = {
-    events: 'blur'
+const validationMessages = window.bookSecure.validationMessages
+const validationDictionary = {
+    en: {
+        messages: {
+            required: () => validationMessages.required,
+            email: () => validationMessages.email
+        }
+    }
 }
 
-Vue.use(VeeValidate, validateConfig)
+VeeValidate.Validator.updateDictionary(validationDictionary)
+
+Vue.config.productionTip = false
+
+Vue.use(VeeValidate, {
+    inject: false
+})
 
 // Directives
 import ClickOutside from '@/directives/ClickOutside'
-
 Vue.directive('click-outside', ClickOutside)
 
 // Components
@@ -37,7 +46,7 @@ Vue.component('ibe-loader', Loader)
 Vue.component('ibe-datepicker', Datepicker)
 Vue.component('ibe-previous-next', PreviousNext)
 
-/* eslint-disable no-new */
+// eslint-disable-next-line
 new Vue({
     el: '#app',
     router,

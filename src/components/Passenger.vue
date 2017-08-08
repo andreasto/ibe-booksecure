@@ -1,13 +1,14 @@
 <template>
     <div class="passenger">
-        <div class="title">Passenger {{index}} <span class="passenger-type" v-if="passenger.type !== 'adult'">({{passenger.type}})</span></div>
+        <div class="title">Passenger {{index}}
+            <span class="passenger-type" v-if="passenger.type !== 'adult'">({{passenger.type}})</span>
+        </div>
         <div class="form-elements clearfix">
             <ibe-dropdown :items="titlesAdults" :value="passenger.tile" :label="'Title'" :placeholder="'Select title'" :min-width="'140px'" @valueChanged="passenger.title = $event"></ibe-dropdown>
-            <ibe-input :id="'some-id'" :name="'firstName'" :value="passenger.firstName" :label="'First name'" :validation="'required'" @valueChanged="passenger.firstName = $event"></ibe-input>
-            <ibe-input :id="'some-id'" :name="'lastName'" :value="passenger.lastName" :label="'Last name'" :validation="'required'" @valueChanged="passenger.lastName = $event"></ibe-input>
-            <ibe-input :id="'some-id'" :name="'email'" :value="passenger.email" :label="'E-mail'" :validation="'required|email'" @valueChanged="passenger.email = $event" v-if="passenger.email"></ibe-input>
-            <ibe-input :id="'some-id'" :name="'phone'" :value="passenger.phone" :label="'Phone'" :validation="'required'" @valueChanged="passenger.phone = $event" v-if="passenger.phone"></ibe-input>
+            <ibe-input :name="'passenger-' + index + '-first-name'" v-model="passenger.firstName" :label="'First name'" :placeholder="'As given in passport/photo ID'" :validation="'required'"></ibe-input>
+            <ibe-input :name="'passenger-' + index + '-last-name'" v-model="passenger.lastName" :label="'Last name'" :placeholder="'As given in passport/photo ID'" :validation="'required'"></ibe-input>
         </div>
+        {{passenger}}
     </div>
 </template>
 

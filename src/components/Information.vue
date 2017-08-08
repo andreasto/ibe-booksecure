@@ -1,40 +1,48 @@
 <template>
     <div>
-        <form @submit.prevent="validateBeforeSubmit">
+        <form @submit.prevent="nextAction">
+            <ibe-contact-information :contact-info="contactInformation"></ibe-contact-information>
+
             <div v-for="(passenger, index) in passengerList">
                 <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
             </div>
-
-            <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction"></ibe-previous-next>
         </form>
+
+        <ibe-notification-box type="error" v-if="formSubmitted && hasErrors">
+            Please correct the following errors before you continue:<br>
+            <div v-for="{msg} in uniqueErrors">
+                {{msg}}
+            </div>
+        </ibe-notification-box>
+        <ibe-previous-next :previousAction="previousAction" :nextAction="nextAction" :nextDisabled="formSubmitted && hasErrors"></ibe-previous-next>
     </div>
 </template>
 
 <script>
+import _ from 'lodash'
 import router from '@/router'
 import { mapGetters } from 'vuex'
 import Passenger from '@/components/Passenger'
+import ContactInformation from '@/components/ContactInformation'
+import NotificationBox from '@/components/NotificationBox'
 
 export default {
+    $validates: true,
     created() {
         for (let i = 0; i < this.passengers.adults; i++) {
             this.passengerList.push({
                 type: 'adult',
                 tile: 'Mr',
-                firstName: 'Mikael',
-                lastName: 'Edebro',
-                email: 'mikael.edebro@gmail.com',
-                phone: '234432234'
+                firstName: 'Steven',
+                lastName: 'Summersville'
             })
         }
         for (let i = 0; i < this.passengers.children; i++) {
             this.passengerList.push({
                 type: 'child',
                 tile: 'Miss',
-                firstName: 'Lille',
-                lastName: 'Edebro',
-                email: 'mikael.edebro@gmail.com',
-                phone: '234432234'
+                firstName: 'Junior',
+                lastName: 'Summersville'
             })
         }
         for (let i = 0; i < this.passengers.infants; i++) {
@@ -42,17 +50,20 @@ export default {
                 type: 'infant',
                 tile: 'Miss',
                 firstName: 'Mini',
-                lastName: 'Edebro'
+                lastName: 'Summersville'
             })
         }
     },
     components: {
-        'ibe-passenger': Passenger
+        'ibe-passenger': Passenger,
+        'ibe-contact-information': ContactInformation,
+        'ibe-notification-box': NotificationBox
     },
     data() {
         return {
             passengerList: [],
-            formIsValid: false
+            formIsValid: true,
+            formSubmitted: false
         }
     },
     computed: {
@@ -61,36 +72,44 @@ export default {
             [
                 'passengers',
                 'totalPassengers'
-            ])
+            ]
+        ),
+        ...mapGetters(
+            'cart',
+            [
+                'contactInformation'
+            ]
+        ),
+        hasErrors() {
+            return this.errors.any()
+        },
+        uniqueErrors() {
+            return _.uniqBy(this.errors.errors, 'msg')
+        }
     },
     methods: {
-        validateBeforeSubmit() {
-            this.$validator.validateAll().then((result) => {
-                // eslint-disable-next-line
-                console.log(result)
-            }).catch(() => {
-                // eslint-disable-next-line
-                alert('Correct them errors!')
-            })
-        },
         previousAction() {
             router.push('select')
         },
         nextAction() {
             console.log('next to options')
+            this.formSubmitted = true
 
-            // this.validateBeforeSubmit()
+            this.$validator.validateAll().then((result) => {
+                console.log('result', result)
+                console.log('errors.any()', this.errors)
 
-            // if (!this.formIsValid) {
-            //     return
-            // }
+                if (result) {
+                    this.formIsValid = true
+                    this.$store.commit('navigation/unlock', 'options')
+                    this.$store.dispatch('navigation/navigateTo', 'options')
+                    return
+                }
 
-            this.$store.commit('navigation/unlock', 'options')
-            this.$store.dispatch('navigation/navigateTo', 'options')
-        },
-        validateForm() {
-            console.log('validate form')
-            this.formIsValid = true
+                this.formIsValid = false
+            }).catch(() => {
+                this.formIsValid = false
+            })
         }
     }
 }

@@ -1,6 +1,7 @@
 $logo-url: 'https://res.cloudinary.com/wego/c_fit,h_270,f_auto,fl_lossy,q_80/v20170627/flights/airlines_rectangular/IX.png';
 $logo-width: 200px;
 $logo-height: 80px;
+
 $color-primary: #E21C48;
 $color-second: #4F7298;
 $color-third: #E9F0FA;
@@ -9,8 +10,11 @@ $color-background: #fff;
 $color-text: #2c3e50;
 $color-link: #3F3075;
 $color-hover: $color-third;
+$color-placeholder: rgba(0,0,0,.4);
+
 $font-family-normal: 'Open Sans', sans-serif;
 $font-family-heading: 'Open Sans', sans-serif;
+
 $button-normal-background: $color-primary;
 $button-normal-text: white;
 $button-cta-background: $color-primary;
