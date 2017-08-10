@@ -6,7 +6,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import VeeValidate from 'vee-validate'
+import VeeValidate, { Validator } from 'vee-validate'
 
 const validationMessages = window.bookSecure.validationMessages
 const validationDictionary = {
@@ -18,7 +18,18 @@ const validationDictionary = {
     }
 }
 
-VeeValidate.Validator.updateDictionary(validationDictionary)
+// todo: break out to mixin or plugin
+Validator.extend('date_of_birth', {
+    getMessage: (field, args) => {
+        return validationMessages.dateOfBirthInvalid
+    },
+    validate: (value, args) => {
+        // todo: add more advanced logic for verifying correct date of birth
+        return value.length === 10
+    }
+})
+
+Validator.updateDictionary(validationDictionary)
 
 Vue.config.productionTip = false
 

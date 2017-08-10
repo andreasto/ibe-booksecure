@@ -18,7 +18,7 @@
                         <button @click="changePassengers('incrementAdults')">+</button>
                     </div>
                 </li>
-                <li>
+                <li v-if="settings.allowChildren">
                     <span class="counter">{{passengers.children}}</span>
                     Children
                     <div class="passenger-description">2-14 years</div>
@@ -27,7 +27,7 @@
                         <button @click="changePassengers('incrementChildren')">+</button>
                     </div>
                 </li>
-                <li>
+                <li v-if="settings.allowChildren">
                     <span class="counter">{{passengers.infants}}</span>
                     Infants
                     <div class="passenger-description">Under 2 years</div>
@@ -53,7 +53,8 @@ export default {
     data() {
         return {
             hideErrorMessage: false,
-            showDropDown: false
+            showDropDown: false,
+            settings: window.bookSecure.settings
         }
     },
     computed: {

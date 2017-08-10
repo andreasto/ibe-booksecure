@@ -35,6 +35,10 @@ const mutations = {
     unlock(state, section) {
         // todo: make sure state has the section passed in with Object.keys
         state[section].canAccess = true
+    },
+    lock(state, section) {
+        // todo: make sure state has the section passed in with Object.keys
+        state[section].canAccess = false
     }
 }
 

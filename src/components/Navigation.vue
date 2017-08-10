@@ -1,17 +1,23 @@
 <template>
     <div class="navigation">
         <button :class="{active: currentRoute === 'Home' || currentRoute === 'Search'}" @click="navigateTo('/')" :disabled="!canAccessSearch">
-            <i>1</i>Search</button>
+            <i>1</i>Search
+        </button>
         <button :class="{active: currentRoute === 'Select'}" @click="navigateTo('/select')" :disabled="!canAccessSelect">
-            <i>2</i>Select</button>
+            <i>2</i>Select
+        </button>
         <button :class="{active: currentRoute === 'Information'}" @click="navigateTo('/information')" :disabled="!canAccessInformation">
-            <i>3</i>Information</button>
-        <button :class="{active: currentRoute === 'Options'}" @click="navigateTo('/options')" :disabled="!canAccessOptions">
-            <i>4</i>Options</button>
+            <i>3</i>Information
+        </button>
+        <button :class="{active: currentRoute === 'Options'}" @click="navigateTo('/options')" :disabled="!canAccessOptions" v-if="enableOptionsSection">
+            <i>4</i>Options
+        </button>
         <button :class="{active: currentRoute === 'Payment'}" @click="navigateTo('/payment')" :disabled="!canAccessPayment">
-            <i>5</i>Payment</button>
+            <i>5</i>Payment
+        </button>
         <button :class="{active: currentRoute === 'Receipt'}" @click="navigateTo('/receipt')" :disabled="!canAccessReceipt">
-            <i>6</i>Receipt</button>
+            <i>6</i>Receipt
+        </button>
         <div class="error" v-show="showError">Can't navigate to this</div>
     </div>
 </template>
@@ -20,6 +26,11 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+    data() {
+        return {
+            enableOptionsSection: window.bookSecure.settings.enableOptionsSection
+        }
+    },
     computed: {
         currentRoute() {
             return this.$route.name
@@ -55,7 +66,7 @@ export default {
 }
 
 button {
-    background: white;
+    background: $color-background;
     text-align: center;
     border: none;
     margin: 0;
@@ -81,6 +92,7 @@ button {
         width: 40px;
         height: 40px;
         line-height: 40px;
+        background: white;
     }
     @include media(">=350px") {
         font-size: 14px;

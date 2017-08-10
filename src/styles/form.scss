@@ -11,6 +11,14 @@
             border: 1px solid $color-error;
         }
     }
+    &.required {
+        label:after {
+            content: '*';
+            color: $color-error;
+            display: inline-block;
+            margin-left: 4px;
+        }
+    }
     .validation-message {
         position: absolute;
         top: $input-height;
@@ -20,12 +28,6 @@
         line-height: 1.3em;
         color: $color-error;
         width: 100%;
-    }
-    .required-asterisk:after {
-        content: '*';
-        color: $color-error;
-        display: inline-block;
-        margin-left: 4px;
     }
     .click-area {
         position: relative;
@@ -58,6 +60,7 @@
         background-color: white;
         width: 100%;
         border-radius: $input-border-radius;
+        outline: none;
     }
     .selected-text-input {
         position: absolute;
@@ -88,6 +91,9 @@
         height: 100%;
         border-radius: $input-border-radius;
         border: none;
+        &.is-invalid {
+            border: 1px solid $color-error;
+        }
     }
     input {
         padding: 18px 10px 8px;
@@ -97,15 +103,23 @@
         width: 100%;
     }
     select {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 18px 10px 8px 7px;
+        padding: 20px 10px 8px 6px;
         line-height: 1.8em;
-        font-size: 1em;
+        font-size: .9em;
         height: 100%;
         width: 100%;
         border: none;
+        color: $color-placeholder;
+        &.has-value {
+            color: black;
+            font-size: 1em;
+        }
+        option {
+            color: black;
+        }
+        option[disabled]:first-child {
+            display: none;
+        }
     }
     .dropdown-list {
         position: absolute;
@@ -132,7 +146,7 @@
         position: absolute;
         padding: 8px 6px 0 6px;
         font-size: 28px;
-        color: $color-primary-dark;
+        color: $color-primary-lighter;
         background-color: white;
         pointer-events: none;
         outline: none;
@@ -143,8 +157,8 @@
     }
     .icon-left {
         left: 1px;
-        background-color: rgba(0, 0, 0, .03);
-        border-right: $border-light;
+        //background-color: rgba(0, 0, 0, .03);
+        //border-right: $border-light;
         border-radius: $input-border-radius 0 0 $input-border-radius;
     }
     .icon-right,
@@ -207,23 +221,23 @@
 {
     /* Chrome/Opera/Safari */
     color: $color-placeholder;
-    font-size: 13px;
+    font-size: .9em;
 }
 
 ::-moz-placeholder {
     /* Firefox 19+ */
     color: $color-placeholder;
-    font-size: 13px;
+    font-size: .9em;
 }
 
 :-ms-input-placeholder {
     /* IE 10+ */
     color: $color-placeholder;
-    font-size: 13px;
+    font-size: .9em;
 }
 
 :-moz-placeholder {
     /* Firefox 18- */
     color: $color-placeholder;
-    font-size: 13px;
+    font-size: .9em;
 }

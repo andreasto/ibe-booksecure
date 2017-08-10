@@ -14,6 +14,15 @@
 
     <script>
         var bookSecure = {
+            settings: {
+                maxFlightLegs: 5,
+                allowChildren: true,
+                enablePromoCode: true,
+                enableOptionsSection: true,
+                enableRoundTrip: true,
+                enableContactInfoPrimaryPassenger: true,
+                enableContactInfoAllPassengers: false,
+            },
             airports: [
                 { code: 'AUH', name: 'Abu Dhabi' },
                 { code: 'AAN', name: 'Al Ain' },
@@ -46,13 +55,18 @@
                 { code: 'VNS', name: 'Varanasi' }
             ],
             texts: {
-                searchButtonText: 'Search'
+                searchButtonText: 'Search',
+                infantInformation: 'The infant should be 14 days old before air travel'
             },
             validationMessages: {
                 required: 'The field is required',
                 email: 'Please enter a valid e-mail',
                 alpha_num: 'No special characters',
                 date_format: 'Wrong date format',
+                year: 'Invalid year',
+                month: 'Invalid month',
+                day: 'Invalid day',
+                dateOfBirthInvalid: 'Invalid date of birth'
             }
         }
     </script>

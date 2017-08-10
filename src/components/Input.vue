@@ -1,9 +1,9 @@
 <template>
-    <div class="form-group input" :class="{'is-invalid': errors.has(name) }">
+    <div class="form-group input" :class="classes">
         <div class="click-area">
-            <label class="floating-label" for="input">{{label}}
-                <span class="required-asterisk" v-if="isRequired"></span>
-            </label>
+            <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
+
+            <label class="floating-label" for="input">{{label}}</label>
             <input type="text" :value="value" :placeholder="placeholder" :id="id" :name="name" v-validate="validation" @input="$emit('input', $event.target.value)">
             <span v-show="errors.has(name)" class="validation-message">{{ errors.first(name) }}</span>
         </div>
@@ -20,13 +20,36 @@ export default {
         name: { type: String, default: randomString(6) },
         value: String,
         label: String,
-        validation: String,
+        validation: { type: String, default: '' },
+        iconLeft: { type: String },
         placeholder: String
     },
     computed: {
+        classes () {
+            return {
+                'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
+                'is-invalid': this.errors.has(this.name),
+                'required': this.isRequired
+            }
+        },
         isRequired() {
-            return this.validation.indexOf('required') > -1
+            return this.validation && this.validation.indexOf('required') > -1
         }
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.form-group {
+    &.with-icon-left {
+        .click-area {
+            padding-left: 0;
+        }
+
+        input {
+            padding-left: 48px;
+        }
+    }
+}
+</style>
+

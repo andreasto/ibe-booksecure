@@ -13,10 +13,11 @@ const state = {
             arrivalDate: ''
         }
     ],
+    promoCode: '',
     passengers: {
-        adults: 2,
-        children: 1,
-        infants: 1
+        adults: 1,
+        children: 0,
+        infants: 0
     },
     searchType: 'single',
     searchButtonText: texts.searchButtonText,
@@ -33,8 +34,18 @@ const getters = {
     airports: state => state.airports,
     passengers: state => state.passengers,
     totalPassengers: state => state.passengers.adults + state.passengers.children + state.passengers.infants,
-    passengerSelectText: state => `${state.passengers.adults} adults, ${state.passengers.children + state.passengers.infants} children`,
+    passengerSelectText: state => {
+        let text = `${state.passengers.adults} `
+        text += state.passengers.adults === 1 ? 'adult' : 'adults'
+
+        if ((state.passengers.children + state.passengers.infants) > 0) {
+            text += `, ${state.passengers.children + state.passengers.infants} `
+            text += (state.passengers.children + state.passengers.infants) === 1 ? 'child' : 'children'
+        }
+        return text
+    },
     criteria: state => state.criteria,
+    promoCode: state => state.promoCode,
     searchType: state => state.searchType,
     searchButtonText: state => state.searchButtonText,
     showLoader: state => state.showLoader,
@@ -78,6 +89,9 @@ const mutations = {
     },
     addAvailability(state, availability) {
         state.availability = availability
+    },
+    addPromoCode(state, promoCode) {
+        state.promoCode = promoCode
     },
     changeSearchType(state, value) {
         if (value === 'multiCity') {

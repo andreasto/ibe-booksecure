@@ -5,12 +5,7 @@ const state = {
     cart: {
         selectedFlights: [],
         firstVisit: true,
-        contactInformation: {
-            phone: '',
-            mobile: '',
-            workPhone: '',
-            email: ''
-        }
+        passengers: []
     }
 }
 
@@ -18,7 +13,8 @@ const getters = {
     cart: (state) => state.cart,
     selectedFlights: (state) => state.cart.selectedFlights,
     allFlightsSelected: (state) => state.cart.selectedFlights.length === store.getters['search/numberOfLegs'],
-    contactInformation: (state) => state.cart.contactInformation
+    contactInformation: (state) => state.cart.contactInformation,
+    cartPassengers: (state) => state.cart.passengers
 }
 
 const mutations = {

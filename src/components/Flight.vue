@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .flight {
+    background: white;
     border: 1px solid;
     margin-bottom: 20px;
     padding: 20px;

@@ -1,15 +1,15 @@
 <template>
     <div>
         <form @submit.prevent="nextAction">
-            <ibe-contact-information :contact-info="contactInformation"></ibe-contact-information>
-
-            <div v-for="(passenger, index) in passengerList">
+            <div v-for="(passenger, index) in cartPassengers">
                 <ibe-passenger :passenger="passenger" :index="index + 1"></ibe-passenger>
             </div>
         </form>
 
         <ibe-notification-box type="error" v-if="formSubmitted && hasErrors">
-            Please correct the following errors before you continue:<br>
+            Please correct the following errors before you continue:
+            <br>
+            <br>
             <div v-for="{msg} in uniqueErrors">
                 {{msg}}
             </div>
@@ -23,48 +23,49 @@ import _ from 'lodash'
 import router from '@/router'
 import { mapGetters } from 'vuex'
 import Passenger from '@/components/Passenger'
-import ContactInformation from '@/components/ContactInformation'
 import NotificationBox from '@/components/NotificationBox'
 
 export default {
     $validates: true,
-    created() {
+    mounted() {
+        let Passenger = function (type) {
+            this.type = type || 'adult'
+            this.title = ''
+            this.firstName = ''
+            this.lastName = ''
+            this.dateOfBirth = ''
+            this.contactInformation = {
+                phone: '',
+                mobile: '',
+                workPhone: '',
+                email: ''
+            }
+            this.addressInformation = {
+                address: '',
+                address2: '',
+                zip: '',
+                city: '',
+                state: '',
+                country: ''
+            }
+        }
+        this.cartPassengers = []
         for (let i = 0; i < this.passengers.adults; i++) {
-            this.passengerList.push({
-                type: 'adult',
-                tile: 'Mr',
-                firstName: 'Steven',
-                lastName: 'Summersville',
-                dateOfBirth: ''
-            })
+            this.cartPassengers.push(new Passenger())
         }
         for (let i = 0; i < this.passengers.children; i++) {
-            this.passengerList.push({
-                type: 'child',
-                tile: 'Miss',
-                firstName: 'Junior',
-                lastName: 'Summersville',
-                dateOfBirth: ''
-            })
+            this.cartPassengers.push(new Passenger('child'))
         }
         for (let i = 0; i < this.passengers.infants; i++) {
-            this.passengerList.push({
-                type: 'infant',
-                tile: 'Miss',
-                firstName: 'Mini',
-                lastName: 'Summersville',
-                dateOfBirth: ''
-            })
+            this.cartPassengers.push(new Passenger('infant'))
         }
     },
     components: {
         'ibe-passenger': Passenger,
-        'ibe-contact-information': ContactInformation,
         'ibe-notification-box': NotificationBox
     },
     data() {
         return {
-            passengerList: [],
             formIsValid: true,
             formSubmitted: false
         }
@@ -80,7 +81,7 @@ export default {
         ...mapGetters(
             'cart',
             [
-                'contactInformation'
+                'cartPassengers'
             ]
         ),
         hasErrors() {
@@ -99,9 +100,6 @@ export default {
             this.formSubmitted = true
 
             this.$validator.validateAll().then((result) => {
-                console.log('result', result)
-                console.log('errors.any()', this.errors)
-
                 if (result) {
                     this.formIsValid = true
                     this.$store.commit('navigation/unlock', 'options')
@@ -109,10 +107,14 @@ export default {
                     return
                 }
 
-                this.formIsValid = false
+                this.invalidateForm()
             }).catch(() => {
-                this.formIsValid = false
+                this.invalidateForm()
             })
+        },
+        invalidateForm() {
+            this.formIsValid = false
+            this.$store.commit('navigation/lock', 'options')
         }
     }
 }

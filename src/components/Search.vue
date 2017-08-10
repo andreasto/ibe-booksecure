@@ -2,7 +2,7 @@
     <div class="clearfix">
 
         <div class="criteria-container clearfix" v-show="!hideSearchForm" :class="{multicity: isMultiCity}">
-            <ibe-search-type-switch></ibe-search-type-switch>
+            <ibe-search-type-switch v-if="enableRoundTrip"></ibe-search-type-switch>
 
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
@@ -17,6 +17,10 @@
                 <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
                 <ibe-button :text="searchButtonText" :action="search" :cssClass="'button-search'"></ibe-button>
             </div>
+
+            <div class="promo-code" v-if="enablePromoCode">
+                <ibe-input v-model="promoCode" :name="'criteria-promo'" :label="'Promo code'" :placeholder="'Enter promo code here'" :icon-left="'&#xE8F6;'"></ibe-input>
+            </div>
         </div>
 
         <!--<ibe-login-form></ibe-login-form>-->
@@ -25,6 +29,9 @@
         <code>
             <h4>Criteria</h4>
             {{criteria}}
+
+            <h4>Promo code</h4>
+            {{promoCode}}
         </code>
 
     </div>
@@ -45,6 +52,15 @@ export default {
         'ibe-destination-select': DestinationSelect,
         'ibe-search-type-switch': SearchTypeSwitch
     },
+    data() {
+        return {
+            searchTypeData: this.$store.state.search.searchType,
+            validationErrors: [],
+            maxFlightLegs: window.bookSecure.settings.maxFlightLegs,
+            enablePromoCode: window.bookSecure.settings.enablePromoCode,
+            enableRoundTrip: window.bookSecure.settings.enableRoundTrip
+        }
+    },
     computed: {
         isMultiCity() {
             return this.criteria.length > 1 && this.searchType === 'multiCity'
@@ -61,7 +77,11 @@ export default {
                 'showLoader',
                 'hideSearchForm'
             ]
-        )
+        ),
+        promoCode: {
+            get() { return this.$store.getters['search/promoCode'] },
+            set(value) { this.$store.commit('search/addPromoCode', value, {root: true}) }
+        }
     },
     methods: {
         ...mapActions(
@@ -117,13 +137,6 @@ export default {
             this.$store.commit('search/addFlightLeg', null, { root: true })
         }
     },
-    data() {
-        return {
-            searchTypeData: this.$store.state.search.searchType,
-            validationErrors: [],
-            maxFlightLegs: 5
-        }
-    },
     watch: {
         searchTypeData(val, oldVal) {
             if (val === 'single') {
@@ -153,6 +166,11 @@ export default {
     .passenger-select,
     .button-container {
         float: left;
+    }
+
+    .promo-code {
+        clear: both;
+        max-width: 220px;
     }
 
     .destination-select {
