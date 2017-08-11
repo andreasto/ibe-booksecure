@@ -1,11 +1,11 @@
 <template>
     <div class="contact-information">
-        <div class="title">Contact information</div>
+        <h3>Contact information</h3>
         <div class="form-elements clearfix">
-            <ibe-input :id="'contact-phone'" :name="'contactPhone'" v-model="contactInfo.phone" :label="'Home phone'" :placeholder="'i.e. 004355744880046'" :validation="'required|alpha_num'"></ibe-input>
-            <ibe-input :id="'contact-mobile'" :name="'contactMobile'" v-model="contactInfo.mobile" :label="'Mobile phone'" :placeholder="'i.e. 004355744880046'" :validation="'required|alpha_num'"></ibe-input>
-            <ibe-input :id="'contact-work-phone'" :name="'contactWorkPhone'" v-model="contactInfo.workPhone" :label="'Work phone'" :placeholder="'i.e. 004355744880046'" :validation="'alpha_num'"></ibe-input>
-            <ibe-input :id="'contact-email'" :name="'contactEmail'" v-model="contactInfo.email" :label="'Email'" :validation="'required|email'"></ibe-input>
+            <ibe-input v-model="contactInfo.phone" :id="idPrefix + '-contact-phone'" :name="idPrefix + '-contact-phone'" :label="'Home phone'" :placeholder="'i.e. 004355744880046'" :validation="'required|alpha_num'"></ibe-input>
+            <ibe-input v-model="contactInfo.mobile" :id="idPrefix + '-contact-mobile'" :name="idPrefix + '-contact-mobile'" :label="'Mobile phone'" :placeholder="'i.e. 004355744880046'" :validation="'required|alpha_num'"></ibe-input>
+            <ibe-input v-model="contactInfo.workPhone" :id="idPrefix + '-contact-work-phone'" :name="idPrefix + '-contact-work-phone'" :label="'Work phone'" :placeholder="'i.e. 004355744880046'" :validation="'alpha_num'"></ibe-input>
+            <ibe-input v-model="contactInfo.email" :id="idPrefix + '-contact-email'" :name="idPrefix + '-contact-email'" :label="'Email'" :validation="'required|email'"></ibe-input>
         </div>
     </div>
 </template>
@@ -13,7 +13,13 @@
 <script>
 export default {
     props: {
-        contactInfo: { type: Object, required: true }
+        contactInfo: { type: Object, required: true },
+        index: { type: Number, required: true }
+    },
+    data() {
+        return {
+            idPrefix: 'passenger-' + this.index
+        }
     }
 }
 </script>
@@ -28,10 +34,7 @@ export default {
     }
 }
 
-.title {
-    font-size: 16px;
-    background: $color-third;
-    padding: 10px;
-    margin: 0 -10px 15px;
+h3 {
+    margin: 5px 0 10px 5px;
 }
 </style>

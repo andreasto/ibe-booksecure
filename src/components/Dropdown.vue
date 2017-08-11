@@ -4,9 +4,9 @@
             <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
             <i class="icon icon-right material-icons" v-show="iconRight" v-html="iconRight"></i>
 
-            <div class="floating-label">{{label}}</div>
+            <label class="floating-label">{{label}}</label>
 
-            <select :value="value" :name="name" v-validate="validation" @change="$emit('input', $event.target.value)" :class="{ 'has-value': value && value.length > 0 }">
+            <select :value="value" :id="id" :name="name" v-validate="validation" @change="$emit('input', $event.target.value)" :class="{ 'has-value': value && value.length > 0 }">
                 <option value="" selected disabled v-if="showPlaceholder">{{placeholder}}</option>
                 <option v-for="item in items" :value="itemValue ? item[itemValue] : item">{{ itemText ? item[itemText] : item }}</option>
             </select>
@@ -16,11 +16,14 @@
 </template>
 
 <script>
+import { randomString } from '@/services/helpers'
+
 export default {
     inject: ['$validator'],
     props: {
         label: { type: String },
-        name: { type: String },
+        id: { type: String, default: randomString(6) },
+        name: { type: String, default: randomString(6) },
         placeholder: { type: String },
         value: { type: String },
         items: { type: Array },
@@ -38,7 +41,7 @@ export default {
         }
     },
     computed: {
-        classes () {
+        classes() {
             return {
                 'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
                 'with-icon-right': this.iconRight && this.iconRight.length > 0,

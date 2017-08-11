@@ -24,9 +24,6 @@
         top: $input-height;
         left: 0;
         width: 100%;
-        font-size: .8em;
-        line-height: 1.3em;
-        color: $color-error;
         width: 100%;
     }
     .click-area {
@@ -156,8 +153,7 @@
         user-select: none;
     }
     .icon-left {
-        left: 1px;
-        //background-color: rgba(0, 0, 0, .03);
+        left: 1px; //background-color: rgba(0, 0, 0, .03);
         //border-right: $border-light;
         border-radius: $input-border-radius 0 0 $input-border-radius;
     }
@@ -177,6 +173,12 @@
             left: 48px;
         }
     }
+}
+
+.validation-message {
+    font-size: 12px;
+    line-height: 1.3em;
+    color: $color-error;
 }
 
 .radio-button {

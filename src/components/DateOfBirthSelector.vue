@@ -65,12 +65,6 @@ export default {
         }
     },
     methods: {
-        changeYear() {
-            console.log('change year')
-        },
-        changeMonth() {
-            console.log('change month')
-        },
         changeDateOfBirth() {
             this.dateOfBirth = `${this.year}-${this.month}-${this.day}`
             this.$emit('input', this.dateOfBirth)

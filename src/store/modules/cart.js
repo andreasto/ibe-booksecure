@@ -1,40 +1,78 @@
 import store from '@/store'
 import _ from 'lodash'
+import {passengerTypes} from '@/core/constants'
 
 const state = {
-    cart: {
-        selectedFlights: [],
-        firstVisit: true,
-        passengers: []
-    }
+    selectedFlights: [],
+    firstVisit: true,
+    passengers: [],
+    pax: ''
 }
 
 const getters = {
-    cart: (state) => state.cart,
-    selectedFlights: (state) => state.cart.selectedFlights,
-    allFlightsSelected: (state) => state.cart.selectedFlights.length === store.getters['search/numberOfLegs'],
-    contactInformation: (state) => state.cart.contactInformation,
-    cartPassengers: (state) => state.cart.passengers
+    selectedFlights: (state) => state.selectedFlights,
+    allFlightsSelected: (state) => state.selectedFlights.length === store.getters['search/numberOfLegs'],
+    contactInformation: (state) => state.contactInformation,
+    cartPassengers: (state) => state.passengers,
+    pax: (state) => state.pax
 }
 
 const mutations = {
     selectFlight(state, payload) {
         payload.flight.selected = true
-        let flightLeg = _.find(state.cart.selectedFlights, { leg: payload.leg })
+        let flightLeg = _.find(state.selectedFlights, { leg: payload.leg })
         if (!flightLeg) {
-            state.cart.selectedFlights.push({ flight: payload.flight, leg: payload.leg })
+            state.selectedFlights.push({ flight: payload.flight, leg: payload.leg })
         } else {
-            state.cart.selectedFlights[payload.leg] = { flight: payload.flight, leg: payload.leg }
+            state.selectedFlights[payload.leg] = { flight: payload.flight, leg: payload.leg }
         }
     },
     clearSelectedItems(state) {
-        state.cart.selectedFlights = []
-        state.cart.firstVisit = true
+        state.selectedFlights = []
+        state.firstVisit = true
 
         // todo: clear selected options etc
     },
     setFirstVisit(state, value) {
-        state.cart.firstVisit = value
+        state.firstVisit = value
+    },
+    initiatePassengers(state, criteriaPassengers) {
+        let Passenger = function (type) {
+            this.type = type || passengerTypes.adult
+            this.title = ''
+            this.firstName = ''
+            this.lastName = ''
+            this.dateOfBirth = ''
+            this.passportNumber = ''
+            this.contactInformation = {
+                phone: '',
+                mobile: '',
+                workPhone: '',
+                email: ''
+            }
+            this.addressInformation = {
+                address1: '',
+                address2: '',
+                zip: '',
+                city: '',
+                state: '',
+                country: ''
+            }
+        }
+        state.passengers = []
+
+        for (let i = 0; i < criteriaPassengers.adults; i++) {
+            state.passengers.push(new Passenger())
+        }
+        for (let i = 0; i < criteriaPassengers.children; i++) {
+            state.passengers.push(new Passenger(passengerTypes.child))
+        }
+        for (let i = 0; i < criteriaPassengers.infants; i++) {
+            state.passengers.push(new Passenger(passengerTypes.infant))
+        }
+    },
+    savePax(state, pax) {
+        state.pax = pax
     }
 }
 
@@ -43,14 +81,14 @@ const actions = {
         commit('search/unselectAllFlightsInLeg', payload.leg, { root: true })
         commit('selectFlight', payload)
 
-        let flightsForAllLegsSelected = state.cart.selectedFlights.length === rootGetters['search/numberOfLegs']
+        let flightsForAllLegsSelected = state.selectedFlights.length === rootGetters['search/numberOfLegs']
         if (!flightsForAllLegsSelected) {
             return
         }
 
         commit('navigation/unlock', 'information', { root: true })
 
-        if (state.cart.firstVisit) {
+        if (state.firstVisit) {
             commit('setFirstVisit', false)
             dispatch('navigation/navigateTo', 'information', { root: true })
         }

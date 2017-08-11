@@ -27,37 +27,12 @@ import NotificationBox from '@/components/NotificationBox'
 
 export default {
     $validates: true,
-    mounted() {
-        let Passenger = function (type) {
-            this.type = type || 'adult'
-            this.title = ''
-            this.firstName = ''
-            this.lastName = ''
-            this.dateOfBirth = ''
-            this.contactInformation = {
-                phone: '',
-                mobile: '',
-                workPhone: '',
-                email: ''
-            }
-            this.addressInformation = {
-                address: '',
-                address2: '',
-                zip: '',
-                city: '',
-                state: '',
-                country: ''
-            }
-        }
-        this.cartPassengers = []
-        for (let i = 0; i < this.passengers.adults; i++) {
-            this.cartPassengers.push(new Passenger())
-        }
-        for (let i = 0; i < this.passengers.children; i++) {
-            this.cartPassengers.push(new Passenger('child'))
-        }
-        for (let i = 0; i < this.passengers.infants; i++) {
-            this.cartPassengers.push(new Passenger('infant'))
+    created() {
+        // only instantiate array of cart passengers if PAX changes OR if no passengers has yet been created in cart (avoid overwriting passenger details if customers searches again)
+        const passengersFromSearchEqualToInCart = this.pax === '' + this.passengers.adults + this.passengers.children + this.passengers.infants
+        if (!passengersFromSearchEqualToInCart || this.cartPassengers.length === 0) {
+            this.$store.commit('cart/savePax', '' + this.passengers.adults + this.passengers.children + this.passengers.infants, { root: true })
+            this.$store.commit('cart/initiatePassengers', this.passengers, { root: true })
         }
     },
     components: {
@@ -81,7 +56,8 @@ export default {
         ...mapGetters(
             'cart',
             [
-                'cartPassengers'
+                'cartPassengers',
+                'pax'
             ]
         ),
         hasErrors() {
