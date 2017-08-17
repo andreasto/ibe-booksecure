@@ -1,11 +1,13 @@
 <template>
-    <div class="logo" :title="title" @click="navigateToHome"></div>
+    <img class="logo" :title="logo.title" :src="logo.url" :style="{ width: logo.width, height: logo.height }" @click="navigateToHome" />
 </template>
 
 <script>
 export default {
-    props: {
-        title: { type: String }
+    data() {
+        return {
+            logo: window.bookSecure.settings.logo
+        }
     },
     methods: {
         navigateToHome() {

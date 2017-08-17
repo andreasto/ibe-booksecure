@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { randomString } from '@/services/helpers'
+import { randomString } from '@/core/helpers'
 
 export default {
     inject: ['$validator'],

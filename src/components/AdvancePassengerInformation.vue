@@ -6,7 +6,7 @@
 
         <div class="form-elements clearfix" v-if="showPassport">
             <h3>Travel document</h3>
-            <ibe-input v-model="passportNumber" :id="idPrefix + '-passport'" :name="idPrefix + '-passport'" :label="'Passport number'" :placeholder="'Enter passport number'" :validation="'required'"></ibe-input>
+            <ibe-input v-model="passenger.passportNumber" :id="idPrefix + '-passport'" :name="idPrefix + '-passport'" :label="'Passport number'" :placeholder="'Enter passport number'" :validation="'required'"></ibe-input>
             <label class="label-confirm" :class="{'is-invalid': errors.has(idPrefix + '-passport-confirmed')}">
                 <input type="checkbox" v-model="passportConfirmed" :id="idPrefix + '-passport-confirmed'" :name="idPrefix + '-passport-confirmed'" v-validate.passportConfirmed="'required'"> I confirm that the document information that I have provided is correct
                 <div v-show="errors.has(idPrefix + '-passport-confirmed')" class="validation-message">{{ errors.first(idPrefix + '-passport-confirmed') }}</div>
@@ -21,7 +21,7 @@ import { countries } from '@/core/countries'
 export default {
     inject: ['$validator'],
     props: {
-        passportNumber: { type: String, required: true },
+        passenger: { type: Object, required: true },
         index: { type: Number, required: true }
     },
     data() {

@@ -153,8 +153,7 @@
         user-select: none;
     }
     .icon-left {
-        left: 1px; //background-color: rgba(0, 0, 0, .03);
-        //border-right: $border-light;
+        left: 1px;
         border-radius: $input-border-radius 0 0 $input-border-radius;
     }
     .icon-right,
@@ -167,10 +166,10 @@
     &.with-icon-left {
         .click-area,
         .selected-text-input {
-            padding-left: 48px;
+            padding-left: $input-icon-padding;
         }
         .floating-label {
-            left: 48px;
+            left: $input-icon-padding;
         }
     }
 }

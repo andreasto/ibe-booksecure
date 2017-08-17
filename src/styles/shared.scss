@@ -16,6 +16,7 @@ $xlarge: 1200px;
 $input-height: 50px;
 $input-border-radius: 4px;
 $input-padding: 5px;
+$input-icon-padding: 45px;
 
 /* Typography */
 $font-weight-light: 300;
@@ -39,6 +40,7 @@ $box-shadow-light: 0 0 10px rgba(0, 0, 0, .07);
 $border-radius: 5px;
 $border-normal: 1px solid rgba(0, 0, 0, .2);
 $border-light: 1px solid rgba(0, 0, 0, .1);
+$border-lighter: 1px solid rgba(0, 0, 0, .04);
 
 /* Colors */
 $color-light-amount: 10%;
@@ -70,3 +72,6 @@ $z-index-highest: 100;
 $z-index-low: -10;
 $z-index-lower: -20;
 $z-index-lowest: -100;
+
+/* specific */
+$flight-height: 115px;

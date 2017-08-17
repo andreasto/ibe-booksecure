@@ -20,12 +20,14 @@ const getters = {
 const mutations = {
     selectFlight(state, payload) {
         payload.flight.selected = true
-        let flightLeg = _.find(state.selectedFlights, { leg: payload.leg })
-        if (!flightLeg) {
-            state.selectedFlights.push({ flight: payload.flight, leg: payload.leg })
-        } else {
-            state.selectedFlights[payload.leg] = { flight: payload.flight, leg: payload.leg }
+
+        payload.flight.fareTypes.forEach((fareType) => { fareType.selected = false })
+        payload.fareType.selected = true
+        let flightLegIndex = _.findIndex(state.selectedFlights, { leg: payload.leg })
+        if (flightLegIndex > -1) {
+            state.selectedFlights.splice(flightLegIndex, 1)
         }
+        state.selectedFlights.push({ flight: payload.flight, leg: payload.leg })
     },
     clearSelectedItems(state) {
         state.selectedFlights = []

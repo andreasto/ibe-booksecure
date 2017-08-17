@@ -18,7 +18,7 @@
             <ibe-address-information :address-info="passenger.addressInformation" :index="index"></ibe-address-information>
         </div>
         <div class="advance-passenger-information" v-if="enableAdvancePassengerInformation">
-            <ibe-advance-passenger-information :passport-number="passenger.passportNumber" :index="index"></ibe-advance-passenger-information>
+            <ibe-advance-passenger-information :passenger="passenger" :index="index"></ibe-advance-passenger-information>
         </div>
         {{passenger}}
     </div>

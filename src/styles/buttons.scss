@@ -22,6 +22,12 @@
     }
 }
 
+.button-icon {
+    position: absolute;
+    left: 6px;
+    top: 10px;
+}
+
 .button {
     @include button($button-normal-background, $button-normal-text);
 }
@@ -33,4 +39,17 @@
 .button-search {
     @include button($button-search-background, $button-search-text);
     font-weight: $font-weight-bold;
+}
+
+.button-link {
+    @include button($color-background, black);
+    border: none;
+    text-transform: none;
+    height: auto;
+    padding: 6px 6px 6px 0;
+    font-size: 15px;
+
+    .button-icon {
+        top: 2px;
+    }
 }

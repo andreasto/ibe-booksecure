@@ -19,12 +19,19 @@
                 allowChildren: true,
                 enablePromoCode: true,
                 enableOptionsSection: true,
-                enableRoundTrip: true,
+                enableMultiCity: true,
                 enableContactInfoPrimaryPassenger: true,
                 enableContactInfoAllPassengers: false,
                 enableAddressInfoPrimaryPassenger: true,
                 enableAddressInfoAllPassengers: true,
                 enableAdvancePassengerInformation: true,
+                currency: 'AED',
+                logo: {
+                    url: 'https://res.cloudinary.com/wego/c_fit,h_270,f_auto,fl_lossy,q_80/v20170627/flights/airlines_rectangular/IX.png',
+                    width: '200px',
+                    height: '80px',
+                    title: 'Air India Express'
+                }
             },
             airports: [
                 { code: 'AUH', name: 'Abu Dhabi' },
@@ -59,7 +66,9 @@
             ],
             texts: {
                 searchButtonText: 'Search',
-                infantInformation: 'The infant should be 14 days old before air travel'
+                infantInformation: 'The infant should be 14 days old before air travel',
+                additionalFlightsExpandText: 'Click for additional flights',
+                additionalFlightsCollapseText: 'Click to close additional flights',
             },
             validationMessages: {
                 required: 'The field is required',

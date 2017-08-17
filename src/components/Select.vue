@@ -1,15 +1,18 @@
 <template>
     <div>
-        {{selectedFlights}} {{allFlightsSelected}}
         <div v-for="(leg, index) in availability" class="leg clearfix">
             <h3>Leg {{index + 1}}</h3>
-            <div v-show="!showList" class="selected-flight">
-                <ibe-flight :flight="leg[0]" :leg="index" v-show="!showList"></ibe-flight>
-                <ibe-button :action="() => {showList = !showList}" :text="'Show more flights'" class="more-flights-button"></ibe-button>
+            <div v-show="!legsExpanded[index]" class="selected-flight">
+                <ibe-flight :flight="selectedFlightsInLegs[index] ? selectedFlightsInLegs[index] : leg[0]" :leg="index"></ibe-flight>
             </div>
 
-            <div v-for="flight in leg" v-show="showList">
+            <div v-for="flight in leg" v-show="legsExpanded[index]">
                 <ibe-flight :flight="flight" :leg="index"></ibe-flight>
+            </div>
+
+            <div class="more-flights-button">
+                <ibe-button v-show="!legsExpanded[index]" :action="() => {toggleLeg(index)}" :text="additionalFlightsExpandText" :cssClass="'button-link'" :icon-left="'&#xE145;'"></ibe-button>
+                <ibe-button v-show="legsExpanded[index]" :action="() => {toggleLeg(index)}" :text="additionalFlightsCollapseText" :cssClass="'button-link'" :icon-left="'&#xE15B;'"></ibe-button>
             </div>
         </div>
 
@@ -19,16 +22,23 @@
 
 <script>
 import router from '@/router'
+import _ from 'lodash'
 import { mapGetters } from 'vuex'
-import Flight from '@/components/Flight'
+import Flight from '@/components/flight/Flight'
 
 export default {
-    components: {
-        'ibe-flight': Flight
+    created() {
+        this.availability.forEach((availability) => {
+            this.legsExpanded.push(false)
+        })
     },
-    data: () => ({
-        showList: false
-    }),
+    data() {
+        return {
+            legsExpanded: [],
+            additionalFlightsExpandText: window.bookSecure.texts.additionalFlightsExpandText,
+            additionalFlightsCollapseText: window.bookSecure.texts.additionalFlightsCollapseText
+        }
+    },
     computed: {
         ...mapGetters(
             'search',
@@ -42,9 +52,21 @@ export default {
                 'selectedFlights',
                 'allFlightsSelected'
             ]
-        )
+        ),
+        selectedFlightsInLegs() {
+            let selectedFlights = []
+            _.flatten(this.availability).forEach((avail) => {
+                if (avail.selected) {
+                    selectedFlights.push(avail)
+                }
+            })
+            return selectedFlights
+        }
     },
     methods: {
+        toggleLeg(index) {
+            this.legsExpanded.splice(index, 1, !this.legsExpanded[index])
+        },
         previousAction() {
             router.push('search')
         },
@@ -52,21 +74,21 @@ export default {
             console.log('go next')
             if (!this.allFlightsSelected) {
                 console.log('select flights for all legs first')
+                // todo: show message to user
                 return
             }
 
             this.$store.dispatch('navigation/navigateTo', 'information')
         }
+    },
+    components: {
+        'ibe-flight': Flight
     }
 }
 </script>
 
 <style lang="scss">
-.selected-flight {
-    margin-bottom: 20px;
-}
-
 .more-flights-button {
-    float: right;
+    text-align: center;
 }
 </style>

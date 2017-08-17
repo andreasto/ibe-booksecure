@@ -2,7 +2,7 @@
     <div class="clearfix">
 
         <div class="criteria-container clearfix" v-show="!hideSearchForm" :class="{multicity: isMultiCity}">
-            <ibe-search-type-switch v-if="enableRoundTrip"></ibe-search-type-switch>
+            <ibe-search-type-switch v-if="enableMultiCity"></ibe-search-type-switch>
 
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
@@ -58,7 +58,7 @@ export default {
             validationErrors: [],
             maxFlightLegs: window.bookSecure.settings.maxFlightLegs,
             enablePromoCode: window.bookSecure.settings.enablePromoCode,
-            enableRoundTrip: window.bookSecure.settings.enableRoundTrip
+            enableMultiCity: window.bookSecure.settings.enableMultiCity
         }
     },
     computed: {

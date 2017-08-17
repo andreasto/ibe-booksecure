@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { randomString } from '@/services/helpers'
+import { randomString } from '@/core/helpers'
 
 export default {
     inject: ['$validator'],
@@ -47,7 +47,7 @@ export default {
         }
 
         input {
-            padding-left: 48px;
+            padding-left: $input-icon-padding;
         }
     }
 }

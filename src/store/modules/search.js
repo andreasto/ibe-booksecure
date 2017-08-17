@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { randomString } from '@/core/helpers'
 
 const airports = window.bookSecure.airports
 const texts = window.bookSecure.texts
@@ -129,6 +130,10 @@ const mutations = {
         }
         state.availability[leg].forEach((flight) => {
             flight.selected = false
+
+            flight.fareTypes.forEach((fareType) => {
+                fareType.selected = false
+            })
         })
     }
 }
@@ -143,6 +148,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 let flight = {
+                    id: randomString(5),
                     departure: 'AUH',
                     departureName: 'Abu Dhabi',
                     departureDate: '2017-10-05 00:05',
@@ -153,8 +159,9 @@ const actions = {
                     duration: '3:30',
                     flightNumber: 'IX-116',
                     fareTypes: [
-                        { type: 'Express VALUE (FBA 30Kgs)', price: 448.21 },
-                        { type: 'Express FLEXI (FBA 30Kgs)', price: 2356.21 }
+                        { id: randomString(5), type: 'Express VALUE (FBA 30Kgs)', price: 448.21, selected: false },
+                        { id: randomString(5), type: 'Express PLUS (FBA 30Kgs)', price: 1448.21, selected: false },
+                        { id: randomString(5), type: 'Express FLEXI (FBA 30Kgs)', price: 2356.21, selected: false }
                     ],
                     selected: false
                 }
