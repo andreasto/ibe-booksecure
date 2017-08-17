@@ -58,12 +58,10 @@ export default {
 }
 
 .segment-summary {
-    padding-left: 110px;
 
     @include media(">tablet") {
         float: left;
         width: 50%;
-        padding-left: 110px;
         border-right: $border-light;
     }
 }

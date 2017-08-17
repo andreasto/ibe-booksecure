@@ -20,7 +20,7 @@
         <div class="advance-passenger-information" v-if="enableAdvancePassengerInformation">
             <ibe-advance-passenger-information :passenger="passenger" :index="index"></ibe-advance-passenger-information>
         </div>
-        {{passenger}}
+        <!-- {{passenger}} -->
     </div>
 </template>
 

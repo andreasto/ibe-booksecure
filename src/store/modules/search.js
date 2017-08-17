@@ -96,7 +96,9 @@ const mutations = {
     },
     changeSearchType(state, value) {
         if (value === 'multiCity') {
-            state.criteria[0].arrivalDate = ''
+            let firstLeg = state.criteria[0]
+            firstLeg.arrivalDate = ''
+            state.criteria.splice(0, 1, firstLeg)
         }
 
         state.searchType = value

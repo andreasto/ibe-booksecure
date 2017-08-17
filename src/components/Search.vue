@@ -47,11 +47,6 @@ export default {
     created() {
         this.$store.commit('search/showSearchForm')
     },
-    components: {
-        'ibe-login-form': LoginForm,
-        'ibe-destination-select': DestinationSelect,
-        'ibe-search-type-switch': SearchTypeSwitch
-    },
     data() {
         return {
             searchTypeData: this.$store.state.search.searchType,
@@ -146,6 +141,11 @@ export default {
             }
             this.changeSearchType(val)
         }
+    },
+    components: {
+        'ibe-login-form': LoginForm,
+        'ibe-destination-select': DestinationSelect,
+        'ibe-search-type-switch': SearchTypeSwitch
     }
 }
 </script>

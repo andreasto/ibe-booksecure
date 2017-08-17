@@ -6,8 +6,12 @@
         <div class="segment-summary__date right">{{arrivalTime}}</div>
         <div class="clearfix"></div>
 
-        <div class="segment-summary__location">{{flight.departureName}}</div>
-        <div class="segment-summary__location right">{{flight.arrivalName}}</div>
+        <div class="segment-summary__location">{{flight.departureName}}
+            <span class="segment-summary__airport-code">({{flight.departure}})</span>
+        </div>
+        <div class="segment-summary__location right">{{flight.arrivalName}}
+            <span class="segment-summary__airport-code">({{flight.arrival}})</span>
+        </div>
         <div class="clearfix"></div>
 
         <div class="segment-summary__time">{{flight.departureTime}}</div>
@@ -49,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .segment-summary {
     color: black;
     font-size: 14px;
@@ -58,6 +62,7 @@ export default {
     padding: 10px;
     height: 100%;
     border-bottom: $border-lighter;
+    padding-left: 110px;
 
     @include media(">tablet") {
         border-bottom: none;

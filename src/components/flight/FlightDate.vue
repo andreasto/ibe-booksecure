@@ -44,7 +44,7 @@ export default {
         margin-bottom: 5px;
     }
     .day {
-        font-size: 28px;
+        font-size: 30px;
         margin-bottom: 5px;
         font-weight: $font-weight-bold;
     }
