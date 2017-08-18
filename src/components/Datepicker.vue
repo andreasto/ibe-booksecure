@@ -7,7 +7,7 @@
             <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
             <div class="trip-type">{{tripType}}</div>
             <div class="floating-label">{{labelText}}</div>
-            <div class="selected-text">{{selectedDatesText}}</div>
+            <div class="selected-text" :class="{placeholder: (!fromDateSelected && !toDateSelected)}">{{selectedDatesText}}</div>
             <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates"></flat-pickr>
             <span v-show="showError" class="validation-message">{{ error }}</span>
         </div>
@@ -90,10 +90,19 @@ export default {
                 return text
             }
 
+            let fromDateMoment = moment(this.fromDate)
+            let toDateMoment = moment(this.toDate)
+
             if ((this.fromDateSelected && !this.toDateSelected) || (this.fromDate === this.toDate)) {
-                text = this.fromDate
+                text = fromDateMoment.date() + ' ' + fromDateMoment.format('MMM')
             } else if (this.fromDateSelected && this.toDateSelected) {
-                text = this.fromDate + ' - ' + this.toDate
+                var tripIsWithinSameMonth = fromDateMoment.isSame(toDateMoment, 'year') && fromDateMoment.isSame(toDateMoment, 'month')
+
+                if (tripIsWithinSameMonth) {
+                    text = fromDateMoment.date() + ' - ' + toDateMoment.date() + ' ' + fromDateMoment.format('MMM')
+                } else {
+                    text = `${fromDateMoment.date()} ${fromDateMoment.format('MMM')} - ${toDateMoment.date()} ${toDateMoment.format('MMM')}`
+                }
             }
 
             return text

@@ -219,6 +219,11 @@
     }
 }
 
+.placeholder {
+    color: $color-placeholder;
+    font-size: .9em;
+}
+
 ::-webkit-input-placeholder,
 {
     /* Chrome/Opera/Safari */

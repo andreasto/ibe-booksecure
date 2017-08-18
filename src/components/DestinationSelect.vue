@@ -167,13 +167,17 @@ export default {
         font-size: 16px;
     }
 }
+.departures {
+    @include media(">tablet") {
+        border-right: $border-light;
+    }
+}
 
 .destinations {
     border-top: $border-light;
 
     @include media(">tablet") {
         border-top: none;
-        border-left: $border-light;
     }
 }
 

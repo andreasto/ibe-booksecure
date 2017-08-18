@@ -149,13 +149,15 @@ const actions = {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
+                let departureAirport = _.find(state.airports, {code: state.criteria[0].departure})
+                let arrivalAirport = _.find(state.airports, {code: state.criteria[0].arrival})
                 let flight = {
                     id: randomString(5),
-                    departure: 'AUH',
-                    departureName: 'Abu Dhabi',
+                    departure: departureAirport.code,
+                    departureName: departureAirport.name,
                     departureDate: '2017-10-05 00:05',
-                    arrival: 'DEL',
-                    arrivalName: 'Delhi International Airport ,T3',
+                    arrival: arrivalAirport.code,
+                    arrivalName: arrivalAirport.name,
                     arrivalDate: '2017-11-05 05:05',
                     stops: 0,
                     duration: '3:30',

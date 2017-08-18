@@ -18,7 +18,7 @@
                         <button @click="changePassengers('incrementAdults')">+</button>
                     </div>
                 </li>
-                <li v-if="settings.allowChildren">
+                <li v-if="allowChildren">
                     <span class="counter">{{passengers.children}}</span>
                     Children
                     <div class="passenger-description">2-14 years</div>
@@ -27,7 +27,7 @@
                         <button @click="changePassengers('incrementChildren')">+</button>
                     </div>
                 </li>
-                <li v-if="settings.allowChildren">
+                <li v-if="allowChildren">
                     <span class="counter">{{passengers.infants}}</span>
                     Infants
                     <div class="passenger-description">Under 2 years</div>
@@ -35,6 +35,9 @@
                         <button @click="changePassengers('decrementInfants')">-</button>
                         <button @click="changePassengers('incrementInfants')">+</button>
                     </div>
+                </li>
+                <li v-if="errorMessages.length > 0">
+                    <div v-for="errorMessage in errorMessages" class="error-message">{{errorMessage}}</div>
                 </li>
             </ul>
         </div>
@@ -54,7 +57,11 @@ export default {
         return {
             hideErrorMessage: false,
             showDropDown: false,
-            settings: window.bookSecure.settings
+            allowChildren: window.bookSecure.settings.allowChildren,
+            maxNumberOfAdults: window.bookSecure.settings.maxNumberOfAdults,
+            maxNumberOfChildren: window.bookSecure.settings.maxNumberOfChildren,
+            maxNumberOfInfantsPerAdult: window.bookSecure.settings.maxNumberOfInfantsPerAdult,
+            errorMessages: []
         }
     },
     computed: {
@@ -85,14 +92,27 @@ export default {
             this.showDropDown = false
         },
         changePassengers(mutation) {
+            this.errorMessages = []
+
             if ((this.passengers.adults === 0 && mutation === 'decrementAdults') ||
                 (this.passengers.children === 0 && mutation === 'decrementChildren') ||
                 (this.passengers.infants === 0 && mutation === 'decrementInfants')) {
                 return
             }
 
-            // todo: implement limitations for number of travelers
+            if (this.maxNumberOfAdults && this.passengers.adults >= this.maxNumberOfAdults && mutation === 'incrementAdults') {
+                this.errorMessages.push(`Max ${this.maxNumberOfAdults} adults allowed`)
+            }
+            if (this.maxNumberOfChildren && this.passengers.children >= this.maxNumberOfChildren && mutation === 'incrementChildren') {
+                this.errorMessages.push(`Max ${this.maxNumberOfChildren} children allowed`)
+            }
+            if (this.maxNumberOfInfantsPerAdult && this.passengers.infants >= (this.passengers.adults * this.maxNumberOfInfantsPerAdult) && mutation === 'incrementInfants') {
+                this.errorMessages.push(`Max ${this.maxNumberOfInfantsPerAdult} infants per adult allowed`)
+            }
 
+            if (this.errorMessages.length > 0) {
+                return
+            }
             this.$store.commit('search/' + mutation)
             this.hideErrorMessage = this.totalPassengers > 0
         }
@@ -150,5 +170,8 @@ export default {
         font-size: 26px;
         cursor: pointer;
     }
+}
+.error-message {
+    font-size: 13px;
 }
 </style>
