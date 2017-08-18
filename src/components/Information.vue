@@ -22,7 +22,7 @@
 import _ from 'lodash'
 import router from '@/router'
 import { mapGetters } from 'vuex'
-import Passenger from '@/components/Passenger'
+import Passenger from '@/components/passenger/Passenger'
 import NotificationBox from '@/components/NotificationBox'
 
 export default {

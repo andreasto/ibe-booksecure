@@ -28,9 +28,9 @@
 import { mapGetters } from 'vuex'
 import { passengerTypes } from '@/core/constants'
 import DateOfBirthSelector from '@/components/DateOfBirthSelector'
-import ContactInformation from '@/components/ContactInformation'
-import AddressInformation from '@/components/AddressInformation'
-import AdvancePassengerInformation from '@/components/AdvancePassengerInformation'
+import ContactInformation from '@/components/passenger/ContactInformation'
+import AddressInformation from '@/components/passenger/AddressInformation'
+import AdvancePassengerInformation from '@/components/passenger/AdvancePassengerInformation'
 
 export default {
     props: {
