@@ -1,5 +1,7 @@
 <template>
     <div>
+        <!-- selectedFlights: {{selectedFlights}}<br>
+        selectedFlightsInLegs: {{selectedFlightsInLegs}} -->
         <div v-for="(leg, index) in availability" class="leg clearfix">
             <h3>Leg {{index + 1}}</h3>
             <div v-show="!legsExpanded[index]" class="selected-flight">
@@ -58,6 +60,8 @@ export default {
             _.flatten(this.availability).forEach((avail) => {
                 if (avail.selected) {
                     selectedFlights.push(avail)
+                } else {
+                    selectedFlights.push(undefined)
                 }
             })
             return selectedFlights

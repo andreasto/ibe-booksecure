@@ -12,14 +12,17 @@
                 <div class="departures">
                     <h3>Select departure:</h3>
                     <div v-for="(item, index) in departures" @click="selectDeparture(item)" :class="{selected: item.code === departure}" class="destination">
-                        {{ item.name }} <span class="code">({{item.code}})</span>
+                        {{ item.name }}
+                        <span class="code">({{item.code}})</span>
                     </div>
                 </div>
                 <transition name="fade">
                     <div class="destinations" v-show="hasSelectedDeparture">
                         <h3>Select destination:</h3>
-                        <div v-for="(item, index) in destinations" @click="selectDestination(item)" :class="{selected: item.code === arrival}" class="destination">
-                            {{ item.name }} <span class="code">({{item.code}})</span>
+                        <div v-if="!hasDestinations" class="no-destinations">No destinations available</div>
+                        <div v-if="hasDestinations" v-for="(item, index) in destinations" @click="selectDestination(item)" :class="{selected: item.code === arrival}" class="destination">
+                            {{ item.name }}
+                            <span class="code">({{item.code}})</span>
                         </div>
                     </div>
                 </transition>
@@ -29,6 +32,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
     mounted() {
         if (this.departure && this.departures.length > 0) {
@@ -43,8 +48,7 @@ export default {
         placeholder: { type: String },
         departure: { type: String },
         arrival: { type: String },
-        departures: { type: Array },
-        destinations: { type: Array },
+        airports: { type: Array, required: true },
         iconLeft: { type: String, default: '&#xE0C8;' },
         iconRight: { type: String, default: '&#xE313;' },
         tabindex: { type: Number, default: -1 },
@@ -78,13 +82,35 @@ export default {
         departureAndDestinationSelected() {
             return this.departure && this.departure.length > 0 && this.arrival && this.arrival.length > 0
         },
-        classes: function () {
+        classes() {
             return {
                 'dropdown-open': this.showDropDown,
                 'with-icon-left': this.iconLeft && this.iconLeft.length > 0,
                 'with-icon-right': this.iconRight && this.iconRight.length > 0,
                 'is-invalid': this.showError
             }
+        },
+        departures() {
+            let airportsWithAvailableDestinations = this.airports.filter((airport) => airport.availableDestinations.length > 0)
+            return airportsWithAvailableDestinations
+        },
+        destinations() {
+            let availableDestinations = []
+            let selectedDeparture = _.find(this.departures, { code: this.departure })
+
+            if (!selectedDeparture) {
+                return []
+            }
+            selectedDeparture.availableDestinations.forEach((id) => {
+                let airport = _.find(this.airports, { id: id })
+                if (airport) {
+                    availableDestinations.push(airport)
+                }
+            })
+            return availableDestinations
+        },
+        hasDestinations() {
+            return this.destinations.length > 0
         }
     },
     methods: {
@@ -125,7 +151,7 @@ export default {
 
 .departures,
 .destinations {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 500px;
 
     @include media(">tablet") {
@@ -161,8 +187,12 @@ export default {
 
 .code {
     display: inline-block;
-    color: rgba(0,0,0,.3);
+    color: rgba(0, 0, 0, .3);
     margin-left: 6px;
+}
+.no-destinations {
+    font-style: italic;
+    padding-left: 10px;
 }
 
 .selected {

@@ -6,7 +6,7 @@
 
             <div class="criteria-row clearfix" v-for="(row, index) in criteria">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
-                <ibe-destination-select :departures="airports" :destinations="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
+                <ibe-destination-select :airports="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
                 <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
                 <i class="material-icons delete-icon" v-show="index > 1" @click="removeFlightLeg(index)">&#xE872;</i>
             </div>
