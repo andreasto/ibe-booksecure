@@ -13,28 +13,19 @@
                 <li>
                     <span class="counter">{{passengers.adults}}</span>
                     Adults
-                    <div class="buttons">
-                        <button @click="changePassengers('decrementAdults')">-</button>
-                        <button @click="changePassengers('incrementAdults')">+</button>
-                    </div>
+                    <ibe-add-subtract-buttons class="buttons" :add-callback="() => { changePassengers('incrementAdults') }" :subtract-callback="() => { changePassengers('decrementAdults') }"></ibe-add-subtract-buttons>
                 </li>
                 <li v-if="allowChildren">
                     <span class="counter">{{passengers.children}}</span>
                     Children
                     <div class="passenger-description">2-14 years</div>
-                    <div class="buttons">
-                        <button @click="changePassengers('decrementChildren')">-</button>
-                        <button @click="changePassengers('incrementChildren')">+</button>
-                    </div>
+                    <ibe-add-subtract-buttons class="buttons" :add-callback="() => { changePassengers('incrementChildren') }" :subtract-callback="() => { changePassengers('decrementChildren') }"></ibe-add-subtract-buttons>
                 </li>
                 <li v-if="allowChildren">
                     <span class="counter">{{passengers.infants}}</span>
                     Infants
                     <div class="passenger-description">Under 2 years</div>
-                    <div class="buttons">
-                        <button @click="changePassengers('decrementInfants')">-</button>
-                        <button @click="changePassengers('incrementInfants')">+</button>
-                    </div>
+                    <ibe-add-subtract-buttons class="buttons" :add-callback="() => { changePassengers('incrementInfants') }" :subtract-callback="() => { changePassengers('decrementInfants') }"></ibe-add-subtract-buttons>
                 </li>
                 <li v-if="errorMessages.length > 0">
                     <div v-for="errorMessage in errorMessages" class="error-message">{{errorMessage}}</div>
@@ -46,6 +37,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import AddSubtractButtons from '@/components/AddSubtractButtons'
 
 export default {
     props: {
@@ -116,6 +108,9 @@ export default {
             this.$store.commit('search/' + mutation)
             this.hideErrorMessage = this.totalPassengers > 0
         }
+    },
+    components: {
+        'ibe-add-subtract-buttons': AddSubtractButtons
     }
 }
 </script>
@@ -158,18 +153,6 @@ export default {
     position: absolute;
     top: 12px;
     right: 10px;
-
-    button {
-        $size: 38px;
-
-        background: white;
-        border: 1px solid $color-primary;
-        border-radius: 50%;
-        width: $size;
-        height: $size;
-        font-size: 26px;
-        cursor: pointer;
-    }
 }
 .error-message {
     font-size: 13px;
