@@ -1,7 +1,9 @@
 <template>
     <div class="fare-type" @click="selectFlight" :class="classes" :style="{width: width}">
         <div class="type">{{fareType.type}}</div>
-        <div class="price">{{currency + ' ' + fareType.price}}</div>
+        <label class="radio-button price">
+            <input type="radio" :checked="fareType.selected"> {{currency + ' ' + fareType.price}}
+        </label>
     </div>
 </template>
 
@@ -38,7 +40,7 @@ export default {
 .fare-type {
     float: left;
     padding: 20px 10px;
-    border-right: $border-lighter;
+    border-right: $border-light;
     text-align: center;
 
     &:last-of-type {
@@ -50,7 +52,11 @@ export default {
     }
 }
 .type {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: $font-weight-bold;
 }
 
 .selected {

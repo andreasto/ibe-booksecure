@@ -3,7 +3,7 @@
         <!-- selectedFlights: {{selectedFlights}}<br>
         selectedFlightsInLegs: {{selectedFlightsInLegs}} -->
         <div v-for="(leg, index) in availability" class="leg clearfix">
-            <h3>Leg {{index + 1}}</h3>
+            <ibe-flight-header :index="index"></ibe-flight-header>
             <div v-show="!legsExpanded[index]" class="selected-flight">
                 <ibe-flight :flight="selectedFlightsInLegs[index] ? selectedFlightsInLegs[index] : leg[0]" :leg="index"></ibe-flight>
             </div>
@@ -27,6 +27,7 @@ import router from '@/router'
 import _ from 'lodash'
 import { mapGetters } from 'vuex'
 import Flight from '@/components/flight/Flight'
+import FlightHeader from '@/components/flight/FlightHeader'
 
 export default {
     created() {
@@ -86,7 +87,8 @@ export default {
         }
     },
     components: {
-        'ibe-flight': Flight
+        'ibe-flight': Flight,
+        'ibe-flight-header': FlightHeader
     }
 }
 </script>

@@ -4,7 +4,7 @@
             <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
 
             <label class="floating-label" for="input">{{label}}</label>
-            <input type="text" :value="value" :placeholder="placeholder" :id="id" :name="name" v-validate="validation" @input="$emit('input', $event.target.value)">
+            <input :type="type" :value="value" :placeholder="placeholder" :id="id" :name="name" v-validate="validation" @input="$emit('input', $event.target.value)">
             <span v-show="errors.has(name)" class="validation-message">{{ errors.first(name) }}</span>
         </div>
     </div>
@@ -22,7 +22,8 @@ export default {
         label: String,
         validation: { type: String, default: '' },
         iconLeft: { type: String },
-        placeholder: String
+        placeholder: String,
+        type: { type: String, default: 'text' }
     },
     computed: {
         classes () {
