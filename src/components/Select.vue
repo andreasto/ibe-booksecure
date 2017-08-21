@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- selectedFlights: {{selectedFlights}}<br>
+         <!-- selectedFlights: {{selectedFlights}}<br>
         selectedFlightsInLegs: {{selectedFlightsInLegs}} -->
         <div v-for="(leg, index) in availability" class="leg clearfix">
             <ibe-flight-header :index="index"></ibe-flight-header>
@@ -24,7 +24,6 @@
 
 <script>
 import router from '@/router'
-import _ from 'lodash'
 import { mapGetters } from 'vuex'
 import Flight from '@/components/flight/Flight'
 import FlightHeader from '@/components/flight/FlightHeader'
@@ -58,10 +57,14 @@ export default {
         ),
         selectedFlightsInLegs() {
             let selectedFlights = []
-            _.flatten(this.availability).forEach((avail) => {
-                if (avail.selected) {
-                    selectedFlights.push(avail)
-                } else {
+
+            this.availability.forEach((leg, index) => {
+                leg.forEach((flight) => {
+                    if (flight.selected) {
+                        selectedFlights.push(flight)
+                    }
+                })
+                if (selectedFlights.length - 1 < index) {
                     selectedFlights.push(undefined)
                 }
             })
