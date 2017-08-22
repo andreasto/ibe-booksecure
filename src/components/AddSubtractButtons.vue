@@ -1,7 +1,7 @@
 <template>
     <div class="add-subtract-buttons">
         <button @click="subtractCallback">-</button>
-        <span class="counter" v-if="counter">{{counter}}</span>
+        <span class="counter" v-if="counter !== false">{{counter}}</span>
         <button @click="addCallback">+</button>
     </div>
 </template>

@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import { randomString } from '@/core/helpers'
+import {mockedAvailability} from './../../mock/availability.js'
 
 const airports = window.bookSecure.airports
 const texts = window.bookSecure.texts
@@ -141,6 +142,9 @@ const mutations = {
 }
 
 const actions = {
+    searchFlightsMocked() {
+        console.log(mockedAvailability)
+    },
     searchFlights({ dispatch, commit, state }) {
         commit('cart/clearSelectedItems', null, { root: true })
         commit('navigation/resetAccess', null, { root: true })
@@ -149,8 +153,8 @@ const actions = {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                let departureAirport = _.find(state.airports, {code: state.criteria[0].departure})
-                let arrivalAirport = _.find(state.airports, {code: state.criteria[0].arrival})
+                let departureAirport = _.find(state.airports, { code: state.criteria[0].departure })
+                let arrivalAirport = _.find(state.airports, { code: state.criteria[0].arrival })
                 let flight = {
                     id: randomString(5),
                     departure: departureAirport.code,

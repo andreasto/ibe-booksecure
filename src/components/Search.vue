@@ -82,7 +82,8 @@ export default {
         ...mapActions(
             'search',
             [
-                'searchFlights'
+                'searchFlights',
+                'searchFlightsMocked'
             ]
         ),
         ...mapMutations(
@@ -98,7 +99,7 @@ export default {
                 return
             }
 
-            this.searchFlights()
+            this.searchFlightsMocked()
         },
         validateCriteria() {
             let isValid = true

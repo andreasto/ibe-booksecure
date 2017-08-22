@@ -18,12 +18,14 @@
         <ibe-footer v-show="!onlySearchForm"></ibe-footer>
 
         <ibe-button :action="clearLocalStorage" :text="'Clear localStorage'"></ibe-button>
+        <ibe-button :action="testApi" :text="'Test API'"></ibe-button>
         <ibe-viewport-size></ibe-viewport-size>
 
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ColorPalette from '@/components/ColorPalette'
@@ -57,6 +59,33 @@ export default {
         clearLocalStorage() {
             localStorage.clear()
             sessionStorage.clear()
+        },
+        testApi() {
+            const url = 'http://mikaeledebro-001-site6.itempurl.com/availability.json'
+            // const request = {
+            //     Adults: 1,
+            //     Children: 0,
+            //     Infants: 0,
+            //     Routes: [
+            //         {
+            //             FromAirport: 'BOG',
+            //             ToAirport: 'CTG',
+            //             StartDate: '2017-10-31',
+            //             EndDate: '2017-11-31'
+            //         }
+            //     ],
+            //     PromoCode: '',
+            //     CreditId: 17,
+            //     Currency: 'COP'
+            // }
+
+            axios.get(url)
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         }
     }
 }

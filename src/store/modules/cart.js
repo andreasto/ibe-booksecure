@@ -1,11 +1,20 @@
 import store from '@/store'
 import _ from 'lodash'
-import {passengerTypes} from '@/core/constants'
+import { passengerTypes } from '@/core/constants'
 
 const state = {
     selectedFlights: [],
     firstVisit: true,
     passengers: [],
+    options: [
+        { id: 1, title: '05KG EXTRA BAGGAGE', price: 100, quantity: 0 },
+        { id: 2, title: '10KG EXTRA BAGGAGE', price: 200, quantity: 0 },
+        { id: 3, title: 'SPECIAL PROMOTION 10KG EXTRA BAGGAGE', price: 100, quantity: 0 },
+        { id: 4, title: 'SPECIAL PROMOTION 10KG EXTRA BAGGAGE', price: 150, quantity: 0 },
+        { id: 5, title: 'SPECIAL PROMOTION 20KG EXTRA BAGGAGE', price: 200, quantity: 0 },
+        { id: 6, title: 'WHEELCHAIR FOR DEPARTURE FROM AUH&DXB', price: 175, quantity: 0 }
+    ],
+    selectedOptions: [],
     pax: ''
 }
 
@@ -14,7 +23,9 @@ const getters = {
     allFlightsSelected: (state) => state.selectedFlights.length === store.getters['search/numberOfLegs'],
     contactInformation: (state) => state.contactInformation,
     cartPassengers: (state) => state.passengers,
-    pax: (state) => state.pax
+    pax: (state) => state.pax,
+    options: (state) => state.options,
+    selectedOptions: (state) => state.selectedOptions
 }
 
 const mutations = {
@@ -75,6 +86,15 @@ const mutations = {
     },
     savePax(state, pax) {
         state.pax = pax
+    },
+    addSelectedOption(state, { optionId, flightId, passengerIndex }) {
+        state.selectedOptions.push({ optionId, flightId, passengerIndex })
+    },
+    subtractSelectedOption(state, { optionId, flightId, passengerIndex }) {
+        let removeIndex = _.findIndex(state.selectedOptions, { optionId, flightId, passengerIndex })
+        if (removeIndex > -1) {
+            state.selectedOptions.splice(removeIndex, 1)
+        }
     }
 }
 
