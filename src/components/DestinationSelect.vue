@@ -91,7 +91,7 @@ export default {
             }
         },
         departures() {
-            let airportsWithAvailableDestinations = this.airports.filter((airport) => airport.availableDestinations.length > 0)
+            let airportsWithAvailableDestinations = this.airports.filter((airport) => airport.connections.length > 0)
             return airportsWithAvailableDestinations
         },
         destinations() {
@@ -101,8 +101,8 @@ export default {
             if (!selectedDeparture) {
                 return []
             }
-            selectedDeparture.availableDestinations.forEach((id) => {
-                let airport = _.find(this.airports, { id: id })
+            selectedDeparture.connections.forEach((connection) => {
+                let airport = _.find(this.airports, { code: connection.code })
                 if (airport) {
                     availableDestinations.push(airport)
                 }

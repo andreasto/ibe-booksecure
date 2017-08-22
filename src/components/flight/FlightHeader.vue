@@ -23,15 +23,14 @@ export default {
             }
         },
         locationSummary() {
-            let departure = _.find(this.airports, { code: this.availability[this.index][0].departure })
-            let arrival = _.find(this.airports, { code: this.availability[this.index][0].arrival })
+            let departure = _.find(this.airports, { code: this.availability[this.index][0].From.Code })
+            let arrival = _.find(this.airports, { code: this.availability[this.index][0].To.Code })
             return `(${departure.name} - ${arrival.name})`
         },
         ...mapGetters(
             'search',
             [
                 'airports',
-                'criteria',
                 'availability'
             ]
         )

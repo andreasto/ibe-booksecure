@@ -11,7 +11,7 @@ import moment from 'moment'
 
 export default {
     props: {
-        date: { type: String, required: true }
+        date: { type: String }
     },
     computed: {
         formattedDate() {

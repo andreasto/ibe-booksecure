@@ -1,5 +1,1733 @@
-export const mockedAvailability = {
+export const mockedAvailabilityResponse = {
     Flights: [
+        {
+            FlightNumber: '7317',
+            Id: 8289,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-11T06:00:00',
+            ArrivalDateTime: '2017-11-11T07:29:00',
+            LowestFareId: 51,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 51,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 51,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 56,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 52,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7789,
+                    DepartureDate: '2017-11-11T06:00:00',
+                    ArrivalDate: '2017-11-11T07:29:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7317'
+                }
+            ],
+            Key: '8289:11/11/2017 6:00:00 AM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7319',
+            Id: 8291,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-11T19:37:00',
+            ArrivalDateTime: '2017-11-11T21:06:00',
+            LowestFareId: 57,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 57,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 57,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 62,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 58,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7791,
+                    DepartureDate: '2017-11-11T19:37:00',
+                    ArrivalDate: '2017-11-11T21:06:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7319'
+                }
+            ],
+            Key: '8291:11/11/2017 7:37:00 PM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7317',
+            Id: 8289,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-12T06:00:00',
+            ArrivalDateTime: '2017-11-12T07:29:00',
+            LowestFareId: 63,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 63,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 63,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 68,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 64,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7789,
+                    DepartureDate: '2017-11-12T06:00:00',
+                    ArrivalDate: '2017-11-12T07:29:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7317'
+                }
+            ],
+            Key: '8289:11/12/2017 6:00:00 AM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7319',
+            Id: 8291,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-12T19:37:00',
+            ArrivalDateTime: '2017-11-12T21:06:00',
+            LowestFareId: 69,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 69,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 69,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 74,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 70,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7791,
+                    DepartureDate: '2017-11-12T19:37:00',
+                    ArrivalDate: '2017-11-12T21:06:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7319'
+                }
+            ],
+            Key: '8291:11/12/2017 7:37:00 PM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7317',
+            Id: 8289,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-13T06:00:00',
+            ArrivalDateTime: '2017-11-13T07:29:00',
+            LowestFareId: 75,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 75,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 75,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 80,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 76,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7789,
+                    DepartureDate: '2017-11-13T06:00:00',
+                    ArrivalDate: '2017-11-13T07:29:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7317'
+                }
+            ],
+            Key: '8289:11/13/2017 6:00:00 AM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7319',
+            Id: 8291,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-13T19:37:00',
+            ArrivalDateTime: '2017-11-13T21:06:00',
+            LowestFareId: 81,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 81,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 81,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 86,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 82,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7791,
+                    DepartureDate: '2017-11-13T19:37:00',
+                    ArrivalDate: '2017-11-13T21:06:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7319'
+                }
+            ],
+            Key: '8291:11/13/2017 7:37:00 PM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7317',
+            Id: 8289,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-14T06:00:00',
+            ArrivalDateTime: '2017-11-14T07:29:00',
+            LowestFareId: 87,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 87,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 87,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 92,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 88,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7789,
+                    DepartureDate: '2017-11-14T06:00:00',
+                    ArrivalDate: '2017-11-14T07:29:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7317'
+                }
+            ],
+            Key: '8289:11/14/2017 6:00:00 AM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
+        {
+            FlightNumber: '7319',
+            Id: 8291,
+            From: {
+                Name: 'Cartagena',
+                Code: 'CTG'
+            },
+            To: {
+                Name: 'Bogota',
+                Code: 'BOG'
+            },
+            DepartureDateTime: '2017-11-14T19:37:00',
+            ArrivalDateTime: '2017-11-14T21:06:00',
+            LowestFareId: 93,
+            Cabin: '',
+            LowestPrice: 155670,
+            LowestPriceDiscount: 0,
+            Fares: [
+                {
+                    Discount: 0,
+                    FareBasis: 'NPROMD2',
+                    Name: 'PROMOCIONALES_EZY',
+                    Id: 93,
+                    Price: 155670,
+                    Code: 'N',
+                    Adult: {
+                        FareBasis: 'NPROMD2',
+                        Id: 93,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Child: {
+                        FareBasis: 'NPROMD2',
+                        Id: 98,
+                        Price: 77835,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 24231,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 702,
+                                Price: 20500,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -CTG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 4604,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 4550,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'NPROMD2',
+                        Id: 94,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'N ',
+                        PriceWithoutTax: 0,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 781,
+                                Price: 0,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            }
+                        ]
+                    },
+                    PriceWithoutTax: 48462,
+                    SeatCount: 14,
+                    Refundable: false,
+                    Taxes: [
+                        {
+                            Id: 702,
+                            Price: 20500,
+                            Code: 'CO',
+                            Currency: 'COP',
+                            Description: 'Airport Tax (Domestic) -CTG-'
+                        },
+                        {
+                            Id: 781,
+                            Price: 4604,
+                            Code: 'YS',
+                            Currency: 'COP',
+                            Description: 'YS - Sales Tax (Domestic)'
+                        },
+                        {
+                            Id: 1501,
+                            Price: 0,
+                            Code: 'M1CD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 1523,
+                            Price: 0,
+                            Code: 'CAWD',
+                            Currency: 'COP',
+                            Description: 'SSR as tax on FBC'
+                        },
+                        {
+                            Id: 0,
+                            Price: 4550,
+                            Code: 'BFEE',
+                            Currency: 'COP',
+                            Description: 'TARIFA ADMINISTRATIVA WEB'
+                        }
+                    ],
+                    BookingFee: {
+                        Id: 0,
+                        Price: 23950,
+                        Code: 'BFEE',
+                        Currency: 'COP',
+                        Description: 'TARIFA ADMINISTRATIVA WEB'
+                    }
+                }
+            ],
+            Legs: [
+                {
+                    Id: 7791,
+                    DepartureDate: '2017-11-14T19:37:00',
+                    ArrivalDate: '2017-11-14T21:06:00',
+                    FlightTime: 89,
+                    From: 'CTG',
+                    To: 'BOG',
+                    FlightNumber: '7319'
+                }
+            ],
+            Key: '8291:11/14/2017 7:37:00 PM',
+            LowestPriceWithoutTax: 48462,
+            FlightTime: 89,
+            Soldout: false,
+            IsInternational: false,
+            IsPlaceHolder: false
+        },
         {
             FlightNumber: '7316',
             Id: 8288,
@@ -73,7 +1801,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 4,
+                        Id: 5,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -118,11 +1846,11 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'NPROMD1',
+                        FareBasis: 'TPROMD2',
                         Id: 2,
                         Price: 0,
                         Discount: 0,
-                        Code: 'N ',
+                        Code: 'T ',
                         PriceWithoutTax: 0,
                         SeatCount: 14,
                         Taxes: [
@@ -229,7 +1957,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-01T07:59:00',
             ArrivalDateTime: '2017-11-01T09:31:00',
-            LowestFareId: 5,
+            LowestFareId: 6,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -238,12 +1966,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 5,
+                    Id: 6,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 5,
+                        Id: 6,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -289,7 +2017,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 8,
+                        Id: 10,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -334,8 +2062,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 6,
+                        FareBasis: 'TPROMD2',
+                        Id: 7,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -445,7 +2173,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-01T10:14:00',
             ArrivalDateTime: '2017-11-01T12:43:00',
-            LowestFareId: 9,
+            LowestFareId: 11,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -454,12 +2182,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 9,
+                    Id: 11,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 9,
+                        Id: 11,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -505,7 +2233,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 12,
+                        Id: 15,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -550,13 +2278,13 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 10,
+                        FareBasis: 'TPROMD2',
+                        Id: 12,
                         Price: 0,
                         Discount: 0,
-                        Code: 'N ',
+                        Code: 'T ',
                         PriceWithoutTax: 0,
-                        SeatCount: 10,
+                        SeatCount: 14,
                         Taxes: [
                             {
                                 Id: 781,
@@ -661,7 +2389,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-01T21:59:00',
             ArrivalDateTime: '2017-11-01T23:31:00',
-            LowestFareId: 13,
+            LowestFareId: 16,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -670,56 +2398,10 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 13,
+                    Id: 16,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 13,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
                         FareBasis: 'NPROMD1',
                         Id: 16,
                         Price: 58418,
@@ -765,12 +2447,58 @@ export const mockedAvailability = {
                             }
                         ]
                     },
-                    Infant: {
+                    Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 14,
-                        Price: 0,
+                        Id: 20,
+                        Price: 58418,
                         Discount: 0,
                         Code: 'N ',
+                        PriceWithoutTax: 26654,
+                        SeatCount: 14,
+                        Taxes: [
+                            {
+                                Id: 646,
+                                Price: 14800,
+                                Code: 'CO',
+                                Currency: 'COP',
+                                Description: 'Airport Tax (Domestic) -BOG-'
+                            },
+                            {
+                                Id: 781,
+                                Price: 5064,
+                                Code: 'YS',
+                                Currency: 'COP',
+                                Description: 'YS - Sales Tax (Domestic)'
+                            },
+                            {
+                                Id: 1501,
+                                Price: 0,
+                                Code: 'M1CD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 1523,
+                                Price: 0,
+                                Code: 'CAWD',
+                                Currency: 'COP',
+                                Description: 'SSR as tax on FBC'
+                            },
+                            {
+                                Id: 0,
+                                Price: 1900,
+                                Code: 'BFEE',
+                                Currency: 'COP',
+                                Description: 'TARIFA ADMINISTRATIVA WEB'
+                            }
+                        ]
+                    },
+                    Infant: {
+                        FareBasis: 'TPROMD2',
+                        Id: 17,
+                        Price: 0,
+                        Discount: 0,
+                        Code: 'T ',
                         PriceWithoutTax: 0,
                         SeatCount: 14,
                         Taxes: [
@@ -877,7 +2605,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-02T07:59:00',
             ArrivalDateTime: '2017-11-02T09:31:00',
-            LowestFareId: 17,
+            LowestFareId: 21,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -886,12 +2614,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 17,
+                    Id: 21,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 17,
+                        Id: 21,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -937,7 +2665,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 20,
+                        Id: 25,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -982,8 +2710,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 18,
+                        FareBasis: 'TPROMD2',
+                        Id: 22,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -1093,7 +2821,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-02T07:59:00',
             ArrivalDateTime: '2017-11-02T09:31:00',
-            LowestFareId: 21,
+            LowestFareId: 26,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -1102,12 +2830,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 21,
+                    Id: 26,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 21,
+                        Id: 26,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1153,7 +2881,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 24,
+                        Id: 30,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1198,8 +2926,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 22,
+                        FareBasis: 'TPROMD2',
+                        Id: 27,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -1309,7 +3037,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-02T21:59:00',
             ArrivalDateTime: '2017-11-02T23:31:00',
-            LowestFareId: 25,
+            LowestFareId: 31,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -1318,12 +3046,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 25,
+                    Id: 31,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 25,
+                        Id: 31,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1369,7 +3097,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 28,
+                        Id: 35,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1414,8 +3142,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 26,
+                        FareBasis: 'TPROMD2',
+                        Id: 32,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -1525,7 +3253,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-03T07:59:00',
             ArrivalDateTime: '2017-11-03T09:31:00',
-            LowestFareId: 29,
+            LowestFareId: 36,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -1534,12 +3262,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 29,
+                    Id: 36,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 29,
+                        Id: 36,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1585,7 +3313,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 32,
+                        Id: 40,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1630,11 +3358,11 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 30,
+                        FareBasis: 'TPROMD2',
+                        Id: 37,
                         Price: 0,
                         Discount: 0,
-                        Code: 'N ',
+                        Code: 'T ',
                         PriceWithoutTax: 0,
                         SeatCount: 14,
                         Taxes: [
@@ -1741,7 +3469,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-03T07:59:00',
             ArrivalDateTime: '2017-11-03T09:31:00',
-            LowestFareId: 33,
+            LowestFareId: 41,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -1750,12 +3478,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 33,
+                    Id: 41,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 33,
+                        Id: 41,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1801,7 +3529,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 36,
+                        Id: 45,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -1846,8 +3574,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 34,
+                        FareBasis: 'TPROMD2',
+                        Id: 42,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -1957,7 +3685,7 @@ export const mockedAvailability = {
             },
             DepartureDateTime: '2017-11-03T21:59:00',
             ArrivalDateTime: '2017-11-03T23:31:00',
-            LowestFareId: 37,
+            LowestFareId: 46,
             Cabin: '',
             LowestPrice: 116836,
             LowestPriceDiscount: 0,
@@ -1966,12 +3694,12 @@ export const mockedAvailability = {
                     Discount: 0,
                     FareBasis: 'NPROMD1',
                     Name: 'PROMOCIONALES_EZY',
-                    Id: 37,
+                    Id: 46,
                     Price: 116836,
                     Code: 'N',
                     Adult: {
                         FareBasis: 'NPROMD1',
-                        Id: 37,
+                        Id: 46,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -2017,7 +3745,7 @@ export const mockedAvailability = {
                     },
                     Child: {
                         FareBasis: 'NPROMD1',
-                        Id: 40,
+                        Id: 50,
                         Price: 58418,
                         Discount: 0,
                         Code: 'N ',
@@ -2062,8 +3790,8 @@ export const mockedAvailability = {
                         ]
                     },
                     Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 38,
+                        FareBasis: 'TPROMD2',
+                        Id: 47,
                         Price: 0,
                         Discount: 0,
                         Code: 'T ',
@@ -2154,3894 +3882,6 @@ export const mockedAvailability = {
                 }
             ],
             Key: '8290:11/3/2017 9:59:00 PM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7316',
-            Id: 8288,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-04T07:59:00',
-            ArrivalDateTime: '2017-11-04T09:31:00',
-            LowestFareId: 41,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 41,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 41,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 44,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 42,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7788,
-                    DepartureDate: '2017-11-04T07:59:00',
-                    ArrivalDate: '2017-11-04T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7316'
-                }
-            ],
-            Key: '8288:11/4/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7540',
-            Id: 8404,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-04T07:59:00',
-            ArrivalDateTime: '2017-11-04T09:31:00',
-            LowestFareId: 45,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 45,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 45,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 48,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 46,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7844,
-                    DepartureDate: '2017-11-04T07:59:00',
-                    ArrivalDate: '2017-11-04T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7540'
-                }
-            ],
-            Key: '8404:11/4/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7258',
-            Id: 7344,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-04T10:14:00',
-            ArrivalDateTime: '2017-11-04T12:43:00',
-            LowestFareId: 49,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 49,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 49,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 52,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 50,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 6984,
-                    DepartureDate: '2017-11-04T10:14:00',
-                    ArrivalDate: '2017-11-04T12:43:00',
-                    FlightTime: 149,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7258'
-                }
-            ],
-            Key: '7344:11/4/2017 10:14:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 149,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7318',
-            Id: 8290,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-04T21:59:00',
-            ArrivalDateTime: '2017-11-04T23:31:00',
-            LowestFareId: 53,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 53,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 53,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 56,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 54,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7790,
-                    DepartureDate: '2017-11-04T21:59:00',
-                    ArrivalDate: '2017-11-04T23:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7318'
-                }
-            ],
-            Key: '8290:11/4/2017 9:59:00 PM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7316',
-            Id: 8288,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-05T07:59:00',
-            ArrivalDateTime: '2017-11-05T09:31:00',
-            LowestFareId: 57,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 57,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 57,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 60,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 58,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7788,
-                    DepartureDate: '2017-11-05T07:59:00',
-                    ArrivalDate: '2017-11-05T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7316'
-                }
-            ],
-            Key: '8288:11/5/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7540',
-            Id: 8404,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-05T07:59:00',
-            ArrivalDateTime: '2017-11-05T09:31:00',
-            LowestFareId: 61,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 61,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 61,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 64,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 62,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7844,
-                    DepartureDate: '2017-11-05T07:59:00',
-                    ArrivalDate: '2017-11-05T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7540'
-                }
-            ],
-            Key: '8404:11/5/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7318',
-            Id: 8290,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-05T21:59:00',
-            ArrivalDateTime: '2017-11-05T23:31:00',
-            LowestFareId: 65,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 65,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 65,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 68,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 66,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7790,
-                    DepartureDate: '2017-11-05T21:59:00',
-                    ArrivalDate: '2017-11-05T23:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7318'
-                }
-            ],
-            Key: '8290:11/5/2017 9:59:00 PM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7316',
-            Id: 8288,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-06T07:59:00',
-            ArrivalDateTime: '2017-11-06T09:31:00',
-            LowestFareId: 69,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 69,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 69,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 3,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 72,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 3,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 70,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 3,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 3,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7788,
-                    DepartureDate: '2017-11-06T07:59:00',
-                    ArrivalDate: '2017-11-06T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7316'
-                }
-            ],
-            Key: '8288:11/6/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7540',
-            Id: 8404,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-06T07:59:00',
-            ArrivalDateTime: '2017-11-06T09:31:00',
-            LowestFareId: 73,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 73,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 73,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 76,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 74,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7844,
-                    DepartureDate: '2017-11-06T07:59:00',
-                    ArrivalDate: '2017-11-06T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7540'
-                }
-            ],
-            Key: '8404:11/6/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7258',
-            Id: 7345,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-06T10:29:00',
-            ArrivalDateTime: '2017-11-06T12:58:00',
-            LowestFareId: 77,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 77,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 77,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 80,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 78,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 6985,
-                    DepartureDate: '2017-11-06T10:29:00',
-                    ArrivalDate: '2017-11-06T12:58:00',
-                    FlightTime: 149,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7258'
-                }
-            ],
-            Key: '7345:11/6/2017 10:29:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 149,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7318',
-            Id: 8290,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-06T21:59:00',
-            ArrivalDateTime: '2017-11-06T23:31:00',
-            LowestFareId: 81,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 81,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 81,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 84,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 82,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7790,
-                    DepartureDate: '2017-11-06T21:59:00',
-                    ArrivalDate: '2017-11-06T23:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7318'
-                }
-            ],
-            Key: '8290:11/6/2017 9:59:00 PM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7316',
-            Id: 8288,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-07T07:59:00',
-            ArrivalDateTime: '2017-11-07T09:31:00',
-            LowestFareId: 85,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 85,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 85,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 88,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 86,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7788,
-                    DepartureDate: '2017-11-07T07:59:00',
-                    ArrivalDate: '2017-11-07T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7316'
-                }
-            ],
-            Key: '8288:11/7/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7540',
-            Id: 8404,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-07T07:59:00',
-            ArrivalDateTime: '2017-11-07T09:31:00',
-            LowestFareId: 89,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 89,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 89,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 92,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 90,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7844,
-                    DepartureDate: '2017-11-07T07:59:00',
-                    ArrivalDate: '2017-11-07T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7540'
-                }
-            ],
-            Key: '8404:11/7/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7318',
-            Id: 8290,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-07T21:59:00',
-            ArrivalDateTime: '2017-11-07T23:31:00',
-            LowestFareId: 93,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 93,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 93,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 96,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 94,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7790,
-                    DepartureDate: '2017-11-07T21:59:00',
-                    ArrivalDate: '2017-11-07T23:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7318'
-                }
-            ],
-            Key: '8290:11/7/2017 9:59:00 PM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7316',
-            Id: 8288,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-08T07:59:00',
-            ArrivalDateTime: '2017-11-08T09:31:00',
-            LowestFareId: 97,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 97,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 97,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 100,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 98,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7788,
-                    DepartureDate: '2017-11-08T07:59:00',
-                    ArrivalDate: '2017-11-08T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7316'
-                }
-            ],
-            Key: '8288:11/8/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7540',
-            Id: 8404,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-08T07:59:00',
-            ArrivalDateTime: '2017-11-08T09:31:00',
-            LowestFareId: 101,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 101,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 101,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 104,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 102,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7844,
-                    DepartureDate: '2017-11-08T07:59:00',
-                    ArrivalDate: '2017-11-08T09:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7540'
-                }
-            ],
-            Key: '8404:11/8/2017 7:59:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 92,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7258',
-            Id: 7344,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-08T10:14:00',
-            ArrivalDateTime: '2017-11-08T12:43:00',
-            LowestFareId: 105,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 105,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 105,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 108,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 10,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'TPROMD1',
-                        Id: 106,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'T ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 10,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 6984,
-                    DepartureDate: '2017-11-08T10:14:00',
-                    ArrivalDate: '2017-11-08T12:43:00',
-                    FlightTime: 149,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7258'
-                }
-            ],
-            Key: '7344:11/8/2017 10:14:00 AM',
-            LowestPriceWithoutTax: 53308,
-            FlightTime: 149,
-            Soldout: false,
-            IsInternational: false,
-            IsPlaceHolder: false
-        },
-        {
-            FlightNumber: '7318',
-            Id: 8290,
-            From: {
-                Name: 'Bogota',
-                Code: 'BOG'
-            },
-            To: {
-                Name: 'Cartagena',
-                Code: 'CTG'
-            },
-            DepartureDateTime: '2017-11-08T21:59:00',
-            ArrivalDateTime: '2017-11-08T23:31:00',
-            LowestFareId: 109,
-            Cabin: '',
-            LowestPrice: 116836,
-            LowestPriceDiscount: 0,
-            Fares: [
-                {
-                    Discount: 0,
-                    FareBasis: 'NPROMD1',
-                    Name: 'PROMOCIONALES_EZY',
-                    Id: 109,
-                    Price: 116836,
-                    Code: 'N',
-                    Adult: {
-                        FareBasis: 'NPROMD1',
-                        Id: 109,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Child: {
-                        FareBasis: 'NPROMD1',
-                        Id: 112,
-                        Price: 58418,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 26654,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 646,
-                                Price: 14800,
-                                Code: 'CO',
-                                Currency: 'COP',
-                                Description: 'Airport Tax (Domestic) -BOG-'
-                            },
-                            {
-                                Id: 781,
-                                Price: 5064,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 0,
-                                Price: 1900,
-                                Code: 'BFEE',
-                                Currency: 'COP',
-                                Description: 'TARIFA ADMINISTRATIVA WEB'
-                            }
-                        ]
-                    },
-                    Infant: {
-                        FareBasis: 'NPROMD1',
-                        Id: 110,
-                        Price: 0,
-                        Discount: 0,
-                        Code: 'N ',
-                        PriceWithoutTax: 0,
-                        SeatCount: 14,
-                        Taxes: [
-                            {
-                                Id: 781,
-                                Price: 0,
-                                Code: 'YS',
-                                Currency: 'COP',
-                                Description: 'YS - Sales Tax (Domestic)'
-                            },
-                            {
-                                Id: 1501,
-                                Price: 0,
-                                Code: 'M1CD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            },
-                            {
-                                Id: 1523,
-                                Price: 0,
-                                Code: 'CAWD',
-                                Currency: 'COP',
-                                Description: 'SSR as tax on FBC'
-                            }
-                        ]
-                    },
-                    PriceWithoutTax: 53308,
-                    SeatCount: 14,
-                    Refundable: false,
-                    Taxes: [
-                        {
-                            Id: 646,
-                            Price: 14800,
-                            Code: 'CO',
-                            Currency: 'COP',
-                            Description: 'Airport Tax (Domestic) -BOG-'
-                        },
-                        {
-                            Id: 781,
-                            Price: 5064,
-                            Code: 'YS',
-                            Currency: 'COP',
-                            Description: 'YS - Sales Tax (Domestic)'
-                        },
-                        {
-                            Id: 1501,
-                            Price: 0,
-                            Code: 'M1CD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 1523,
-                            Price: 0,
-                            Code: 'CAWD',
-                            Currency: 'COP',
-                            Description: 'SSR as tax on FBC'
-                        },
-                        {
-                            Id: 0,
-                            Price: 1900,
-                            Code: 'BFEE',
-                            Currency: 'COP',
-                            Description: 'TARIFA ADMINISTRATIVA WEB'
-                        }
-                    ],
-                    BookingFee: {
-                        Id: 0,
-                        Price: 10000,
-                        Code: 'BFEE',
-                        Currency: 'COP',
-                        Description: 'TARIFA ADMINISTRATIVA WEB'
-                    }
-                }
-            ],
-            Legs: [
-                {
-                    Id: 7790,
-                    DepartureDate: '2017-11-08T21:59:00',
-                    ArrivalDate: '2017-11-08T23:31:00',
-                    FlightTime: 92,
-                    From: 'BOG',
-                    To: 'CTG',
-                    FlightNumber: '7318'
-                }
-            ],
-            Key: '8290:11/8/2017 9:59:00 PM',
             LowestPriceWithoutTax: 53308,
             FlightTime: 92,
             Soldout: false,

@@ -20,7 +20,7 @@ const state = {
 
 const getters = {
     selectedFlights: (state) => state.selectedFlights,
-    allFlightsSelected: (state) => state.selectedFlights.length === store.getters['search/numberOfLegs'],
+    allFlightsSelected: (state) => state.selectedFlights.length === store.getters['search/numberOfRoutes'],
     contactInformation: (state) => state.contactInformation,
     cartPassengers: (state) => state.passengers,
     pax: (state) => state.pax,
@@ -30,15 +30,39 @@ const getters = {
 
 const mutations = {
     selectFlight(state, payload) {
-        payload.flight.selected = true
-
-        payload.flight.fareTypes.forEach((fareType) => { fareType.selected = false })
-        payload.fareType.selected = true
-        let flightLegIndex = _.findIndex(state.selectedFlights, { leg: payload.leg })
-        if (flightLegIndex > -1) {
-            state.selectedFlights.splice(flightLegIndex, 1)
+        let flightRouteIndex = _.findIndex(state.selectedFlights, { route: payload.route })
+        if (flightRouteIndex > -1) {
+            state.selectedFlights.splice(flightRouteIndex, 1)
         }
-        state.selectedFlights.push({ flight: payload.flight, leg: payload.leg })
+
+        payload.flight.selected = true
+        payload.flight.Fares.forEach((fare) => {
+            if (fare.Id === payload.fareId) {
+                fare.selected = true
+            } else {
+                fare.selected = false
+            }
+        })
+
+        let flight = payload.flight
+        let selectedFlight = {
+            route: payload.route,
+            key: flight.Key,
+            id: flight.Id,
+            fareId: payload.fareId,
+            departureDate: flight.DepartureDateTime,
+            from: flight.From.Code,
+            to: flight.To.Code,
+            legs: []
+        }
+        flight.Legs.forEach((leg) => {
+            selectedFlight.legs.push({
+                id: leg.Id,
+                departureDate: leg.DepartureDate,
+                flightTime: leg.FlightTime
+            })
+        })
+        state.selectedFlights.push(selectedFlight)
     },
     clearSelectedItems(state) {
         state.selectedFlights = []
@@ -100,11 +124,11 @@ const mutations = {
 
 const actions = {
     selectFlight({ commit, dispatch, state, rootGetters }, payload) {
-        commit('search/unselectAllFlightsInLeg', payload.leg, { root: true })
+        console.log('selectFlight')
         commit('selectFlight', payload)
 
-        let flightsForAllLegsSelected = state.selectedFlights.length === rootGetters['search/numberOfLegs']
-        if (!flightsForAllLegsSelected) {
+        let flightsForAllRoutesSelected = state.selectedFlights.length === rootGetters['search/numberOfRoutes']
+        if (!flightsForAllRoutesSelected) {
             return
         }
 

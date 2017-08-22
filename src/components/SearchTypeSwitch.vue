@@ -1,7 +1,10 @@
 <template>
     <div class="search-type-switch">
         <label class="radio-button">
-            <input v-model="searchTypeData" type="radio" name="searchType" :value="'single'"> Oneway/Roundtrip
+            <input v-model="searchTypeData" type="radio" name="searchType" :value="'roundTrip'"> Roundtrip
+        </label>
+        <label class="radio-button">
+            <input v-model="searchTypeData" type="radio" name="searchType" :value="'oneWay'"> Oneway
         </label>
         <label class="radio-button">
             <input v-model="searchTypeData" type="radio" name="searchType" :value="'multiCity'"> Multicity
@@ -17,7 +20,8 @@ export default {
         ...mapGetters(
             'search',
             [
-                'searchType'
+                'searchType',
+                'numberOfRoutes'
             ]
         )
     },
@@ -25,7 +29,7 @@ export default {
         ...mapMutations(
             'search',
             [
-                'addFlightLeg',
+                'addRoute',
                 'changeSearchType',
                 'removeMultiCity'
             ]
@@ -38,10 +42,10 @@ export default {
     },
     watch: {
         searchTypeData(val, oldVal) {
-            if (val === 'single') {
-                this.removeMultiCity()
+            if (val === 'multiCity') {
+                this.addRoute()
             } else {
-                this.addFlightLeg()
+                this.removeMultiCity()
             }
             this.changeSearchType(val)
         }

@@ -1,20 +1,19 @@
 <template>
     <div>
-         <!-- selectedFlights: {{selectedFlights}}<br>
-        selectedFlightsInLegs: {{selectedFlightsInLegs}} -->
-        <div v-for="(leg, index) in availability" class="leg clearfix">
+        <!-- selectedFlights: {{selectedFlights}}
+        <p>selectedFlightsInRoutes: {{selectedFlightsInRoutes.length}}</p> -->
+        <div v-for="(route, index) in availability" class="route clearfix">
             <ibe-flight-header :index="index"></ibe-flight-header>
-            <div v-show="!legsExpanded[index]" class="selected-flight">
-                <ibe-flight :flight="selectedFlightsInLegs[index] ? selectedFlightsInLegs[index] : leg[0]" :leg="index"></ibe-flight>
+            <div v-show="!routesExpanded[index]" class="selected-flight">
+                <ibe-flight :flight="selectedFlightsInRoutes[index] ? selectedFlightsInRoutes[index] : route[0]" :route="index"></ibe-flight>
             </div>
-
-            <div v-for="flight in leg" v-show="legsExpanded[index]">
-                <ibe-flight :flight="flight" :leg="index"></ibe-flight>
+            <div v-for="flight in route" v-show="routesExpanded[index]">
+                <ibe-flight :flight="flight" :route="index"></ibe-flight>
             </div>
 
             <div class="more-flights-button">
-                <ibe-button v-show="!legsExpanded[index]" :action="() => {toggleLeg(index)}" :text="additionalFlightsExpandText" :cssClass="'button-link'" :icon-left="'&#xE145;'"></ibe-button>
-                <ibe-button v-show="legsExpanded[index]" :action="() => {toggleLeg(index)}" :text="additionalFlightsCollapseText" :cssClass="'button-link'" :icon-left="'&#xE15B;'"></ibe-button>
+                <ibe-button v-show="!routesExpanded[index]" :action="() => {toggleRoute(index)}" :text="additionalFlightsExpandText" :cssClass="'button-link'" :icon-left="'&#xE145;'"></ibe-button>
+                <ibe-button v-show="routesExpanded[index]" :action="() => {toggleRoute(index)}" :text="additionalFlightsCollapseText" :cssClass="'button-link'" :icon-left="'&#xE15B;'"></ibe-button>
             </div>
         </div>
 
@@ -24,6 +23,7 @@
 
 <script>
 import router from '@/router'
+import _ from 'lodash'
 import { mapGetters } from 'vuex'
 import Flight from '@/components/flight/Flight'
 import FlightHeader from '@/components/flight/FlightHeader'
@@ -31,12 +31,12 @@ import FlightHeader from '@/components/flight/FlightHeader'
 export default {
     created() {
         this.availability.forEach((availability) => {
-            this.legsExpanded.push(false)
+            this.routesExpanded.push(false)
         })
     },
     data() {
         return {
-            legsExpanded: [],
+            routesExpanded: [],
             additionalFlightsExpandText: window.bookSecure.texts.additionalFlightsExpandText,
             additionalFlightsCollapseText: window.bookSecure.texts.additionalFlightsCollapseText
         }
@@ -55,12 +55,13 @@ export default {
                 'allFlightsSelected'
             ]
         ),
-        selectedFlightsInLegs() {
+        selectedFlightsInRoutes() {
             let selectedFlights = []
 
-            this.availability.forEach((leg, index) => {
-                leg.forEach((flight) => {
-                    if (flight.selected) {
+            this.availability.forEach((route, index) => {
+                route.forEach((flight) => {
+                    let flightIsSelected = _.find(this.selectedFlights, { id: flight.Id, key: flight.Key, route: index })
+                    if (flightIsSelected) {
                         selectedFlights.push(flight)
                     }
                 })
@@ -72,8 +73,8 @@ export default {
         }
     },
     methods: {
-        toggleLeg(index) {
-            this.legsExpanded.splice(index, 1, !this.legsExpanded[index])
+        toggleRoute(index) {
+            this.routesExpanded.splice(index, 1, !this.routesExpanded[index])
         },
         previousAction() {
             router.push('search')

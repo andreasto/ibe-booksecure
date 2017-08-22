@@ -4,14 +4,15 @@
         <div class="criteria-container clearfix" v-show="!hideSearchForm" :class="{multicity: isMultiCity}">
             <ibe-search-type-switch v-if="enableMultiCity"></ibe-search-type-switch>
 
-            <div class="criteria-row clearfix" v-for="(row, index) in criteria">
+            <div class="criteria-row clearfix" v-for="(route, index) in shownRoutes">
                 <h3 class="multicity-header" v-show="isMultiCity">Flight {{index + 1}}</h3>
-                <ibe-destination-select :airports="airports" :departure="row.departure" :arrival="row.arrival" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="row.departure = $event" @arrivalChanged="row.arrival = $event"></ibe-destination-select>
-                <ibe-datepicker :mode="(isMultiCity ? 'single' : 'range')" :from="row.departureDate" :to="row.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="row.departureDate = $event" @datepickerToChanged="row.arrivalDate = $event"></ibe-datepicker>
-                <i class="material-icons delete-icon" v-show="index > 1" @click="removeFlightLeg(index)">&#xE872;</i>
+                <ibe-destination-select :airports="airports" :departure="route.fromAirport" :arrival="route.toAirport" :error="validationErrors.length > index ? validationErrors[index].destinationSelect : ''" :label="'Destination'" :placeholder="'Select departure & destination'" :tabindex="1" @departureChanged="route.fromAirport = $event" @arrivalChanged="route.toAirport = $event"></ibe-destination-select>
+                <ibe-datepicker v-if="searchType === 'oneWay' || isMultiCity" :mode="'single'" :from="route.date" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="route.date = $event"></ibe-datepicker>
+                <ibe-datepicker v-if="searchType === 'roundTrip'" :mode="'range'" :from="route.date" :to="route.arrivalDate" :error="validationErrors.length > index ? validationErrors[index].dates : ''" :class="{'with-delete-icon': index > 1}" @datepickerFromChanged="route.date = $event" @datepickerToChanged="route.arrivalDate = $event"></ibe-datepicker>
+                <i class="material-icons delete-icon" v-if="isMultiCity && index > 1" @click="removeRoute(index)">&#xE872;</i>
             </div>
 
-            <ibe-button :text="'Add flight leg'" :action="addFlightLeg" :cssClass="'button add-leg-button'" :iconLeft="'&#xE145;'" v-show="isMultiCity"></ibe-button>
+            <ibe-button :text="'Add flight leg'" :action="addRoute" :cssClass="'button add-leg-button'" :iconLeft="'&#xE145;'" v-show="isMultiCity"></ibe-button>
 
             <div class="passenger-and-button">
                 <ibe-passenger-select :error="validationErrors.length > 0 ? validationErrors[0].passengers : ''"></ibe-passenger-select>
@@ -27,11 +28,8 @@
         <ibe-loader :text="'Loading...'" v-show="showLoader"></ibe-loader>
 
         <code>
-            <h4>Criteria</h4>
-            {{criteria}}
-
-            <h4>Promo code</h4>
-            {{promoCode}}
+            <h4>Routes</h4>
+            {{routes}}
         </code>
 
     </div>
@@ -57,13 +55,17 @@ export default {
         }
     },
     computed: {
+        shownRoutes() {
+            return (this.searchType === 'multiCity') ? this.routes : [this.routes[0]]
+        },
         isMultiCity() {
-            return this.criteria.length > 1 && this.searchType === 'multiCity'
+            return this.searchType === 'multiCity'
         },
         ...mapGetters(
             'search',
             [
                 'criteria',
+                'routes',
                 'searchType',
                 'searchButtonText',
                 'airports',
@@ -82,14 +84,13 @@ export default {
         ...mapActions(
             'search',
             [
-                'searchFlights',
                 'searchFlightsMocked'
             ]
         ),
         ...mapMutations(
             'search',
             [
-                'removeFlightLeg',
+                'removeRoute',
                 'changeSearchType',
                 'removeMultiCity'
             ]
@@ -104,10 +105,10 @@ export default {
         validateCriteria() {
             let isValid = true
             this.validationErrors = []
-            this.criteria.forEach((c) => {
+            this.routes.forEach((route) => {
                 let errors = {}
-                let destinationsInvalid = !c.departure || c.departure.length === 0 || !c.arrival || c.arrival.length === 0
-                let datesInvalid = !c.departureDate || c.departureDate.length === 0
+                let destinationsInvalid = !route.fromAirport || route.fromAirport.length === 0 || !route.toAirport || route.toAirport.length === 0
+                let datesInvalid = !route.date || route.date.length === 0
                 let passengersInvalid = this.totalPassengers < 1
 
                 if (destinationsInvalid) {
@@ -126,19 +127,19 @@ export default {
             })
             return isValid
         },
-        addFlightLeg() {
-            if (this.criteria.length >= this.maxFlightLegs) {
+        addRoute() {
+            if (this.routes.length >= this.maxFlightLegs) {
                 return
             }
-            this.$store.commit('search/addFlightLeg', null, { root: true })
+            this.$store.commit('search/addRoute', null, { root: true })
         }
     },
     watch: {
         searchTypeData(val, oldVal) {
-            if (val === 'single') {
-                this.removeMultiCity()
+            if (val === 'multiCity') {
+                this.addRoute()
             } else {
-                this.addFlightLeg()
+                this.removeMultiCity()
             }
             this.changeSearchType(val)
         }

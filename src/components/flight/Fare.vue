@@ -1,18 +1,21 @@
 <template>
     <div class="fare-type" @click="selectFlight" :class="classes" :style="{width: width}">
-        <div class="type">{{fareType.type}}</div>
+        <div class="type">{{fare.Name}}</div>
         <label class="radio-button price">
-            <input type="radio" :checked="fareType.selected"> {{currency + ' ' + fareType.price}}
+            <input type="radio" :checked="selected"> {{currency + ' ' + fare.Price}}
         </label>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import _ from 'lodash'
+
 export default {
     props: {
-        fareType: { type: Object, required: true },
+        fare: { type: Object, required: true },
         flight: { type: Object, required: true },
-        leg: { type: Number, required: true },
+        route: { type: Number, required: true },
         width: { type: String, default: '25%' }
     },
     data() {
@@ -23,14 +26,22 @@ export default {
     computed: {
         classes() {
             return {
-                selected: this.fareType.selected
+                selected: this.selected
             }
-        }
+        },
+        selected() {
+            return _.find(this.selectedFlights, { id: this.flight.Id, fareId: this.fare.Id })
+        },
+        ...mapGetters(
+            'cart',
+            [
+                'selectedFlights'
+            ]
+        )
     },
     methods: {
         selectFlight() {
-            console.log('select flight')
-            this.$store.dispatch('cart/selectFlight', { flight: this.flight, leg: this.leg, fareType: this.fareType })
+            this.$store.dispatch('cart/selectFlight', { flight: this.flight, route: this.route, fareId: this.fare.Id })
         }
     }
 }
@@ -51,6 +62,7 @@ export default {
         height: 100%;
     }
 }
+
 .type {
     margin-bottom: 15px;
 }
