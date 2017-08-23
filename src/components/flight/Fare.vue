@@ -1,15 +1,17 @@
 <template>
     <div class="fare-type" @click="selectFlight" :class="classes" :style="{width: width}">
         <div class="type">{{fare.Name}}</div>
-        <label class="radio-button price">
+        <label class="radio-button price" @click.prevent>
             <input type="radio" :checked="selected"> {{currency + ' ' + fare.Price}}
         </label>
+        <ibe-price-breakdown class="price-breakdown" :total-amount="'100'" :base-fare="'200'" :taxes="fare.Taxes" :booking-fee="fare.BookingFee"></ibe-price-breakdown>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import _ from 'lodash'
+import PriceBreakdown from '@/components/flight/PriceBreakdown'
 
 export default {
     props: {
@@ -43,12 +45,16 @@ export default {
         selectFlight() {
             this.$store.dispatch('cart/selectFlight', { flight: this.flight, route: this.route, fareId: this.fare.Id })
         }
+    },
+    components: {
+        'ibe-price-breakdown': PriceBreakdown
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .fare-type {
+    position: relative;
     float: left;
     padding: 20px 10px;
     border-right: $border-light;
@@ -61,6 +67,15 @@ export default {
     @include media(">tablet") {
         height: 100%;
     }
+
+    &:hover {
+        .price-breakdown {
+            display: block;
+        }
+    }
+}
+.price-breakdown {
+    display: none;
 }
 
 .type {

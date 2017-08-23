@@ -49,7 +49,7 @@ export default {
         return {
             searchTypeData: this.$store.state.search.searchType,
             validationErrors: [],
-            maxFlightLegs: window.bookSecure.settings.maxFlightLegs,
+            maxRoutes: window.bookSecure.settings.maxRoutes,
             enablePromoCode: window.bookSecure.settings.enablePromoCode,
             enableMultiCity: window.bookSecure.settings.enableMultiCity
         }
@@ -128,7 +128,7 @@ export default {
             return isValid
         },
         addRoute() {
-            if (this.routes.length >= this.maxFlightLegs) {
+            if (this.routes.length >= this.maxRoutes) {
                 return
             }
             this.$store.commit('search/addRoute', null, { root: true })

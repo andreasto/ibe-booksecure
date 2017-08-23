@@ -79,3 +79,7 @@ code {
     border: $border-light;
     padding: 10px;
 }
+
+strong, b {
+    font-weight: $font-weight-bold;
+}

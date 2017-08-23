@@ -46,7 +46,6 @@ export default {
     margin-bottom: 10px;
     width: 100%;
     cursor: pointer;
-    overflow: hidden;
 
     @include media(">tablet") {
         height: $flight-height;
