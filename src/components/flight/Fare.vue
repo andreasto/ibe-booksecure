@@ -4,7 +4,7 @@
         <label class="radio-button price" @click.prevent>
             <input type="radio" :checked="selected"> {{currency + ' ' + fare.Price}}
         </label>
-        <ibe-price-breakdown class="price-breakdown" :total-amount="'100'" :base-fare="'200'" :taxes="fare.Taxes" :booking-fee="fare.BookingFee"></ibe-price-breakdown>
+        <ibe-price-breakdown class="price-breakdown" :total-amount="fare.Price" :base-fare="baseFare" :taxes="fare.Taxes" :booking-fee="fare.BookingFee"></ibe-price-breakdown>
     </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
         selected() {
             return _.find(this.selectedFlights, { id: this.flight.Id, fareId: this.fare.Id })
         },
+        baseFare() {
+            return this.fare.Adult ? this.fare.Adult.PriceWithoutTax : ''   // todo: add logic for if Adult is not present
+        },
         ...mapGetters(
             'cart',
             [
@@ -59,6 +62,7 @@ export default {
     padding: 20px 10px;
     border-right: $border-light;
     text-align: center;
+    cursor: pointer;
 
     &:last-of-type {
         border-right: none;

@@ -18,8 +18,8 @@
 <script>
 export default {
     props: {
-        totalAmount: { type: String },
-        baseFare: { type: String },
+        totalAmount: { type: Number },
+        baseFare: { type: Number },
         taxes: { type: Array },
         bookingFee: { type: Object }
     },
@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         totalAmountText() {
-            return this.currency + this.totalAmount
+            return this.totalAmount + ' ' + this.currency
         }
     }
 }
@@ -51,6 +51,7 @@ export default {
     background: $color-background;
     box-shadow: $box-shadow-light;
     font-weight: $font-weight-normal;
+    pointer-events: none;
 }
 .total {
     background: $color-third;
