@@ -1,26 +1,16 @@
 <template>
-    <div class="segment-summary">
+    <div class="segment-summary clearfix">
         <ibe-flight-date :date="flight.DepartureDateTime"></ibe-flight-date>
 
         <div class="time">{{departureTime}}</div>
         <div class="time right">{{arrivalTime}}</div>
-        <div class="clearfix"></div>
 
-        <div class="location">{{flight.From.Name}}
-            <span class="airport-code">({{flight.From.Code}})</span>
-        </div>
-        <div class="location right">{{flight.To.Name}}
-            <span class="airport-code">({{flight.To.Name}})</span>
-        </div>
-        <div class="clearfix"></div>
+        <div class="location">{{flight.From.Name}} <span class="airport-code">({{flight.From.Code}})</span></div>
+        <div class="location right">{{flight.To.Name}} <span class="airport-code">({{flight.To.Name}})</span></div>
 
-        <div class="duration">
-            Duration:<br>{{duration}}</div>
-        <div class="stop-overs">
-            Stops:<br>{{stops}}</div>
-        <div class="flight-number right">
-            Flight number:<br>{{flight.FlightNumber}}</div>
-        <div class="clearfix"></div>
+        <div class="duration">Duration:<br>{{duration}}</div>
+        <div class="stop-overs">Stops:<br>{{stops}}</div>
+        <div class="flight-number right">Flight number:<br>{{flight.FlightNumber}}</div>
     </div>
 </template>
 
