@@ -15,14 +15,11 @@
         <div class="clearfix"></div>
 
         <div class="duration">
-            Duration:
-            <br>{{duration}}</div>
+            Duration:<br>{{duration}}</div>
         <div class="stop-overs">
-            Stops:
-            <br>{{stops}}</div>
+            Stops:<br>{{stops}}</div>
         <div class="flight-number right">
-            Flight number:
-            <br>{{flight.FlightNumber}}</div>
+            Flight number:<br>{{flight.FlightNumber}}</div>
         <div class="clearfix"></div>
     </div>
 </template>
@@ -43,7 +40,10 @@ export default {
             return moment(this.flight.ArrivalDateTime).format('HH:mm')
         },
         duration() {
-            return '1h 20min'
+            let hours = Math.floor(this.flight.FlightTime / 60)
+            let minutes = this.flight.FlightTime % 60
+
+            return hours + ':' + minutes
         },
         stops() {
             return this.flight.Legs.length > 1 ? this.flight.Legs.length : 'Direct'
@@ -85,7 +85,7 @@ export default {
     .location {
         float: left;
         width: 50%;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
     }
 
     .duration,
