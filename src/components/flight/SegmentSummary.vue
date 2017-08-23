@@ -1,32 +1,28 @@
 <template>
     <div class="segment-summary">
-        <ibe-flight-date :date="flight.departureDate"></ibe-flight-date>
+        <ibe-flight-date :date="flight.DepartureDateTime"></ibe-flight-date>
 
-        <div class="segment-summary__date">{{departureTime}}</div>
-        <div class="segment-summary__date right">{{arrivalTime}}</div>
+        <div class="time">{{departureTime}}</div>
+        <div class="time right">{{arrivalTime}}</div>
         <div class="clearfix"></div>
 
-        <div class="segment-summary__location">{{flight.departureName}}
-            <span class="segment-summary__airport-code">({{flight.departure}})</span>
+        <div class="location">{{flight.From.Name}}
+            <span class="airport-code">({{flight.From.Code}})</span>
         </div>
-        <div class="segment-summary__location right">{{flight.arrivalName}}
-            <span class="segment-summary__airport-code">({{flight.arrival}})</span>
+        <div class="location right">{{flight.To.Name}}
+            <span class="airport-code">({{flight.To.Name}})</span>
         </div>
         <div class="clearfix"></div>
 
-        <div class="segment-summary__time">{{flight.departureTime}}</div>
-        <div class="segment-summary__time right">{{flight.arrivalTime}}</div>
-        <div class="clearfix"></div>
-
-        <div class="segment-summary__duration">
+        <div class="duration">
             Duration:
-            <br>{{flight.duration}}</div>
-        <div class="segment-summary__stop-overs">
+            <br>{{duration}}</div>
+        <div class="stop-overs">
             Stops:
-            <br>{{flight.stops}}</div>
-        <div class="segment-summary__flight-number right">
+            <br>{{stops}}</div>
+        <div class="flight-number right">
             Flight number:
-            <br>{{flight.flightNumber}}</div>
+            <br>{{flight.FlightNumber}}</div>
         <div class="clearfix"></div>
     </div>
 </template>
@@ -41,10 +37,16 @@ export default {
     },
     computed: {
         departureTime() {
-            return moment(this.flight.departureDate).format('HH:mm')
+            return moment(this.flight.DepartureDateTime).format('HH:mm')
         },
         arrivalTime() {
-            return moment(this.flight.departureDate).format('HH:mm')
+            return moment(this.flight.ArrivalDateTime).format('HH:mm')
+        },
+        duration() {
+            return '1h 20min'
+        },
+        stops() {
+            return this.flight.Legs.length > 1 ? this.flight.Legs.length : 'Direct'
         }
     },
     components: {
@@ -73,62 +75,27 @@ export default {
         float: right;
     }
 
-    &__date {
+    .time {
         float: left;
         width: 50%;
         font-size: 20px;
         margin-bottom: 5px;
     }
 
-    &__location {
+    .location {
         float: left;
         width: 50%;
         margin-bottom: 6px;
     }
 
-    &__time {
-        font-size: 1.3em;
-        font-weight: bold;
-        float: left;
-        width: 20%;
-        margin-bottom: 6px;
-    }
-
-    &__time-divider {
-        position: relative;
-        float: left;
-        width: 60%;
-        height: 1px;
-        border-bottom: $border-light;
-        margin-top: 12px;
-    }
-
-    &__seats-left {
-        $seatsLeftWidth: 110px;
-
-        position: absolute;
-        width: $seatsLeftWidth;
-        top: -12px;
-        left: 50%;
-        margin-left: -($seatsLeftWidth/2);
-        text-align: center;
-        background-color: $color-error;
-        color: black;
-        border-radius: 3px;
-        padding: 2px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
-
-    &__duration,
-    &__stop-overs,
-    &__flight-number {
+    .duration,
+    .stop-overs,
+    .flight-number {
         float: left;
         width: 33.33%;
     }
 
-    &__stop-overs {
+    .stop-overs {
         text-align: center;
     }
 }

@@ -1,18 +1,18 @@
-import _ from 'lodash'
-import { randomString } from '@/core/helpers'
-import {mockedAvailability} from './../../mock/availability.js'
+//import _ from 'lodash'
+import { mockedAvailabilityResponse } from './../../mock/availabilityResponse'
+import { airports } from './../../mock/airports'
+import { defaultRoute } from '@/core/constants'
 
-const airports = window.bookSecure.airports
 const texts = window.bookSecure.texts
 
 const state = {
-    airports: airports,
-    criteria: [
+    airports,
+    routes: [
         {
-            departure: '',
-            arrival: '',
-            departureDate: '',
-            arrivalDate: ''
+            fromAirport: 'CTG', // use defaultRoute
+            toAirport: 'BOG',
+            date: '2017-11-01',
+            arrivalDate: '2017-11-10'
         }
     ],
     promoCode: '',
@@ -21,7 +21,7 @@ const state = {
         children: 0,
         infants: 0
     },
-    searchType: 'single',
+    searchType: 'roundTrip',
     searchButtonText: texts.searchButtonText,
     showLoader: false,
     availability: [],
@@ -46,13 +46,16 @@ const getters = {
         }
         return text
     },
-    criteria: state => state.criteria,
+    routes: state => state.routes,
     promoCode: state => state.promoCode,
     searchType: state => state.searchType,
     searchButtonText: state => state.searchButtonText,
     showLoader: state => state.showLoader,
     availability: state => state.availability,
-    numberOfLegs: state => state.availability.length,
+    numberOfRoutes: state => {
+        let isRoundTrip = state.searchType === 'roundTrip' && state.availability.length === 1
+        return isRoundTrip ? state.availability.length + 1 : state.availability.length
+    },
     hideSearchForm: state => state.hideSearchForm,
     titlesAdults: state => state.selectOptions.titlesAdults,
     titlesChildren: state => state.selectOptions.titlesChildren
@@ -89,118 +92,79 @@ const mutations = {
     clearAvailability(state) {
         state.availability = []
     },
-    addAvailability(state, availability) {
-        state.availability = availability
+    addAvailability(state, availabilityResponse) {
+        const flights = availabilityResponse.Flights
+        if (!flights) {
+            return
+        }
+        let routes = state.routes.slice()
+        let groupedAvailability = []
+
+        // if roundtrip, routes only have one object, but flight listing requires two
+        if (state.searchType === 'roundTrip' && routes.length === 1) {
+            routes.push({
+                fromAirport: routes[0].toAirport,
+                toAirport: routes[0].fromAirport,
+                date: ''
+            })
+        }
+        routes.forEach(() => {
+            groupedAvailability.push([])
+        })
+
+        routes.forEach((route, index) => {
+            flights.forEach((flight) => {
+                if (route.fromAirport === flight.From.Code && route.toAirport === flight.To.Code) {
+                    groupedAvailability[index].push(flight)
+                }
+            })
+        })
+        state.availability = groupedAvailability
     },
     addPromoCode(state, promoCode) {
         state.promoCode = promoCode
     },
     changeSearchType(state, value) {
         if (value === 'multiCity') {
-            let firstLeg = state.criteria[0]
-            firstLeg.arrivalDate = ''
-            state.criteria.splice(0, 1, firstLeg)
+            let firstRoute = state.routes[0]
+            firstRoute.arrivalDate = ''
+            state.routes.splice(0, 1, firstRoute)
         }
 
         state.searchType = value
     },
-    addFlightLeg(state) {
-        state.criteria.push({
-            departure: '',
-            arrival: '',
-            departureDate: '',
-            arrivalDate: ''
-        })
+    addRoute(state) {
+        state.routes.push(defaultRoute)
     },
-    removeFlightLeg(state, leg) {
-        if (state.criteria.length === 0 || leg > state.criteria.length) {
+    removeRoute(state, index) {
+        if (state.routes.length === 0 || index > state.routes.length) {
             return
         }
 
-        console.log('leg to remove', leg)
-
-        state.criteria.splice(leg, 1)
+        state.routes.splice(index, 1)
     },
     removeMultiCity(state) {
-        if (state.criteria.length === 1) {
+        if (state.routes.length === 1) {
             return
         }
-        state.criteria = state.criteria.filter((c, index) => index === 0)
-    },
-    unselectAllFlightsInLeg(state, leg) {
-        if (state.availability.length < leg) {
-            return
-        }
-        state.availability[leg].forEach((flight) => {
-            flight.selected = false
-
-            flight.fareTypes.forEach((fareType) => {
-                fareType.selected = false
-            })
-        })
+        state.routes = state.routes.filter((c, index) => index === 0)
     }
 }
 
 const actions = {
-    searchFlightsMocked() {
-        console.log(mockedAvailability)
-    },
-    searchFlights({ dispatch, commit, state }) {
+    searchFlightsMocked({ dispatch, commit, state }) {
         commit('cart/clearSelectedItems', null, { root: true })
         commit('navigation/resetAccess', null, { root: true })
         commit('hideSearchForm')
         commit('toggleLoader')
 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                let departureAirport = _.find(state.airports, { code: state.criteria[0].departure })
-                let arrivalAirport = _.find(state.airports, { code: state.criteria[0].arrival })
-                let flight = {
-                    id: randomString(5),
-                    departure: departureAirport.code,
-                    departureName: departureAirport.name,
-                    departureDate: '2017-10-05 00:05',
-                    arrival: arrivalAirport.code,
-                    arrivalName: arrivalAirport.name,
-                    arrivalDate: '2017-11-05 05:05',
-                    stops: 0,
-                    duration: '3:30',
-                    flightNumber: 'IX-116',
-                    fareTypes: [
-                        { id: randomString(5), type: 'Express VALUE (FBA 30Kgs)', price: 448.21, selected: false },
-                        { id: randomString(5), type: 'Express PLUS (FBA 30Kgs)', price: 1448.21, selected: false },
-                        { id: randomString(5), type: 'Express FLEXI (FBA 30Kgs)', price: 2356.21, selected: false }
-                    ],
-                    selected: false
-                }
+        // do API call and resolve promise
+        commit('clearAvailability')
+        commit('addAvailability', mockedAvailabilityResponse)
+        commit('navigation/unlock', 'select', { root: true })
+        commit('toggleLoader')
 
-                let availability = []
-                let legs = []
-                for (let i = 0; i < state.criteria.length; i++) {
-                    let flights = []
-                    _.times(5, () => { flights.push(JSON.parse(JSON.stringify(flight))) })
-                    legs.push(JSON.parse(JSON.stringify(flights)))
-                    if (state.criteria.length === 1 && (state.criteria[0].arrivalDate && state.criteria[0].arrivalDate !== '')) {
-                        legs.push(flights)
-                    }
-                }
-                legs.forEach((leg) => {
-                    availability.push(leg)
-                })
-
-                console.log(availability)
-
-                resolve(availability)
-            }, 1000)
-        }).then((response) => {
-            console.log('response', response)
-            commit('toggleLoader')
-            commit('clearAvailability', response)
-            commit('addAvailability', response)
-            commit('navigation/unlock', 'select', { root: true })
-
-            dispatch('navigation/navigateTo', 'select', { root: true })
-        })
+        dispatch('navigation/navigateTo', 'select', { root: true })
     }
 }
 

@@ -6,7 +6,7 @@
         <div class="click-area">
             <i class="icon icon-left material-icons" v-show="iconLeft" v-html="iconLeft"></i>
             <div class="trip-type">{{tripType}}</div>
-            <div class="floating-label">{{labelText}}</div>
+            <div class="floating-label">{{labelText}} {{mode}}</div>
             <div class="selected-text" :class="{placeholder: (!fromDateSelected && !toDateSelected)}">{{selectedDatesText}}</div>
             <flat-pickr :config="config" :placeholder="labelText" v-model="selectedDates"></flat-pickr>
             <span v-show="showError" class="validation-message">{{ error }}</span>
@@ -32,7 +32,6 @@ export default {
     },
     data() {
         return {
-            labelText: this.mode === 'single' ? 'Select date' : 'Select dates',
             fromDate: this.from,
             toDate: this.to,
             selectedDates: null,
@@ -74,6 +73,9 @@ export default {
         }
     },
     computed: {
+        labelText() {
+            return (this.mode === 'single') ? 'Select date' : 'Select dates'
+        },
         showError() {
             return this.error && this.error.length > 0 && !this.fromDateSelected
         },

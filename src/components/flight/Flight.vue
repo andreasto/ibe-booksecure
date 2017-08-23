@@ -1,20 +1,20 @@
 <template>
     <div class="flight clearfix" :class="classes">
         <ibe-segment-summary :flight="flight" class="segment-summary"></ibe-segment-summary>
-        <div class="fare-types">
-            <ibe-fare-type v-for="fareType in flight.fareTypes" :key="fareType.id" :flight="flight" :fare-type="fareType" :leg="leg" :width="fareTypeWidth"></ibe-fare-type>
+        <div class="fares">
+            <ibe-fare v-for="fare in flight.Fares" :key="fare.Id" :flight="flight" :fare="fare" :route="route" :width="fareWidth"></ibe-fare>
         </div>
     </div>
 </template>
 
 <script>
 import SegmentSummary from '@/components/flight/SegmentSummary'
-import FareType from '@/components/flight/FareType'
+import Fare from '@/components/flight/Fare'
 
 export default {
     props: {
         flight: { type: Object, required: true },
-        leg: { type: Number, required: true }
+        route: { type: Number, required: true }
     },
     data() {
         return {
@@ -27,13 +27,13 @@ export default {
                 selected: this.flight.selected
             }
         },
-        fareTypeWidth() {
-            return 100 / this.flight.fareTypes.length + '%'
+        fareWidth() {
+            return 100 / this.flight.Fares.length + '%'
         }
     },
     components: {
         'ibe-segment-summary': SegmentSummary,
-        'ibe-fare-type': FareType
+        'ibe-fare': Fare
     }
 }
 </script>
@@ -53,12 +53,7 @@ export default {
     }
 }
 
-.selected {
-    //border: 2px solid $color-second;
-}
-
 .segment-summary {
-
     @include media(">tablet") {
         float: left;
         width: 50%;
@@ -66,7 +61,7 @@ export default {
     }
 }
 
-.fare-types {
+.fares {
     height: 100%;
 
     @include media(">tablet") {
